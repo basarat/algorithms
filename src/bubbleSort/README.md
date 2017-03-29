@@ -7,17 +7,19 @@
 * To do this we simply check if the current value on the left is less than the current value on the right. 
 * If so we swap the two variable positions
 
-```ts
+```js
 export function bubbleSort(
   array: number[]
 ): number[] {
   for (let i = 0; i < array.length; i++) {
     for (let j = 0; j < array.length; j++) {
       if (array[i] < array[j]) {
-        [array[j], array[i]] = [array[i], array[j]];
+        [array[i], array[j]] = [array[j], array[i]];
       }
     }
   }
   return array;
 }
 ```
+This explains the basic concept behind bubble sort. We can however optimize the algorithm to remove redundancies e.g. 
+* There is no point in looping `n` times in the outer loop as we compare the item `i` against 
