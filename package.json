@@ -4,6 +4,7 @@
   "description": "Teaching people algorithms",
   "main": "lib/index.js",
   "scripts": {
+    "start": "npm install && npm run test:live",
     "test": "jest",
     "test:live": "jest --watch"
   },
