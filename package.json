@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm install && npm run test:live",
     "test": "jest",
-    "test:live": "jest --watch"
+    "test:live": "jest --watchAll"
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,9 @@
     "typescript": "2.2.2"
   },
   "jest": {
+    "roots": [
+      "<rootDir>/src"
+    ],
     "transform": {
       ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
