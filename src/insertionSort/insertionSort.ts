@@ -6,7 +6,7 @@ export function insertionSort(
     let j = i - 1;
     while (j >= 0 && array[j] > current) {
       array[j + 1] = array[j];
-      j -= 1;
+      j--;
     }
     array[j + 1] = current;
   }
