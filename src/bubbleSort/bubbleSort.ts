@@ -14,15 +14,15 @@ export function bubbleSortConcept(
 export function bubbleSort(
   array: number[]
 ): number[] {
-  let swapped = false;
-  do {
-    swapped = false;
+  while (true) {
+    let swapped = false;
     for (let j = 0; j < array.length - 1; j++) {
       if (array[j] > array[j + 1]) {
         [array[j], array[j + 1]] = [array[j + 1], array[j]];
         swapped = true;
       }
     }
-  } while (swapped)
+    if (!swapped) break;
+  }
   return array;
 }

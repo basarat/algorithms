@@ -27,19 +27,19 @@ This explains the basic concept behind bubble sort. We can however optimize the 
 export function bubbleSort(
   array: number[]
 ): number[] {
-  let swapped = false;
-  do {
-    swapped = false;
+  while (true) {
+    let swapped = false;
     for (let j = 0; j < array.length - 1; j++) {
       if (array[j] > array[j + 1]) {
         [array[j], array[j + 1]] = [array[j + 1], array[j]];
         swapped = true;
       }
     }
-  } while (swapped)
+    if (!swapped) break;
+  }
   return array;
 }
 ```
 * Instead of looping through the array n times we can simply try and bubble the biggest item (delete the outer for)
 * If a bubbling is done at least once we note it down (swapped = true)
-* And we continue doing this as long as there is some bubbling happening (`let swapped = false`, do, while)
+* And we continue doing this as long as there is some bubbling happening (`let swapped = false`, if(!swapped))
