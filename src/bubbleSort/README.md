@@ -8,7 +8,7 @@
 * If so we swap the two variable positions
 
 ```js
-export function bubbleSort(
+export function bubbleSortConcept(
   array: number[]
 ): number[] {
   for (let i = 0; i < array.length; i++) {
