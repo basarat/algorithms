@@ -43,3 +43,5 @@ export function bubbleSort(
 * Instead of looping through the array n times we can simply try and bubble the biggest item (delete the outer for)
 * If a bubbling is done at least once we note it down (swapped = true)
 * And we continue doing this as long as there is some bubbling happening (`let swapped = false`, if(!swapped))
+
+In the worst case this inner loop will still run O of n times resulting in a time complexity of O n times n i.e. O(n^2).
