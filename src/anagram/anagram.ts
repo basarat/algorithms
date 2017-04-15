@@ -1,4 +1,4 @@
-function areAnagrams(s1: string, s2: string) {
+export function areAnagrams(s1: string, s2: string) {
   const charCount = new Map<string, number>();
   for (const char of s1.split('')) {
     charCount.set(char, (charCount.get(char) || 0) + 1);

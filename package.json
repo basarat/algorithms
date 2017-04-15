@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "start": "npm install && npm run test:live",
-    "test": "jest",
+    "test": "tsc -p . && jest",
     "test:live": "jest --watchAll"
   },
   "repository": {
@@ -26,6 +26,7 @@
   "homepage": "https://github.com/basarat/algorithms#readme",
   "devDependencies": {
     "@types/jest": "19.2.2",
+    "@types/node": "7.0.12",
     "jest": "19.0.2",
     "ts-jest": "19.0.6",
     "typescript": "2.2.2"
