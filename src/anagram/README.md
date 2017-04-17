@@ -38,10 +38,11 @@ export function areAnagrams(s1: string, s2: string): boolean {
 * If you read into the requirements you can realize that instead of doing actual re-arrangments you simply need to check if they have *exactly* the same characters.
 
 ***Delete the function body***
-One simple way of checking the exact same characters is simply to
+One quick way of checking the equality between two sets of characters in strings is simply to
 * break the strings into their characters, sort them, and join them again.
 * we do the same for the second strings.
 * finally we check if the strings are equal.
+* if these sorted character strings are equal then the original strings were anagrams.
 
 ```js
   s1 = s1.split('').sort().join('');
@@ -49,10 +50,11 @@ One simple way of checking the exact same characters is simply to
   return s1 === s2;
 ```
 
-***Select the s1 = s1.spilt line***
+***Select the sort function***
 * The complexity in this case will be driven by the sort function which is of the order `nLogn`. We can do better.
 
-* A better way to make sure that the two strings have the same characters is to simply use a Map and make sure that count of characters between the two strings is the same.
+***Delete the function body***
+* A better way to make sure that the strings have the same characters is to simply use a HashMap that counts the characters between the two strings and makes sure this count per character is the same between the strings
 
 ```js
 export function areAnagrams(s1: string, s2: string): boolean {
@@ -67,12 +69,18 @@ export function areAnagrams(s1: string, s2: string): boolean {
   return Array.from(charCount.values()).every(val => val === 0);
 }
 ```
-* We start by creating a map to count the character
-* For each character in string 1
-  * we go ahead and set the count, getting any previous value or initializing it to 0 and then incrementing it.
-* For each character in string 2
+* We start by creating a map to track this character count. We initialize it to a map with string keys and number values.
+* We go ahead and iterate through all the characters in string 1.
+  * For each character in string 1
+  * We set the character count for this character.
+  * We get the previous value, If there was no previous value we initializing it to 0
+  * Finally we increment the previous count by 1.
+* We repeat the process for the second string. Iterating through all the characters in the second string.
   * if there is no key for it from string 1. Then we know we don't have an anagram.
   * Otherwise simply decrement the count
-* Finally we go through all the values in the final map and simply make sure that every value is 0.
+* Finally we go through all the values in the characterCount map
+  * and simply make sure that every value is 0.
+  * This ensures that we saw an equal number of character counts in string 1 (during incrementing) and string 2 (during decrementing).
 
-Since we are simply looping through the character and doing constant work in each iteration the complexity of this version of linear aka O(n).
+***Select the implementation***
+* Since we are simply looping through the characters in the two strings and doing constant amount of work in each iteration the time complexity of this version is of order n (O(n)) where n is the number of characters in the strings.
