@@ -2,7 +2,9 @@
 
 [![Build Status][travis-image]][travis-url]
 
-> [View all my lessons here 🌹](https://egghead.io/instructors/basarat-ali-syed/)
+* [View all my lessons here 🌹](https://egghead.io/instructors/basarat-ali-syed/)
+
+> If you enjoy these algorithm lessons please star ⭐ this repo 🌟.
 
 # Code by lesson
 Code for algorithm lessons on egghead.io. Each lesson code is in a subfolder under [src](https://github.com/basarat/algorithms/tree/master/src).
