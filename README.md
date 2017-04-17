@@ -4,10 +4,10 @@
 
 * [View all my lessons here 🌹](https://egghead.io/instructors/basarat-ali-syed/)
 
-> If you enjoy these algorithm lessons please star ⭐ this repo 🌟.
+> If you enjoy these algorithm lessons [please star ⭐ this repo 🌟](https://github.com/basarat/algorithms/stargazers).
 
 # Code by lesson
-Code for algorithm lessons on egghead.io. Each lesson code is in a subfolder under [src](https://github.com/basarat/algorithms/tree/master/src).
+Each lesson code is in a subfolder under [src](https://github.com/basarat/algorithms/tree/master/src).
 
 ## Anagram
 * [Lesson](https://egghead.io/lessons/typescript-algorithm-to-determine-if-two-strings-are-an-anagram) 
