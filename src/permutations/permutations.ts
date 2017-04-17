@@ -1,4 +1,4 @@
-function* permutations<T>(permutation: T[]): Iterator<T[]> {
+export function* permutations<T>(permutation: T[]): Iterator<T[]> {
   var length = permutation.length,
     c = Array(length).fill(0),
     i = 1;

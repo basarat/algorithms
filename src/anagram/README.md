@@ -14,21 +14,18 @@
 * We will start by creating our areAnagrams function
 
 ```js
-function areAnagrams(s1: string, s2: string) {
+function areAnagrams(s1: string, s2: string): boolean {
 }
 ```
-A plain implementation that derives from the definition would be to check all the arrangments of s1
-and then see if it is equal to s2
+A plain implementation that derives from the definition would be to
+* check all the permurations of s1
+* and then see if it is equal to s2
+* If they are then the strings are anagrams
+* If no permutation matched then they are not anagrams
 
 ```js
-  for (const arrangement of arrangements(s1)){
-    if (s1 === s2) return true;
-  }
-```
-* If no arragment matched we will return false
-```js
-function areAnagrams(s1: string, s2: string) {
-  for (const arrangement of arrangements(s1)){
+function areAnagrams(s1: string, s2: string): boolean {
+  for (const permutation of permutations(s1)) {
     if (s1 === s2) return true;
   }
   return false;
