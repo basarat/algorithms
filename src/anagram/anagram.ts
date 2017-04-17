@@ -14,6 +14,5 @@ export function areAnagrams(s1: string, s2: string): boolean {
     if (!charCount.has(char)) return false;
     charCount.set(char, charCount.get(char) - 1);
   }
-  return Array.from(charCount.values())
-    .every(val => val === 0);
+  return Array.from(charCount.values()).every(val => val === 0);
 }
