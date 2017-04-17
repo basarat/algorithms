@@ -1,5 +1,7 @@
 # Algorithm to determine if two strings are an anagram
 > The anagram test is commonly used to demonstrate how an naive implementation can perform significant order of magnitudes slower than an efficient one.
+> A word is an anagram of another if you can rearrange its characters to produce the second word. Here we write a function that given two strings determines if they are anagrams of each other.
+
 
 ```js
 /**
