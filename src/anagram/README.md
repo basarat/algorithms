@@ -14,19 +14,19 @@
 * We will start by creating our areAnagrams function
 
 ```js
-function areAnagrams(s1: string, s2: string): boolean {
+export function areAnagrams(s1: string, s2: string): boolean {
 }
 ```
 A plain implementation that derives from the definition would be to
-* check all the permurations of s1
+* check all the permutations of s1
 * and then see if it is equal to s2
 * If they are then the strings are anagrams
 * If no permutation matched then they are not anagrams
 
 ```js
-function areAnagrams(s1: string, s2: string): boolean {
+export function areAnagrams(s1: string, s2: string): boolean {
   for (const permutation of permutations(s1)) {
-    if (s1 === s2) return true;
+    if (permutation === s2) return true;
   }
   return false;
 }
@@ -55,7 +55,7 @@ One simple way of checking the exact same characters is simply to
 * A better way to make sure that the two strings have the same characters is to simply use a Map and make sure that count of characters between the two strings is the same.
 
 ```js
-function areAnagrams(s1: string, s2: string) {
+export function areAnagrams(s1: string, s2: string): boolean {
   const charCount = new Map<string, number>();
   for (const char of s1.split('')) {
     charCount.set(char, (charCount.get(char) || 0) + 1);
@@ -64,8 +64,7 @@ function areAnagrams(s1: string, s2: string) {
     if (!charCount.has(char)) return false;
     charCount.set(char, charCount.get(char) - 1);
   }
-  return Array.from(charCount.values())
-    .every(val => val === 0);
+  return Array.from(charCount.values()).every(val => val === 0);
 }
 ```
 * We start by creating a map to count the character
