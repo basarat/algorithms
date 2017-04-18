@@ -1,8 +1,7 @@
 /**
- * @module Palindrome solver
+ * @module Palindrome solvers
  * A palindrome is a string that reads the same forward and backward, for example,
  * - radar, toot, madam.
- * - Write a function that checks if a given string is a palindrome.
  */
 
 /**
@@ -14,7 +13,7 @@ export function isPalindrome(str: string): boolean {
 }
 
 /** 
- * Return true if any permutation of the string is a palindrome
+ * Returns true if any permutation of the string is a palindrome
  */
 export function isAnyPermutationPalindrome(str: string): boolean {
   const unmatched = new Set<string>();
