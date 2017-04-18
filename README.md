@@ -13,5 +13,9 @@ Each lesson code is in a subfolder under [src](https://github.com/basarat/algori
 * [Lesson](https://egghead.io/lessons/typescript-algorithm-to-determine-if-two-strings-are-an-anagram) 
 * [Code](https://github.com/basarat/algorithms/tree/master/src/anagram)
 
+## Palindrome
+* [Lesson](https://egghead.io/lessons/typescript-algorithm-to-determine-if-a-string-is-a-palindrome)
+* [Code](https://github.com/basarat/algorithms/tree/master/src/palindrome)
+
 [travis-image]:https://travis-ci.org/basarat/algorithms.svg?branch=master
 [travis-url]:https://travis-ci.org/basarat/algorithms
