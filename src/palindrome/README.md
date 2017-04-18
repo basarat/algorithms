@@ -16,9 +16,9 @@
 * We will start by creating our isPalindrome function
 * It takes a string and returns a boolean
 * To check a string against it's reverse we need its reverse. To get it we
-  * split the string into an array, 
+  * split the string into an array,
   * reverse the array.
-  * join back the reversed array`.
+  * join back the reversed array.
 * Finally we simply check if the reversed value is equal to the original value and return it. If so the original string would be a palindrome.
 
 ```js
@@ -28,23 +28,23 @@ export function isPalindrome(str: string): boolean {
 }
 ```
 
-A more complex algorithmic challenge is to check if `any permutation of` a given string is a palindrome 
+A more complex algorithmic challenge is to check if `any permutation of` a given string is a palindrome
 
 ```js
-/** 
+/**
  * Returns true if any permutation of the string is a palindrome
  * civic true
- * vicic true 
+ * vicic true
  * toot true
  * toto true
  * civil false
  */
 ```
-* e.g. `civic` is a palindrome. So any permutation of it e.g. `vicic` would also be allowed. 
+* e.g. `civic` is a palindrome. So any permutation of it e.g. `vicic` would also be allowed.
 * Same for toot and toto.
 * No permutation of the characters of `civil` make a palindrome.
 
-A simple implementation would be to simply check all the permutations of the string if they are a palindrome 
+A simple implementation would be to simply check all the permutations of the string if they are a palindrome
 
 ```js
 function isAnyPermutationPalindrome(str: string) {
@@ -52,12 +52,12 @@ function isAnyPermutationPalindrome(str: string) {
 }
 ```
 ***Select the implementation***
-However this would be order of n! where n is the number of charcters in the string. 
+However this would be order of n! where n is the number of charcters in the string.
 
 ***Delete the implementation***
 
 ***Select the example `civic`***
-The insight to a better solution is to realize that a pattern exists among characters of any palindrome string. 
+The insight to a better solution is to realize that a pattern exists among characters of any palindrome string.
 * `civic` is a palindrome it has a `c` on both sides followed by an `i` and an middle v
 * The same pattern would hold for any set of characters that can form a palindrome.
 * All characters must be paired off. Only 1 character is allowed to be left unpaired.
@@ -65,7 +65,7 @@ The insight to a better solution is to realize that a pattern exists among chara
 ***Select the `civicl` example***
 * The characters of `civil` cannot form a palindrome because it has 2 unpaired characters `v` and `l`.
 
-This reduces our requirement to a simple character pairing problem. 
+This reduces our requirement to a simple character pairing problem.
 
 ```js
 function isAnyPermutationPalindrome(str: string) {
@@ -78,9 +78,12 @@ function isAnyPermutationPalindrome(str: string) {
 }
 ```
 
-* We create a set to keep track of our unmatched characters. 
-* We go through each character in the string 
+* We create a set to keep track of our unmatched characters.
+* We go through each character in the string
 * If it is in the current unmatched, then great, we can delete it as it is now matched.
 * If it isn't we simply add it.
 * After we have gone through all the characters we simply check the count of the entries
 * And the characters of the string can form a palindrome if the count is 0 or 1.
+
+***Select the implementation***
+This implementation simply loops through the characters of a string and does a linear amount of work in each iteration. Therefore its runtime is of the order n where n is the number of characters in the string.

@@ -13,9 +13,9 @@ export function isPalindrome(str: string): boolean {
 }
 
 /** 
- * Returns true if any permutation of the string is a palindrome
+ * Returns true if ANY permutation of the string is a palindrome
  * civic true
- * vicic true 
+ * vicic true
  * toot true
  * toto true
  * civil false
