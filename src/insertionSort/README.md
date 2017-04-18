@@ -1,5 +1,5 @@
 # Insertion sort using TypeScript
-> In this lesson we cover the insertion sort algorithm, how it gets its name, and how to implement it using TypeScript.
+> In this lesson we cover the insertion sort algorithm, how it gets its name, and how to implement it using TypeScript / JavaScript.
 
 * We will go ahead and create a sorting function for insertion sort that takes a number array and returns a sorted number array.
 * Before we beging we create a copy of the original array using `slice`.

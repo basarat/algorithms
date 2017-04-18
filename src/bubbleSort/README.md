@@ -1,5 +1,5 @@
 # Bubble sort using TypeScript
-> In this lesson we cover the bubble sort algorithm, how it gets its name, and how to implement it using TypeScript.
+> In this lesson we cover the bubble sort algorithm, how it gets its name, and how to implement it using TypeScript / JavaScript.
 
 * We will go ahead and create a sorting function for bubble sort.
 * First we create a copy of the original array using `slice`.
