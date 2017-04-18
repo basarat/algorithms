@@ -1,6 +1,11 @@
-import { repeatedItem } from './repeatedItem';
+import { repeatedItemLoops, repeatedItem } from './repeatedItem';
 
-test('repeatedItem', () => {
+test('repeatedItemLoops', () => {
+  expect(() => repeatedItemLoops([1, 2, 3])).toThrowError();
+  expect(repeatedItemLoops([1, 2, 2])).toBe(2);
+});
+
+test('repeatedItemLoop', () => {
   expect(() => repeatedItem([1, 2, 3])).toThrowError();
   expect(repeatedItem([1, 2, 2])).toBe(2);
 });
