@@ -14,6 +14,11 @@ export function isPalindrome(str: string): boolean {
 
 /** 
  * Returns true if any permutation of the string is a palindrome
+ * civic true
+ * vicic true 
+ * toot true
+ * toto true
+ * civil false
  */
 export function isAnyPermutationPalindrome(str: string): boolean {
   const unmatched = new Set<string>();

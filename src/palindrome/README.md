@@ -3,44 +3,36 @@
 
 ```js
 /**
- * A palindrome is a string that reads the same forward and backward, for example, 
+ * @module Palindrome solvers
+ * A palindrome is a string that reads the same forward and backward, for example,
  * - radar, toot, madam.
- * - Write a function that checks if a given string is a palindrome.
+ */
+
+/**
+ * Returns true if the string is a palindrome
  */
 ```
 
-* We will start by creating our isPalindrome function 
+* We will start by creating our isPalindrome function
+* It takes a string and returns a boolean
+* To check a string against it's reverse we need its reverse. To get it we
+  * split the string into an array, 
+  * reverse the array.
+  * join back the reversed array`.
+* Finally we simply check if the reversed value is equal to the original value and return it. If so the original string would be a palindrome.
 
 ```js
-function isPalindrome(str: string) {
-}
-```
-
-To check a string against it's reverse we will simply
-* split the string into an array, 
-* reverse the array
-* join it back.
-* Now that we have the reversed array we can simply check if the reversed value is equal to the original string and return it.
-```js
-function isPalindrome(str: string) {
+export function isPalindrome(str: string): boolean {
   const reversed = str.split('').reverse().join('');
   return reversed === str;
 }
 ```
 
-```js
-import * as assert from 'assert';
-assert(isPalindrome('radar'));
-assert(isPalindrome('madam'));
-assert(isPalindrome('toot'));
-assert(!isPalindrome('toots'));
-```
-
 A more complex algorithmic challenge is to check if `any permutation of` a given string is a palindrome 
 
 ```js
-/**
- * - Write a function that checks if any permutation of a given string is a palindrome.
+/** 
+ * Returns true if any permutation of the string is a palindrome
  * civic true
  * vicic true 
  * toot true
@@ -48,6 +40,9 @@ A more complex algorithmic challenge is to check if `any permutation of` a given
  * civil false
  */
 ```
+* e.g. `civic` is a palindrome. So any permutation of it e.g. `vicic` would also be allowed. 
+* Same for toot and toto.
+* No permutation of the characters of `civil` make a palindrome.
 
 A simple implementation would be to simply check all the permutations of the string if they are a palindrome 
 
@@ -56,14 +51,21 @@ function isAnyPermutationPalindrome(str: string) {
   return permutations(str).some(isPalindrome);
 }
 ```
+***Select the implementation***
 However this would be order of n! where n is the number of charcters in the string. 
 
+***Delete the implementation***
+
+***Select the example `civic`***
 The insight to a better solution is to realize that a pattern exists among characters of any palindrome string. 
 * `civic` is a palindrome it has a `c` on both sides followed by an `i` and an middle v
 * The same pattern would hold for any set of characters that can form a palindrome.
 * All characters must be paired off. Only 1 character is allowed to be left unpaired.
 
-This reduces our requirement to a simple character counting problem. 
+***Select the `civicl` example***
+* The characters of `civil` cannot form a palindrome because it has 2 unpaired characters `v` and `l`.
+
+This reduces our requirement to a simple character pairing problem. 
 
 ```js
 function isAnyPermutationPalindrome(str: string) {
