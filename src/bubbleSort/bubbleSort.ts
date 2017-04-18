@@ -1,3 +1,6 @@
+/** 
+ * Explains the bubble sort concept
+ */
 export function bubbleSortConcept(
   array: number[]
 ): number[] {
@@ -11,6 +14,9 @@ export function bubbleSortConcept(
   return array;
 }
 
+/** 
+ * An idiomatic bubblesort implementation
+ */
 export function bubbleSort(
   array: number[]
 ): number[] {
