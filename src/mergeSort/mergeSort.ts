@@ -17,28 +17,26 @@ export function mergeSort(
 /** Merge (conquer) step of mergeSort */
 function merge(left: number[], right: number[]): number[] {
   const array: number[] = [];
-  let leftIndex = 0;
-  let rightIndex = 0;
-  while (leftIndex + rightIndex < left.length + right.length) {
-    const lItem = left[leftIndex];
-    const rItem = right[rightIndex];
-    if (lItem != null && rItem != null) {
-      if (lItem < rItem) {
-        array.push(lItem);
-        leftIndex++;
-      }
-      else {
-        array.push(rItem);
-        rightIndex++;
-      }
-    }
-    else if (lItem == null) {
+  let lIndex = 0;
+  let rIndex = 0;
+  while (lIndex + rIndex < left.length + right.length) {
+    const lItem = left[lIndex];
+    const rItem = right[rIndex];
+    if (lItem == null) {
       array.push(rItem);
-      rightIndex++;
+      rIndex++;
+    }
+    else if (rItem == null) {
+      array.push(lItem);
+      lIndex++;
+    }
+    else if (lItem < rItem) {
+      array.push(lItem);
+      lIndex++;
     }
     else {
-      array.push(lItem);
-      leftIndex++;
+      array.push(rItem);
+      rIndex++;
     }
   }
   return array;
