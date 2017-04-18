@@ -28,7 +28,7 @@ export function repeatedItem<T>(array: T[]): T {
 * And checking each item against any item on its right hand side 
 * If any two items match we have found our duplicate.
 
-This implementation does work fine. However due to the two loops the runtime is of the order (n^2). 
+This implementation does work fine. However due to the two loops the worst case runtime is of the order n squared, where n is the length of the array. 
 
 ***Delete the for loops***
 We can do better using a data structure designed for object uniqueness.
