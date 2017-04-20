@@ -10,7 +10,7 @@
 Each lesson code is in a subfolder under [src](https://github.com/basarat/algorithms/tree/master/src).
 
 ## Anagram
-* [Lesson](https://egghead.io/lessons/typescript-algorithm-to-determine-if-two-strings-are-an-anagram) 
+* [Lesson](https://egghead.io/lessons/typescript-algorithm-to-determine-if-two-strings-are-an-anagram)
 * [Code](https://github.com/basarat/algorithms/tree/master/src/anagram)
 
 ## Palindrome
@@ -18,7 +18,7 @@ Each lesson code is in a subfolder under [src](https://github.com/basarat/algori
 * [Code](https://github.com/basarat/algorithms/tree/master/src/palindrome)
 
 ## BubbleSort
-* [Lesson TO BE DONE]()
+* [Lesson](https://egghead.io/lessons/typescript-bubble-sort-using-typescript)
 * [Code](https://github.com/basarat/algorithms/tree/master/src/bubbleSort)
 
 [travis-image]:https://travis-ci.org/basarat/algorithms.svg?branch=master
