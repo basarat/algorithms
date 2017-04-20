@@ -87,5 +87,5 @@ export function bubbleSort(
 This algorithm is similar to the previous one with a simple addition of early termination.
 
 ***Select the inner for loop***
-* In the worst case this inner loop will still run O of n times resulting in a time complexity of O n times n i.e. O(n^2).
+* In the worst case this whole inner for loop of n iterations will run O of n times resulting in a time complexity of O n times n i.e. O(n^2).
 * Since we are doing the array swaps in place the space complexity is O(n).
