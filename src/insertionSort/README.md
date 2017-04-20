@@ -1,5 +1,5 @@
-# Insertion sort using TypeScript
-> Insertion sort is a very intutive algorithm as humans use this pattern naturally when sorting cards in their hands.
+# Insertion sort algorithm using TypeScript
+> Insertion sort is a very intutive algorithm as humans use this pattern naturally when sorting cards in our hands.
 
 > In this lesson we cover the insertion sort algorithm, how it gets its name, and how to implement it using TypeScript / JavaScript.
 
@@ -19,7 +19,7 @@ export function insertionSort(array: number[]): number[] {
 * The basic idea of insertion sort is to mentally divide the array into a sorted left section and an unsorted right section, moving an item 1 by 1 from the unsorted right section into its rightful place in the sorted left section.
 ```
 /**
- * sorted   unsorted
+ * sorted    unsorted
  *        <=
  */
 ```
