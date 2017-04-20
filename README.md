@@ -10,19 +10,19 @@
 Each lesson code is in a subfolder under [src](https://github.com/basarat/algorithms/tree/master/src).
 
 ## Anagram
-* [Lesson](https://egghead.io/lessons/typescript-algorithm-to-determine-if-two-strings-are-an-anagram)
+* [Video Lesson](https://egghead.io/lessons/typescript-algorithm-to-determine-if-two-strings-are-an-anagram)
 * [Code](https://github.com/basarat/algorithms/tree/master/src/anagram)
 
 ## Palindrome
-* [Lesson](https://egghead.io/lessons/typescript-algorithm-to-determine-if-a-string-is-a-palindrome)
+* [Video Lesson](https://egghead.io/lessons/typescript-algorithm-to-determine-if-a-string-is-a-palindrome)
 * [Code](https://github.com/basarat/algorithms/tree/master/src/palindrome)
 
 ## BubbleSort
-* [Lesson](https://egghead.io/lessons/typescript-bubble-sort-using-typescript)
+* [Video Lesson](https://egghead.io/lessons/typescript-bubble-sort-using-typescript)
 * [Code](https://github.com/basarat/algorithms/tree/master/src/bubbleSort)
 
 ## InsertionSort
-* [Lesson TBD]()
+* [Video Lesson](https://egghead.io/lessons/typescript-insertion-sort-algorithm-using-typescript)
 * [Code](https://github.com/basarat/algorithms/tree/master/src/insertionSort)
 
 [travis-image]:https://travis-ci.org/basarat/algorithms.svg?branch=master
