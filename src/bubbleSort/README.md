@@ -15,6 +15,9 @@
 * Since we are looking up the j+1 item it makes obvious sense to terminate the inner loop 1 before the last index.
 
 ```js
+/**
+ * Explains the bubble sort concept
+ */
 export function bubbleSortConcept(array: number[]): number[] {
   array = array.slice();
   for (let i = 0; i < array.length; i++) {
@@ -58,9 +61,10 @@ Note that we can easily optimize the algorithm to remove redundancies.
 ***Duplicate the function and call it `bubbleSort`***
 
 ```js
-export function bubbleSort(
-  array: number[]
-): number[] {
+/**
+ * Idiomatic bubble sort implementation
+ */
+export function bubbleSort(array: number[]): number[] {
   array = array.slice();
   while (true) {
     let swapped = false;
