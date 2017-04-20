@@ -1,19 +1,24 @@
 # Insertion sort using TypeScript
+> Insertion sort is a very intutive algorithm as humans use this pattern naturally when sorting cards in their hands.
+
 > In this lesson we cover the insertion sort algorithm, how it gets its name, and how to implement it using TypeScript / JavaScript.
 
 * We will go ahead and create a sorting function for insertion sort that takes a number array and returns a sorted number array.
 * Before we beging we create a copy of the original array using `slice`.
 * We will return this array after sorting it in place.
 ```js
-export function insertionSort(
-  array: number[]
-): number[] {
+/**
+ * Sorts an array using insertion sort
+ */
+export function insertionSort(array: number[]): number[] {
   array = array.slice();
   return array;
 }
 ```
-* Insertion sort is very similar to how most left to right language humans sort cards in their hands. We scan the cards one by one from left to right, inserting each individual card to its rightfull place on the left.
 
+Insertion sort is very similar to how most left to right language humans sort cards in their hands. We scan the cards one by one from left to right, inserting each individual card to its rightfull place on the left.
+
+The code follows a similar pattern.
 ```js
 export function insertionSort(
   array: number[]
@@ -31,31 +36,29 @@ export function insertionSort(
   return array;
 }
 ```
-
 ***for (let i = 1; i < array.length; i++) {***
-* The code follows a similar pattern. We loop through all the items in the array skipping the first one as a single item is already sorted.
-
+* We loop through all the items in the array skipping the first one as a single item is already sorted.
 ***const current = array[i];***
 * We select the current array item.
-* Storing the item in a `current` variable opens up a hole at the ith position that can use to slide items in if they are bigger than the current item.
+* Storing the item in a `current` variable opens up a hole at the ith position in the array that we can use to slide items one by one  if they are bigger than the current item.
 
 ***let j = i - 1;***
-* Our goal is the put the current array item into its rightfull place in the items on the left of i. We will use `j` to keep track of which item we are comparing `current` against.
+* Our goal is to keep sliding items till we find the rightfull place for the current item among the sorted items in the left. We will use `j` to keep track of which item we are comparing `current` against.
 
 ***while (j >= 0 && array[j] > current) {***
 * We will continue to do comparison till we arrive the head of the array *or* the item at the jth position is bigger than the current item.
 
-***array[j + 1] = array[j];*** 
-* If the while conditions were met it means we should slide the item at jth position to the right ie. `j+1`th position.
+***array[j + 1] = array[j];***
+* Within the loop we will keep on sliding the item at jth position to the right ie. `j+1`th position.
 
 ***j--;***
-* We will continue the loop to test with the next jth index
+* We will continue the loop to test against the next jth index
 
 ***array[j + 1] = current;***
-Once the conditions are no longer true it means we have found a new home for the current item.
+Once the loop terminates `j` is either less then 0 i.e. has fallen off the start of the array, or it means that the item at j is smaller than the current item. In both these cases we should put the item at the j+1th position.
 
 ***Select the for loop***
-Next the loop will continue selecting the next item on the right and trying to put it in its proper place on the left sorted subsection of the array.
+Once the outer loop completes each item has be placed into its rightfull place on the left and hence the whole array is sorted.
 
 This explains why the algorithm is called insertion sort. Because we insert the item one by one at its rightfull place a sorted subsection of the array.
 

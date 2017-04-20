@@ -1,9 +1,7 @@
 /**
- * Sorts and array using insertion sort
+ * Sorts an array using insertion sort
  */
-export function insertionSort(
-  array: number[]
-): number[] {
+export function insertionSort(array: number[]): number[] {
   array = array.slice();
   for (let i = 1; i < array.length; i++) {
     const current = array[i];
