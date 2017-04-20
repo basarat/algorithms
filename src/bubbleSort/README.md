@@ -15,9 +15,7 @@
 * Since we are looking up the j+1 item it makes obvious sense to terminate the inner loop 1 before the last index.
 
 ```js
-export function bubbleSortConcept(
-  array: number[]
-): number[] {
+export function bubbleSortConcept(array: number[]): number[] {
   array = array.slice();
   for (let i = 0; i < array.length; i++) {
     for (let j = 0; j < array.length - 1; j++) {
@@ -30,7 +28,33 @@ export function bubbleSortConcept(
 }
 ```
 
-This explains the basic concept behind bubble sort. We can however optimize the algorithm to remove redundancies.
+* To demonstrate this bubbling of the highest value lets run through a simple example.
+* We will sort the array [4,3,2,1].
+* Within the function we will log out the original array
+* And also log out the array whenever we do a swap.
+* Now if we run this, you can see
+  * 4 bubbling to the end of the array
+  * Then 3,
+  * and finally 2
+* This explains the concept of bubble sort.
+```js
+export function bubbleSortConcept(array: number[]): number[] {
+  array = array.slice();
+  console.log(array);
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array.length - 1; j++) {
+      if (array[j] > array[j + 1]) {
+        [array[j], array[j + 1]] = [array[j + 1], array[j]];
+        console.log(array);
+      }
+    }
+  }
+  return array;
+}
+bubbleSortConcept([4, 3, 2, 1]);
+```
+
+Note that we can easily optimize the algorithm to remove redundancies.
 ***Duplicate the function and call it `bubbleSort`***
 
 ```js

@@ -14,11 +14,9 @@ export function bubbleSortConcept(array: number[]): number[] {
 }
 
 /** 
- * An idiomatic bubblesort implementation
+ * Idiomatic bubble sort implementation
  */
-export function bubbleSort(
-  array: number[]
-): number[] {
+export function bubbleSort(array: number[]): number[] {
   array = array.slice();
   while (true) {
     let swapped = false;
