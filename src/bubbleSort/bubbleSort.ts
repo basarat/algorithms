@@ -1,9 +1,7 @@
 /** 
  * Explains the bubble sort concept
  */
-export function bubbleSortConcept(
-  array: number[]
-): number[] {
+export function bubbleSortConcept(array: number[]): number[] {
   array = array.slice();
   for (let i = 0; i < array.length; i++) {
     for (let j = 0; j < array.length - 1; j++) {

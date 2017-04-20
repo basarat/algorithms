@@ -1,14 +1,18 @@
 # Bubble sort using TypeScript
+> Bubble sort is considered the simplest sorting algorithm to implement.
+
 > In this lesson we cover the bubble sort algorithm, how it gets its name, and how to implement it using TypeScript / JavaScript.
 
 * We will go ahead and create a sorting function for bubble sort.
 * First we create a copy of the original array using `slice`.
+* And return this array.
+* Before returning it we will sort it using bubble sort.
 * Bubble sort works by looping over the input array n times
 * In each iteration the goal is to *Bubble* the highest ranking value to the end
   * So we loop through all the items in the array
-  * In each iteration we simply check if the current value on the left is greater than the current value on the right. 
+  * In each iteration we simply check if the current value on the left is greater than the current value on the right.
 * If so we swap the two variable positions
-* Finally we return the new sorted array
+* Since we are looking up the j+1 item it makes obvious sense to terminate the inner loop 1 before the last index.
 
 ```js
 export function bubbleSortConcept(
