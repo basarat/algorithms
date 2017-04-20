@@ -1,4 +1,4 @@
-/** 
+/**
  * Explains the bubble sort concept
  */
 export function bubbleSortConcept(array: number[]): number[] {
@@ -13,7 +13,7 @@ export function bubbleSortConcept(array: number[]): number[] {
   return array;
 }
 
-/** 
+/**
  * Idiomatic bubble sort implementation
  */
 export function bubbleSort(array: number[]): number[] {
