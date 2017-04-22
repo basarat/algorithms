@@ -1,16 +1,16 @@
-# Merge sort using TypeScript
+# Merge sort algorithm using TypeScript
 > MergeSort is a famous example of a divide and conquer algorithm. In this lesson we cover the merge sort algorithm, how it gets its name, and how to implement it using TypeScript / JavaScript.
 
 * We go ahead and create a simple function to sort using mergeSort
 ```js
-export function mergeSort(
-  array: number[]
-): number[] {
- 
+export function mergeSort(array: number[]): number[] {
+
 }
 ```
 
-* In any recursive algorithm you will have some base conditions that terminate the recursion. For sorting you can abort if the lenght of the array is less than or equal to 1 as an array of 1 item is already sorted.
+Mergesort is a recursive algorithm. In any recursive algorithm you will have some base conditions that terminate the recursion.
+
+* For sorting you can abort if the lenght of the array is less than or equal to 1 as an array of 1 item is already sorted.
 ```js
   if (array.length <= 1) {
     return array;
@@ -87,7 +87,7 @@ function merge(left: number[], right: number[]): number[] {
 T(n) = 2*T(n/2) + O(n)
 ```
 
-* If you solve this recursion by induction you get an approximate upperbound runtime of 
+* If you solve this recursion by induction you get an approximate upperbound runtime of
 ```
 O(n logn)
 ```
