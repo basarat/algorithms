@@ -25,5 +25,9 @@ Each lesson code is in a subfolder under [src](https://github.com/basarat/algori
 * [Video Lesson](https://egghead.io/lessons/typescript-insertion-sort-algorithm-using-typescript)
 * [Code](https://github.com/basarat/algorithms/tree/master/src/insertionSort)
 
+## MergeSort
+* [Video Lesson](https://egghead.io/lessons/typescript-merge-sort-algorithm-using-typescript)
+* [Code](https://github.com/basarat/algorithms/tree/master/src/mergeSort)
+
 [travis-image]:https://travis-ci.org/basarat/algorithms.svg?branch=master
 [travis-url]:https://travis-ci.org/basarat/algorithms
