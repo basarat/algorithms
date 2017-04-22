@@ -1,14 +1,14 @@
 # Merge sort algorithm using TypeScript
 > MergeSort is a famous example of a divide and conquer algorithm. In this lesson we cover the merge sort algorithm, how it gets its name, and how to implement it using TypeScript / JavaScript.
 
-* We go ahead and create a simple function to sort using mergeSort
+* We go ahead and create a simple function to sort using mergeSort. It takes a number array and returns a sorted number array.
 ```js
 export function mergeSort(array: number[]): number[] {
 
 }
 ```
 
-Mergesort is a recursive algorithm. In any recursive algorithm you will have some base conditions that terminate the recursion.
+MergeSort is a recursive algorithm. In any recursive algorithm you will have some base conditions that terminate the recursion.
 
 * For sorting you can abort if the lenght of the array is less than or equal to 1 as an array of 1 item is already sorted.
 ```js
@@ -23,15 +23,16 @@ const middle = Math.floor(array.length / 2);
 const left = array.slice(0, middle);
 const right = array.slice(middle);
 ```
-* For an uneven array lenght the right portion will be bigger than the left one but it shouldn't matter for our use case.
+* For an uneven array length the right portion will be bigger than the left one but it shouldn't matter for our use case.
 
-* The beauty of merge sort is that given sorted left and right segments, it is very easy to merge them into a bigger sorted segment.
+The beauty of merge sort is that given sorted left and right segments, it is very easy to merge them into a bigger sorted segment.
+
 * We will offload the segment sorting problem recursively to mergeSort itself and now focus on this merging of sorted array segments
 ```js
 return merge(mergeSort(left), mergeSort(right));
 ```
 
-* Lets go ahead and write this merge function:
+* Lets go ahead and write this merge function which takes sorted left and right segments and returns a merged sorted array containing the items from these segments.
 ```js
 /** Merge (conquer) step of mergeSort */
 function merge(left: number[], right: number[]): number[] {
@@ -79,6 +80,26 @@ function merge(left: number[], right: number[]): number[] {
 * otherwise we add the right item as it is smaller and increment the right index.
 ***The return***
 * Once the loop terminates we would have all the item from right and left added one by one into the final array which represented a sorted merged version of left + right.
+
+
+* To understand the algorithm lets run through a simple example. We will call merge sort with the array `4,3,2,1`. We expect the output to be 1,2,3,4.
+`console.log(mergeSort([4, 3, 2, 1]));`
+* We will add a console.log whenever mergeSort is called
+```js
+export function mergeSort(array: number[]): number[] {
+  console.log(array);
+}
+```
+* We will also log out the output of the merge routine's input `left` and `right` along with the merged result `array`
+`console.log({ left, right, array });`
+
+Now if we run this application.
+* You can see that we split 4,3,2,1 into two smaller problems.
+* First one is 4,3 which we further split into 4 and 3,
+* We merge these sorted single item arrays to get get 3,4
+* We then do the same for 2,1, splitting it into 2 and 1 and then merging it as 1,2
+* Finally we merge these 3,4 and 1,2, into 1,2,3,4
+* And this is our final merged output.
 
 
 * The time cost for the recursive work in merge sort can be shown as an equation
