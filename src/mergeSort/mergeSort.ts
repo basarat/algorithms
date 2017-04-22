@@ -1,5 +1,5 @@
 /**
- * Sorts and array using merge sort
+ * Sorts an array using merge sort
  */
 export function mergeSort(array: number[]): number[] {
   if (array.length <= 1) {
