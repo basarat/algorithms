@@ -92,16 +92,16 @@ function merge(left: number[], right: number[]): number[] {
 
 * To understand the algorithm lets run through a simple example. We will call merge sort with the array `4,3,2,1`. We expect the output to be 1,2,3,4.
 `console.log(mergeSort([4, 3, 2, 1]));`
-* We will log out the input array whenever mergeSort is called. This will help us see the recursion on bigger problems going down to smaller subsets.
+* We will log out the output of the merge routine's input `left` and `right` along with the merged result `array`.
+`console.log({ left, right, array });`
+* We will also log out the input array whenever mergeSort is called. This will help us see the recursion on bigger problems going down to smaller subsets.
 ```js
 export function mergeSort(array: number[]): number[] {
   console.log(array);
 }
 ```
-* We will also log out the output of the merge routine's input `left` and `right` along with the merged result `array`.
-`console.log({ left, right, array });`
 
-* Now lets run this application and get the output.
+* Now lets run this example and get the output.
 
 * You can see that we split 4,3,2,1 into two smaller problems.
 * First one is 4,3 which we further split into 4 and 3,
