@@ -12,5 +12,6 @@ export function quickSort(array: number[]): number[] {
  * Partions the [low - to - high] indexes of the array.
  */
 function partition(array: number[], low: number, high: number) {
-
+  const length = high - low;
+  const pivot = Math.floor((Math.random() * length));
 }
