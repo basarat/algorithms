@@ -3,6 +3,18 @@
 
 * Partition an array around a pivot element.
 
+* We will loop through items in the array mainting the following invariant
+
+```
+[
+  items less than pivot,
+  - index for pivot rank,
+  items greater than pivot,
+  - index into items seen,
+  items yet to be seen
+]
+```
+
   /** TODO */
   /** Partition around the pivot so that [less]pivot[more] in the original array */
 
