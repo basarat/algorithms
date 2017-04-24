@@ -3,24 +3,33 @@
  */
 export function quickSort(array: number[]): number[] {
   array = array.slice();
-  /** TODO: */
-  array.sort();
+  partition(array, 0, array.length);
   return array;
 }
 
 /**
  * Partions the [low - to - high] indexes of the array.
  */
-function partition(array: number[], low: number, high: number) {
-  const length = high - low;
-  const pivot = Math.floor((Math.random() * length));
+function partition(array: number[], lowIndex: number, highIndex: number): void {
+  const length = highIndex - lowIndex;
+  if (length <= 1) return;
 
-  /** TODO */
-  /** Partition around the pivot so that [less]pivot[more] in the original array */
+  const pivotIndex = lowIndex + Math.floor((Math.random() * length));
+  [array[lowIndex], array[pivotIndex]] = [array[pivotIndex], array[lowIndex]];
 
-  /**
-   * partition([less], less low, less high)
-   * partition([more], more low, more high)
-   */
-  return array;
+  let pivotRank = lowIndex;
+  const pivot = array[lowIndex];
+  for (let index = lowIndex + 1; index < highIndex; index++) {
+    if (array[index] < pivot) {
+      [array[index], array[pivotRank]] = [array[pivotRank], array[index]];
+      pivotRank++;
+    }
+  }
+  [array[pivotRank], array[lowIndex]] = [array[lowIndex], array[pivotRank]];
+
+
+  partition(array, lowIndex, pivotRank);
+  partition(array, pivotRank + 1, highIndex);
 }
+
+console.log(quickSort([4, 3, 2, 1]));
