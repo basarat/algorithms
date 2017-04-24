@@ -7,3 +7,7 @@ export function quickSort(array: number[]): number[] {
   array.sort();
   return array;
 }
+
+function quickSortInplace(array: number[], start: number, end: number) {
+
+}
