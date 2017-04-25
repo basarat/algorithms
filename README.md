@@ -34,7 +34,7 @@ As I record more videos they get put in a publish queue. Once released I will mo
 * [Code](https://github.com/basarat/algorithms/tree/master/src/mergeSort)
 
 ## RepeadItem
-* [Video Lesson](https://egghead.io/lessons/typescript-merge-sort-algorithm-using-typescript)
+* [Video Lesson](https://egghead.io/lessons/typescript-find-the-repeated-item-in-an-array-using-typescript)
 * [Code](https://github.com/basarat/algorithms/tree/master/src/repeatedItem)
 
 [travis-image]:https://travis-ci.org/basarat/algorithms.svg?branch=master
