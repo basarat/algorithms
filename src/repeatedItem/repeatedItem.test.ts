@@ -5,7 +5,7 @@ test('repeatedItemLoops', () => {
   expect(repeatedItemLoops([1, 2, 2])).toBe(2);
 });
 
-test('repeatedItemLoop', () => {
+test('repeatedItem', () => {
   expect(() => repeatedItem([1, 2, 3])).toThrowError();
   expect(repeatedItem([1, 2, 2])).toBe(2);
 });

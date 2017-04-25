@@ -15,7 +15,7 @@ export function repeatedItem<T>(array: T[]): T {
 }
 ```
 * We start by creating our function which takes an array of type T and return the repeated item T if any.
-* Within the function we will throw an error if no item repetion is found
+* Within the function we will throw an error if no item repetition is found
 
 ```js
   for (let i = 0; i < array.length; i++) {
@@ -24,14 +24,14 @@ export function repeatedItem<T>(array: T[]): T {
     }
   }
 ```
-* Intitively we can check item repetition by iteration through the array item by item.
-* And checking each item against any item on its right hand side 
+* Intuitively we can check item repetition by iteration through the array item by item.
+* And checking each item against any item that appears further in the array. Hence the iteration from i+1.
 * If any two items match we have found our duplicate.
 
-This implementation does work fine. However due to the two loops the worst case runtime is of the order n squared, where n is the length of the array. 
+This implementation does work fine. However due to the two loops the worst case runtime is of the order n squared, where n is the length of the array.
 
 ***Delete the for loops***
-We can do better using a data structure designed for object uniqueness.
+We can do better using a data structure designed for checking object uniqueness. Obviously we are going to use a Set.
 
 ```js
 const set = new Set<T>();
@@ -42,10 +42,10 @@ for (const item of array) {
 ```
 * We start by creating a set
 * We loop through each item in the array.
-* If an item with the same value already exists in the set, We have found our duplicate and we return it. 
+* If an item with the same value already exists in the set, We have found our duplicate and we return it.
 * Otherwise we add the current item to the set.
 
-* Once the loop completes we throw same as before. 
+* Once the loop completes we throw same as before.
 
 ***Select the for loop**
 Since we only loop through the items in the array once, doing constant work in each loop thanks to the set data structure, the runtime now falls to the order of n where n is the length of the array.

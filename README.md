@@ -21,6 +21,10 @@ Each lesson code is in a subfolder under [src](https://github.com/basarat/algori
 * [Video Lesson](https://egghead.io/lessons/typescript-bubble-sort-using-typescript)
 * [Code](https://github.com/basarat/algorithms/tree/master/src/bubbleSort)
 
+# In Queue
+
+As I record more videos they get put in a publish queue. Once released I will move them up.
+
 ## InsertionSort
 * [Video Lesson](https://egghead.io/lessons/typescript-insertion-sort-algorithm-using-typescript)
 * [Code](https://github.com/basarat/algorithms/tree/master/src/insertionSort)
@@ -28,6 +32,10 @@ Each lesson code is in a subfolder under [src](https://github.com/basarat/algori
 ## MergeSort
 * [Video Lesson](https://egghead.io/lessons/typescript-merge-sort-algorithm-using-typescript)
 * [Code](https://github.com/basarat/algorithms/tree/master/src/mergeSort)
+
+## RepeadItem
+* [Video Lesson](https://egghead.io/lessons/typescript-merge-sort-algorithm-using-typescript)
+* [Code](https://github.com/basarat/algorithms/tree/master/src/repeatedItem)
 
 [travis-image]:https://travis-ci.org/basarat/algorithms.svg?branch=master
 [travis-url]:https://travis-ci.org/basarat/algorithms
