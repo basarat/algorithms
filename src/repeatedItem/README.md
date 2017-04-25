@@ -1,4 +1,4 @@
-# Find the repeated item in an array
+# Find the repeated item in an array using TypeScript
 > Say you have an array that has at least one item repeated. How would you find the repeated item. This is a question commonly presented to beginner developers. Here we discuss the elegant solution to this problem.
 
 ```js
@@ -24,9 +24,9 @@ export function repeatedItem<T>(array: T[]): T {
     }
   }
 ```
-* Intuitively we can check item repetition by iteration through the array item by item.
-* And checking each item against any item that appears further in the array. Hence the iteration from i+1.
-* If any two items match we have found our duplicate.
+* Intuitively we can check item repetition by iterating through all the array items one by one.
+* And for each item, checking it against any item that appears further in the array. So we will start the second iteration from i + 1
+* If the current item and some item on the right of it matches, we have found our duplicate and we can return it.
 
 This implementation does work fine. However due to the two loops the worst case runtime is of the order n squared, where n is the length of the array.
 
@@ -40,12 +40,11 @@ for (const item of array) {
   else set.add(item);
 }
 ```
-* We start by creating a set
+* We start off by creating a set for items of type T.
 * We loop through each item in the array.
 * If an item with the same value already exists in the set, We have found our duplicate and we return it.
-* Otherwise we add the current item to the set.
+* Otherwise we add this item to the set and continue.
+* Once the loop completes we throw the same as before.
 
-* Once the loop completes we throw same as before.
-
-***Select the for loop**
+***Select the for loop***
 Since we only loop through the items in the array once, doing constant work in each loop thanks to the set data structure, the runtime now falls to the order of n where n is the length of the array.
