@@ -20,6 +20,29 @@ export function quickSort(array: number[]): number[] {
 
 * Lets go ahead and write this partitioning function, it will take an array, the start index of the array section that it needs to partition, and the upper limit of the index.
 
+* Since it modifies the array in place it doesn't need to return anything.
+
+```js
+function partition(array: number[], start: number, before: number): void {
+}
+```
+
+* This partition routine is a recursive, and like any recursive function it will have a base case that terminates the recursion. For sorting you can abort if the lenght of the partition is less than or equal to 1, as an array of 1 item is already sorted.
+
+```js
+  const length = before - start;
+  if (length <= 1) return;
+```
+
+* The quicksort algorithm is also called partition sort *because of this partitioning routine*.
+
+* The objective is each recursive iteration is to select a `pivot` element, and move the items in the array such that the array satisfies the following property.
+
+```
+[items less than pivot, pivot, items greater than pivot]
+```
+
+* The quicksort algorithm is also called `pivot` sort due to this partitioning around a pivot.
 
 * Partition an array around a pivot element.
 
