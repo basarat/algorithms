@@ -10,20 +10,20 @@ export function quickSort(array: number[]): number[] {
 /**
  * Partions the [low - to - high] indexes of the array.
  */
-function partition(array: number[], lowIndex: number, highIndex: number): void {
-  const length = highIndex - lowIndex;
+function partition(array: number[], start: number, before: number): void {
+  const length = before - start;
   if (length <= 1) return;
 
   /** Randomly select a pivot and move it to the head of the array */
-  const pivotIndex = lowIndex + Math.floor((Math.random() * length));
-  [array[lowIndex], array[pivotIndex]] = [array[pivotIndex], array[lowIndex]];
+  const pivotIndex = start + Math.floor((Math.random() * length));
+  [array[start], array[pivotIndex]] = [array[pivotIndex], array[start]];
 
   /** The first element is our pivot */
-  let pivotRank = lowIndex;
-  const pivot = array[lowIndex];
+  let pivotRank = start;
+  const pivot = array[start];
 
   /** Loop through all the elements, partitioning around the pivot */
-  for (let index = lowIndex + 1; index < highIndex; index++) {
+  for (let index = start + 1; index < before; index++) {
     if (array[index] < pivot) {
       pivotRank++;
       [array[index], array[pivotRank]] = [array[pivotRank], array[index]];
@@ -31,11 +31,11 @@ function partition(array: number[], lowIndex: number, highIndex: number): void {
   }
 
   /** Finally put the pivot at its rightfull place */
-  [array[pivotRank], array[lowIndex]] = [array[lowIndex], array[pivotRank]];
+  [array[pivotRank], array[start]] = [array[start], array[pivotRank]];
 
   /** Partition all the elements less than the pivot */
-  partition(array, lowIndex, pivotRank);
+  partition(array, start, pivotRank);
 
   /** Partition all the elements more than the pivot */
-  partition(array, pivotRank + 1, highIndex);
+  partition(array, pivotRank + 1, before);
 }

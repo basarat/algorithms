@@ -1,17 +1,35 @@
 # Quicksort algorithm using TypeScript
 > Quicksort (also called partition sort and pivot sort) is arguably the most used sorting algorithm. It is the one commonly implemented internally in language runtimes. In this lesson we cover the quick sort algorithm, why is it called *quick* and how to implement it using TypeScript / JavaScript.
 
+* We start off by creating a function that takes an array of numbers and will return a sorted array of numbers.
+
+```js
+export function quickSort(array: number[]): number[] {
+  array = array.slice();
+
+  return array;
+}
+```
+* Within the function we create a copy of the original array using `slice`.
+* And return this array.
+* Before returning it we will sort it using a recursive partitioning routine.
+
+```js
+  partition(array, 0, array.length);
+```
+
+* Lets go ahead and write this partitioning function, it will take an array, the start index of the array section that it needs to partition, and the upper limit of the index.
+
+
 * Partition an array around a pivot element.
 
-* We will loop through items in the array mainting the following invariant
+* We will loop through items in the array maintaning the following invariant
 
 ```
 [
-  items less than pivot,
-  - index for pivot rank,
-  items greater than pivot,
-  - index into items seen,
-  items yet to be seen
+  items less than pivot, - index for pivot rank,
+  items greater than pivot
+  - index for item we are going to see
 ]
 ```
 
