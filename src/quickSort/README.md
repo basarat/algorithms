@@ -60,5 +60,6 @@ function partition(array: number[], start: number, before: number): void {
   /** Partition around the pivot so that [less]pivot[more] in the original array */
 
 * The reason why its called quick is because of its very low memory overhead since we are doing the sorting in place.
+* In each call to partition, not only are we putting the pivot in its rightful place, but more importantly we are diving the problem into two smaller problems that can be tackled independently.
 * At a high level, randomly selecting the pivot gives a pivot that is in the 25% to 75% position in a given set of elements at about half the times. This gives us a fairly consistently decreasing problem size which brings it to an average runtime of O(n log n).
 
