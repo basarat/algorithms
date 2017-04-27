@@ -34,17 +34,18 @@ export function randomInt(start: number, before: number){
 }
 ```
 
-* Within the function we simply slide the value returned by Math.random to be at least the start value.
-* And then floor the value returned by math random, after scaling it up to the range before to start.
+* We simply slide the value to be at least start.
+* And then floor the value returned by math random, after scaling it up to the lenght of the `start-before` range.
 
 ```js
   return start + Math.floor(Math.random() * (before - start));
 ```
 
+You can get random number in O(1) (for asymptomatic analysis) as it is not something whose duration changes based on problem size and random range.
+
+# Entropy
 Math.random is pseudo-random but good enough for most cases. For true randomness (entropy pool version) and security critical applications you need something like NodeJS crypto.
 
 Operating systems generally have an entropy pool (using user input / cpu usage etc) that they provide to programs that need them (either natively or through the virtual machine of your language).
 
 > Modern CPUs also have a built in entropy generator e.g. intel IVY bridge and later CPUs have `RDRAND` instruction, however your operating systems may or may not use such instructions.
-
-You can get random number in O(1) (for asymptomatic analysis) as it is not something whose duration changes based on problem size and random range.
