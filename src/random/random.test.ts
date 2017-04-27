@@ -1,9 +1,9 @@
-import { random } from './random';
+import { randomInt } from './random';
 
 test("Should not include ceiling", () => {
   const res = [];
   for (let index = 0; index < 100; index++) {
-    res.push(random(0, 5));
+    res.push(randomInt(0, 5));
   }
   expect(res.some(x => x === 5)).toBeFalsy();
 });
@@ -11,7 +11,7 @@ test("Should not include ceiling", () => {
 test("Should include one beore ceiling", () => {
   const res = [];
   for (let index = 0; index < 100; index++) {
-    res.push(random(0, 5));
+    res.push(randomInt(0, 5));
   }
   expect(res.some(x => x === 4)).toBeTruthy();
 });
