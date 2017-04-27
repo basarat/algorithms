@@ -47,6 +47,4 @@ Operating systems generally have an entropy pool (using user input / cpu usage e
 
 > Modern CPUs also have a built in entropy generator e.g. intel IVY bridge and later CPUs have `RDRAND` instruction, however your operating systems may or may not use such instructions.
 
-
-
 You can get random number in O(1) (for asymptomatic analysis) as it is not something whose duration changes based on problem size and random range.
