@@ -3,7 +3,11 @@
 
 JavaScript Math.random provides you with a random floating point number between range [0, 1).
 
-e.g. lets go ahead, loop for a 100 times ands log out the result for Math.random.
+```js
+console.log(Math.random());
+```
+
+Lets go ahead, loop for a 100 times and log out the result for Math.random.
 ```js
 for (let index = 0; index < 100; index++) {
   console.log(Math.random());
