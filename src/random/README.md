@@ -1,7 +1,7 @@
-# Random numbers in JavaScript
-> Learn how to create random numbers using JavaScript.
+# Create random integers in a given range
+> Learn how to create random integers using JavaScript / TypeScript.
 
-JavaScript Math.random provides you with a random floating point number between range [0, 1).
+JavaScript Math.random provides you with a random floating point number in the range [0 inclusive, 1 exclusive).
 
 ```js
 console.log(Math.random());
@@ -14,19 +14,19 @@ for (let index = 0; index < 100; index++) {
 }
 ```
 
-You can easily scale this 0 to less than 1 result to any upper limit by simple multiplication. For example if we go ahead and multiply the result with 100, we get random values in the range 0 to less than 100.
+You can easily scale this 0 to less than 1 result to any upper limit by simple multiplication. For example if we go ahead and multiply the result with 100, we get random values in the range 0 inclusive all the way up to less than 100.
 
 ```js
   console.log(Math.random() * 100);
 ```
-You can limit this value to an integer if you wanted by simply using `Math.floor`. Values in the range 0 to less than 1 get chopped to 0, in the range 1 to less than 2 get chopped to 1 and soo on till 99 to less than 100 getting chopped to 99.
+You can limit this value to an integer if you wanted, by simply using `Math.floor`. Values in the range 0 to less than 1 get chopped to 0, in the range 1 to less than 2 get chopped to 1 and so on till 99 to less than 100 gets chopped to 99.
 
 ```js
   console.log(Math.floor(Math.random() * 100));
 ```
 
-* Now lets go ahead and create a function that should return an int between a start and a before value.
-* It takes a start value, a before value.
+* A common challenge presented, to beginning developers in an interview, is to go ahead and create a function that should return an int between a given start and end value.
+* We start by creating our function that accepts a  start value, a before value.
 
 ```js
 /**
@@ -38,8 +38,8 @@ export function randomInt(start: number, before: number){
 }
 ```
 
-* We simply slide the value to be at least start.
-* And then floor the value returned by math random, after scaling it up to the lenght of the `start-before` range.
+* We simply add start to the result, to make sure, that at least start is included.
+* And then floor the value returned by math random, after scaling it up to the length of the `start-before` range.
 
 ```js
   return start + Math.floor(Math.random() * (before - start));
