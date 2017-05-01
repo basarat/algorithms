@@ -15,7 +15,7 @@ function partition(array: number[], start: number, before: number): void {
   if (length <= 1) return;
 
   /** Randomly select a pivot and move it to the head of the array */
-  const pivotIndex = start + Math.floor((Math.random() * length));
+  const pivotIndex = start + Math.floor(Math.random() * length);
   [array[start], array[pivotIndex]] = [array[pivotIndex], array[start]];
 
   /** The first element is our pivot */
