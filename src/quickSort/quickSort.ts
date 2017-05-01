@@ -31,7 +31,9 @@ function partition(array: number[], start: number, before: number): void {
   }
 
   /** Finally put the pivot at its rightfull place */
-  [array[pivotRank], array[start]] = [array[start], array[pivotRank]];
+  if (pivotRank !== start) {
+    [array[pivotRank], array[start]] = [array[start], array[pivotRank]];
+  }
 
   /** Partition all the elements less than the pivot */
   partition(array, start, pivotRank);
