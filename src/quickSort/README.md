@@ -27,7 +27,7 @@ export function quickSort(array: number[]): number[] {
 
 ```js
 /**
- * Partions the [low - to - high] indexes of the array.
+ * Partitions the [start, before) indexes of the array
  */
 function partition(array: number[], start: number, before: number): void {
 }
@@ -44,11 +44,15 @@ function partition(array: number[], start: number, before: number): void {
 
 * The objective is each recursive iteration is to select a `pivot` element, and move the items in the array such that the array satisfies the following property.
 ```js
-[items less than pivot, pivot, items greater than pivot]
+// [
+//  items less than pivot,
+//  pivot,
+//  items greater than pivot,
+// ]
 ```
 The quicksort algorithm is also called `pivot` sort due to this partitioning around a pivot.
 
-* We go ahead and select a random index from the array subsection.
+* There are few ways to select the pivot, we just go ahead and select a random index from the array subsection.
 * We move the item at this index to the start of the array.
 ```js
 const pivotIndex = start + Math.floor(Math.random() * length);
@@ -69,7 +73,7 @@ let pivotRank = start;
   - index for pivot rank,
   items greater than pivot,
   - index for current item,
-  remaining items we have yet to see
+  remaining items we have yet to see,
 ]
 ```
 
@@ -107,10 +111,8 @@ for (let index = start + 1; index < before; index++) {
 ```js
 [
   items less than pivot,
-  - index for pivot rank,
   pivot,
   items greater than pivot,
-  - index for current item,
 ]
 ```
 * We can now partition these less than pivot elements of the array
