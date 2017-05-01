@@ -97,7 +97,7 @@ for (let index = start + 1; index < before; index++) {
   - index for current item,
 ]
 ```
-* Now we can simply put the pivot into its rightful place
+* Now we can simply put the pivot into its rightful place. If the above `if` condition was triggered then item at the pivot rank is definitely smaller than pivot and its safe to move it to the start. Otherwise we are just moving the pivot in place which is something that can optimize if we wanted to.
 ```js
   [array[pivotRank], array[start]] = [array[start], array[pivotRank]];
 ```
