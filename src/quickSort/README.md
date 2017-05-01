@@ -21,7 +21,7 @@ export function quickSort(array: number[]): number[] {
   partition(array, 0, array.length);
 ```
 
-* Lets go ahead and write this partitioning function, it will take an array, the start index of the array section that it needs to partition, and the upper limit of the index.
+* Lets go ahead and write this partitioning function, it will take an array, the start index of the array section that it needs to partition, and the upper limit of the index for the partitioning.
 
 * Since it modifies the array in place it doesn't need to return anything.
 
@@ -32,17 +32,16 @@ export function quickSort(array: number[]): number[] {
 function partition(array: number[], start: number, before: number): void {
 }
 ```
+* The quicksort algorithm is also called partition sort *because of this partitioning routine*.
 
-* This partition routine is a recursive, and like any recursive function it will have a base case that terminates the recursion. For sorting you can abort if the length of the partition is less than or equal to 1, as an array of 1 item is already sorted.
+* This partition routine is recursive, and like any recursive function it will have a base case that terminates the recursion. For sorting you can abort if the length of the partition is less than or equal to 1, as an array of 1 item is already sorted.
 
 ```js
   const length = before - start;
   if (length <= 1) return;
 ```
 
-* The quicksort algorithm is also called partition sort *because of this partitioning routine*.
-
-* The objective is each recursive iteration is to select a `pivot` element, and move the items in the array such that the array satisfies the following property.
+* The objective in each recursive iteration is to select a `pivot` element, and move the items in the array such that the array satisfies the following property. (items less than the pivot appear before the pivot, and items greater than the pivot appear after the pivot)
 ```js
 // [
 //  items less than pivot,
@@ -52,15 +51,15 @@ function partition(array: number[], start: number, before: number): void {
 ```
 The quicksort algorithm is also called `pivot` sort due to this partitioning around a pivot.
 
-* There are few ways to select the pivot, we just go ahead and select a random index from the array subsection.
-* We move the item at this index to the start of the array.
+* There are few ways to select the pivot. We just go ahead and select a random index from the array subsection that was passed in.
+* To make the remaining algorithm easier, we move the item at this index to the start of the array. This way we don't need to keep moving the pivot to its rightful place when we are iterating through the elements in the array subsection.
 ```js
 const pivotIndex = start + Math.floor(Math.random() * length);
 [array[start], array[pivotIndex]] = [array[pivotIndex], array[start]];
 ```
 
 * This first element is our pivot.
-* We start off by assuming that it is already in its rightful place in the array.
+* We start off by assuming that it is already in its rightful place in the array and store that as the pivotRank.
 ```js
 const pivot = array[start];
 let pivotRank = start;
