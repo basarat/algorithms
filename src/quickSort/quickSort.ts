@@ -19,8 +19,8 @@ function partition(array: number[], start: number, before: number): void {
   [array[start], array[pivotIndex]] = [array[pivotIndex], array[start]];
 
   /** The first element is our pivot */
-  let pivotRank = start;
   const pivot = array[start];
+  let pivotRank = start;
 
   /** Loop through all the elements, partitioning around the pivot */
   for (let index = start + 1; index < before; index++) {
