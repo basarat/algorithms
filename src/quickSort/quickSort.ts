@@ -8,7 +8,7 @@ export function quickSort(array: number[]): number[] {
 }
 
 /**
- * Paritions the [start, before) index of the array
+ * Partitions the [start, before) index of the array
  */
 function partition(array: number[], start: number, before: number): void {
   const length = before - start;
