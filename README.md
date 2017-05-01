@@ -41,5 +41,10 @@ As I record more videos they get put in a publish queue. Once released I will mo
 * [Video Lesson](https://egghead.io/lessons/typescript-create-random-integers-in-a-given-range)
 * [Code](https://github.com/basarat/algorithms/tree/master/src/random)
 
+## QuickSort
+* [Video Lesson TODO](TODO)
+* [Code](https://github.com/basarat/algorithms/tree/master/src/quickSort)
+
+
 [travis-image]:https://travis-ci.org/basarat/algorithms.svg?branch=master
 [travis-url]:https://travis-ci.org/basarat/algorithms
