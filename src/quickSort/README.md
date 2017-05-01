@@ -65,7 +65,7 @@ const pivot = array[start];
 let pivotRank = start;
 ```
 
-* We will loop through items in the array maintaining the following invariant
+* We will loop through items in the array subsection maintaining the following invariant
 ```js
 [
   items less than pivot,
@@ -76,12 +76,14 @@ let pivotRank = start;
 ]
 ```
 
-* Lets loop through this array section.
+* Now lets loop through the array subsection with these invariants in mind.
+* We end the loop before index reaches the before point.
 * We start the loop at start+1 as our pivot is at the start position.
 * If the item at the current index is less than the pivot, then we
   - increase the pivot rank.
-  - slide this smaller element into the items less than pivot section of the array
-* If the item is greater than pivot then we just keep on looping.
+  - slide this smaller element, into the section of the array that holds items less than pivot. We can do this sliding by simply moving the item at the pivotRank to the current index. This is because the item at this *incremented* pivot rank should be greater than the pivot.
+  After this sliding the item at the pivot rank is smaller than the pivot, which is one of the invariants we are maintaining.
+* If the item is greater than pivot then we just keep on looping without any changes to pivotRank.
 ```js
 for (let index = start + 1; index < before; index++) {
   if (array[index] < pivot) {
@@ -90,7 +92,7 @@ for (let index = start + 1; index < before; index++) {
   }
 }
 ```
-* By the time the loop terminates we have met our invariant, expect that now there are no more items to see.
+* By the time the loop terminates we have met our invariant, expect that now there are no more remaining items to see.
 
 ```js
 [
@@ -100,13 +102,15 @@ for (let index = start + 1; index < before; index++) {
   - index for current item,
 ]
 ```
-* If the pivotRank changed, we can simply put the pivot into its rightful place. Any item at the pivot rank is definitely smaller than pivot and its safe to move it to the start.
+* Now we need to move the pivot to be between the items that are less than and great than.
+* If the pivotRank didn't change in the loop, then the pivot is already in its rightful place at the start of the array subsection.
+* If the pivotRank changed during our loop, we can simply put the pivot into its rightful place by swapping it with the element at the current pivotRank. This is because any item at the pivot rank is definitely smaller than pivot because of our swaps within the loop.
 ```js
   if (pivotRank !== start) {
     [array[pivotRank], array[start]] = [array[start], array[pivotRank]];
   }
 ```
-* In each call to partition, not only are we putting the pivot in its rightful place, but more importantly we are dividing the problem into two smaller problems that can be tackled independently.
+* After putting the pivot at its rightful place, the array subsection has been partitioned into
 ```js
 [
   items less than pivot,
@@ -114,13 +118,11 @@ for (let index = start + 1; index < before; index++) {
   items greater than pivot,
 ]
 ```
-* We can now partition these less than pivot elements of the array
-* And the greater than pivot elements of the array
-* independently as recursive subproblems of smaller size.
+* Notice that in each call to partition, not only are we putting the pivot in its rightful place, but more importantly we are dividing the problem into two smaller problems that can be tackled independently. Items less than the pivot can be sorted independent of the items greater than the pivot. We can do this sorting by recursively calling the partition routine on the items less than and items greater than the pivot.
 ```js
 partition(array, start, pivotRank);
 partition(array, pivotRank + 1, before);
 ```
 
-* The reason why its called quick is because of its very low memory overhead since we are doing the sorting in place.
-* At a high level, randomly selecting the pivot gives a pivot that is in the 25% to 75% position in a given set of elements at about half the times. This gives us a fairly consistently decreasing problem size which brings it to an average runtime of O(n log n) similar to merge sort.
+* The reason why the algorithm is named quick, is because of its very low memory overhead since we are doing the partitioning in place one by one.
+* At a high level, randomly selecting a pivot, gives us pivot that is in the 25% to 75% rank in a given set of elements, at about half the times. This gives us a fairly consistent decreasing problem size, which brings quicksort's average runtime to O(n log n) similar to merge sort.

@@ -12,6 +12,8 @@ export function quickSort(array: number[]): number[] {
  */
 function partition(array: number[], start: number, before: number): void {
   const length = before - start;
+
+  /** Terminate the recursion */
   if (length <= 1) return;
 
   /** Randomly select a pivot and move it to the head of the array */
