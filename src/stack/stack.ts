@@ -1,5 +1,5 @@
 /**
- * Last in First out (LIFO) with O(1) key operations
+ * Last In First Out (LIFO) with O(1) key operations
  */
 export class Stack<T>{
   private data: T[] = [];
