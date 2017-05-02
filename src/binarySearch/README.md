@@ -46,7 +46,7 @@ export function binarySearch(
 }
 ```
 * Like all converging recursive algorithms, we will have a base case to terminate the recursion. For search we can terminate if the problem space has gone below 0. In this case we have not found our element and we can return -1.
-* Next we simply divide the problem into two equal search spaces by find the middle element of the array.
+* Next we simply divide the problem into two equal search spaces by finding the middle element of the array.
 * If the middle element matches, we can have found our index,
 * Else we check if the element is less than the middle element,
   - if so we recurse through the first half of the problem space,
@@ -61,5 +61,5 @@ export function binarySearch(
       : binarySearch(array, element, middle + 1, end);
 ```
 
-* This algorithm is called binary search because we divide the search problem into two (i.e. binary) sub problems.
-* Since in each recursive call we break down the search space into half, our problem size decreases exponentially, taking our worst case time complexity from O(n) to O(log n).
+* This algorithm is called binary search because we divide the search problem into two (aka binary) sub problems.
+* Since in each recursive call we break down the search space in half, our problem size decreases exponentially, taking our worst case time complexity from O(n) to O(log n).
