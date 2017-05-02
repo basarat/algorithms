@@ -9,6 +9,11 @@
 # Code by lesson
 Each lesson code is in a subfolder under [src](https://github.com/basarat/algorithms/tree/master/src).
 
+# Searching Algorithms
+## BinarySearch
+* [Video Lesson TDB](http://basarat.com)
+* [Code](http://basarat.com)
+
 # Sorting Algorithms
 ## BubbleSort
 * [Video Lesson](https://egghead.io/lessons/typescript-bubble-sort-using-typescript)
@@ -21,6 +26,10 @@ Each lesson code is in a subfolder under [src](https://github.com/basarat/algori
 ## MergeSort
 * [Video Lesson](https://egghead.io/lessons/typescript-merge-sort-algorithm-using-typescript)
 * [Code](https://github.com/basarat/algorithms/tree/master/src/mergeSort)
+
+## QuickSort
+* [Video Lesson](https://egghead.io/lessons/javascript-quicksort-algorithm-using-typescript)
+* [Code](https://github.com/basarat/algorithms/tree/master/src/quickSort)
 
 # Coding Interview Algorithms
 ## Anagram
@@ -44,9 +53,6 @@ As I record more videos they get put in a publish queue. Once released I will mo
 ## Example
 * [Video Lesson Example](http://basarat.com)
 * [Code Example](http://basarat.com)
-## QuickSort
-* [Video Lesson](https://egghead.io/lessons/javascript-quicksort-algorithm-using-typescript)
-* [Code](https://github.com/basarat/algorithms/tree/master/src/quickSort)
 
 [travis-image]:https://travis-ci.org/basarat/algorithms.svg?branch=master
 [travis-url]:https://travis-ci.org/basarat/algorithms

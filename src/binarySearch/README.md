@@ -1,5 +1,5 @@
 # Binary Search Algorithm
-> Binary search is a very fundamental algorithm in Computer Science. It power BST (binary search trees) which for the basis of modern databases and immutable data structures. Binary search works very much the way humans intutively search for a name in a yellow pages directory (if you have ever seen one) or the dictionary.
+> Binary search is a very fundamental algorithm in Computer Science. It power BST (binary search trees) which for the basis of modern databases and immutable data structures. Binary search works very much the way humans intuitively search for a name in a yellow pages directory (if you have ever seen one) or the dictionary.
 
 > In this lesson we look at the core Binary Search Algorithm describing the problem it solves.
 
@@ -24,7 +24,7 @@ export function binarySearch(array: number[], element: number): number {
   }
 ```
 * In the worst case the time complexity of this algorithm is O(n).
-* If we were to use the simple array prototype findIndex function it would internally do a similar loop over all the elements in the array.
+* If we were to use the simple array prototype `findIndex` function it would internally do a similar loop over all the elements in the array.
 ```js
   return array.findIndex(x => x === element);
 ```
@@ -53,4 +53,4 @@ export function binarySearch(array: number[], element: number, start = 0, end = 
       : binarySearch(array, element, middle + 1, end);
 ```
 
-* Since in each recursive call we break down the search space into half it takes our worst case time complexity from O(n) to O(log n).
+* Since in each recursive call we break down the search space into half, our problem size decreases exponentially, taking our worst case time complexity from O(n) to O(log n).
