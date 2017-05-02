@@ -17,7 +17,7 @@ class Queue<T> {
     }
   }
 
-  size() {
+  size(): number {
     return this.nextEnqueueIndex - this.lastDequeuedIndex;
   }
 }
