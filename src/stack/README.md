@@ -1,10 +1,50 @@
 # Stack implementation using TypeScript
 > A stack is an abstract data type that serves as a collection of elements, with two principal operations: push, which adds an element to the collection, and pop, which removes the most recently added element that was not yet removed. The order in which elements are poped is `Last In First Out` aka. `LIFO`. In this lesson we discuss how to implement it using JavaScript / TypeScript.
 
-We have the contract ....
+We have the contract
+
+```js
+/**
+ * Last in First out (LIFO) with O(1) key operations
+ */
+export class Stack<T>{
+  /** Adds the item in O(1) */
+  push(item: T): void {
+  }
+
+  /**
+   * Pops the last inserted item in O(1)
+   * If there are no more items it returns `undefined`
+   */
+  pop(): T | undefined {
+  }
+}
+```
 
 
+The objective is to implement these `push` and `pop` operations such that they operate in `O(1)` time. Fortunately in JavaScript implementations, array function that do not require any changes to the index of current items, have an average runtime of O(1).
 
-The objective is to implement these `push` and `pop` operations such that they operate in `O(1)` time. Fortunately in JavaScript implementations, array function that do not require items to move by index, have an average runtime of O(1).
+* Therefore we can simply implement the operations of this data structure using an array.
+* On push we push the item into the array
+* On pop we simply return the same result as array.pop
+```js
+/**
+ * Last in First out (LIFO) with O(1) key operations
+ */
+export class Stack<T>{
+  private data: T[] = [];
 
-So we can simply implement these operations using an array,
+  /** Adds the item in O(1) */
+  push(item: T): void {
+    this.data.push(item);
+  }
+
+  /**
+   * Pops the last inserted item in O(1)
+   * If there are no more items it returns `undefined`
+   */
+  pop(): T | undefined {
+    return this.data.pop();
+  }
+}
+```
