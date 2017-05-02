@@ -4,11 +4,11 @@
 export class Queue<T> {
   lastDequeuedIndex = 1;
   nextEnqueueIndex = 1;
-  storage: { [index: number]: T } = Object.create(null);
+  data: { [index: number]: T } = Object.create(null);
 
   /** Adds the item in O(1) */
-  enqueue(data: T) {
-    this.storage[this.nextEnqueueIndex] = data;
+  enqueue(item: T) {
+    this.data[this.nextEnqueueIndex] = item;
     this.nextEnqueueIndex++;
   }
 
@@ -18,8 +18,8 @@ export class Queue<T> {
    */
   dequeue(): T | undefined {
     if (this.lastDequeuedIndex !== this.nextEnqueueIndex) {
-      const dequeued = this.storage[this.lastDequeuedIndex];
-      delete this.storage[this.lastDequeuedIndex];
+      const dequeued = this.data[this.lastDequeuedIndex];
+      delete this.data[this.lastDequeuedIndex];
       this.lastDequeuedIndex++;
       return dequeued;
     }
