@@ -22,4 +22,10 @@ export function binarySearch(array: number[], element: number): number {
   }
 ```
 * In the worst case the time complexity of this algorithm is O(n).
-* If we were to use the simple array prototype findIndex function
+* If we were to use the simple array prototype findIndex function it would internally do a similar loop over all the elements in the array.
+```js
+  return array.findIndex(x => x === element);
+```
+* We can do better than this O(n) runtime. Both the internal array.prototype.findIndex and our loop based implementation fail to take advantage of the fact that the given array is sorted.
+
+* Binary search works very much the way humans intutively search for a name in a yello pages directory (if you have ever seen one) or the dictionary. Say you are searching for the word.
