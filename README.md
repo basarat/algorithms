@@ -11,8 +11,8 @@ Each lesson code is in a subfolder under [src](https://github.com/basarat/algori
 
 # Searching Algorithms
 ## BinarySearch
-* [Video Lesson TDB](http://basarat.com)
-* [Code](http://basarat.com)
+* [Video Lesson](https://egghead.io/lessons/typescript-binary-search-algorithm-using-typescript)
+* [Code](https://github.com/basarat/algorithms/tree/master/src/binarySearch)
 
 # Sorting Algorithms
 ## BubbleSort

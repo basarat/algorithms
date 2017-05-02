@@ -1,5 +1,5 @@
 # Binary Search Algorithm using TypeScript
-> Binary search is a very fundamental algorithm in Computer Science. It power BST (binary search trees) which for the basis of modern databases and immutable data structures. Binary search works very much the way humans intuitively search for a name in a yellow pages directory (if you have ever seen one) or the dictionary.
+> Binary search is a very fundamental algorithm in Computer Science. It powers BSTs (binary search trees) which form the basis of modern databases and immutable data structures. Binary search works very much the way humans intuitively search for a name in a yellow pages directory (if you have ever seen one) or the dictionary.
 
 > In this lesson we look at the core Binary Search Algorithm describing the problem it solves.
 
