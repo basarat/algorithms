@@ -51,4 +51,11 @@ export class Stack<T>{
 
 A common additional operation to add to collection data structures is the `size` as it allows you to safely iterate the elements if required. Fortunately JavaScript arrays implement this for us in the form of the length property:
 
-TODO
+```js
+  /**
+   * Returns the number of elements in the stack
+   */
+  size(): number {
+    return this.data.length;
+  }
+```

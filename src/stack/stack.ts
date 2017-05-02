@@ -16,4 +16,11 @@ export class Stack<T>{
   pop(): T | undefined {
     return this.data.pop();
   }
+
+  /**
+   * Returns the number of elements in the stack
+   */
+  size(): number {
+    return this.data.length;
+  }
 }
