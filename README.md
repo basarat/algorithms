@@ -50,9 +50,10 @@ Each lesson code is in a subfolder under [src](https://github.com/basarat/algori
 
 # In Queue
 As I record more videos they get put in a publish queue. Once released I will move them up.
-## Example
-* [Video Lesson Example](http://basarat.com)
-* [Code Example](http://basarat.com)
+
+* Stack
+* Queue
+* LinkedList
 
 [travis-image]:https://travis-ci.org/basarat/algorithms.svg?branch=master
 [travis-url]:https://travis-ci.org/basarat/algorithms
