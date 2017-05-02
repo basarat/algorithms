@@ -11,7 +11,10 @@
  * Searches for specific element in a given sorted array
  * @returns the index of the element (-1 if its not found)
  */
-export function binarySearch(array: number[], element: number): number {
+export function binarySearch(
+  array: number[],
+  element: number,
+): number {
   return -1;
 }
 ```
@@ -33,7 +36,12 @@ export function binarySearch(array: number[], element: number): number {
 * In binary search we recursively break down the problem into smaller ones. We will only search for the number in a given start, and end range. We start off with the entire range.
 
 ```js
-export function binarySearch(array: number[], element: number, start = 0, end = array.length - 1): number {
+export function binarySearch(
+  array: number[],
+  element: number,
+  start = 0,
+  end = array.length - 1,
+): number {
 
 }
 ```
