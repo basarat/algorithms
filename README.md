@@ -31,7 +31,7 @@ Each lesson code is in a subfolder under [src](https://github.com/basarat/algori
 * [Video Lesson](https://egghead.io/lessons/typescript-algorithm-to-determine-if-a-string-is-a-palindrome)
 * [Code](https://github.com/basarat/algorithms/tree/master/src/palindrome)
 
-## RepeadItem
+## RepeatedItem
 * [Video Lesson](https://egghead.io/lessons/typescript-find-the-repeated-item-in-an-array-using-typescript)
 * [Code](https://github.com/basarat/algorithms/tree/master/src/repeatedItem)
 
@@ -41,10 +41,12 @@ Each lesson code is in a subfolder under [src](https://github.com/basarat/algori
 
 # In Queue
 As I record more videos they get put in a publish queue. Once released I will move them up.
+## Example
+* [Video Lesson Example](http://basarat.com)
+* [Code Example](http://basarat.com)
 ## QuickSort
 * [Video Lesson](https://egghead.io/lessons/javascript-quicksort-algorithm-using-typescript)
 * [Code](https://github.com/basarat/algorithms/tree/master/src/quickSort)
-
 
 [travis-image]:https://travis-ci.org/basarat/algorithms.svg?branch=master
 [travis-url]:https://travis-ci.org/basarat/algorithms
