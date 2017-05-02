@@ -61,4 +61,5 @@ export function binarySearch(
       : binarySearch(array, element, middle + 1, end);
 ```
 
+* This algorithm is called binary search because we divide the search problem into two (i.e. binary) sub problems.
 * Since in each recursive call we break down the search space into half, our problem size decreases exponentially, taking our worst case time complexity from O(n) to O(log n).
