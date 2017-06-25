@@ -44,6 +44,10 @@ Each lesson code is in a subfolder under [src](https://github.com/basarat/algori
 * [Video Lesson](https://egghead.io/lessons/typescript-find-the-repeated-item-in-an-array-using-typescript)
 * [Code](https://github.com/basarat/algorithms/tree/master/src/repeatedItem)
 
+## FizzBuzz
+* [Video Lesson](https://egghead.io/lessons/typescript-coding-interview-fizzbuzz-problem-and-its-solution)
+* [Code](https://github.com/basarat/algorithms/tree/master/src/fizzBuzz)
+
 ## Random
 * [Video Lesson](https://egghead.io/lessons/typescript-create-random-integers-in-a-given-range)
 * [Code](https://github.com/basarat/algorithms/tree/master/src/random)
