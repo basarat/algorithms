@@ -6,6 +6,10 @@
 
 > If you enjoy these algorithm lessons [please star ⭐ this repo 🌟](https://github.com/basarat/algorithms/stargazers).
 
+# Algorithms Course
+[The course page](https://egghead.io/courses/build-algorithms-using-typescript)
+![logo](https://raw.githubusercontent.com/basarat/algorithms/master/logo.png)
+
 # Code by lesson
 Each lesson code is in a subfolder under [src](https://github.com/basarat/algorithms/tree/master/src).
 
