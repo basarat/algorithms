@@ -59,9 +59,9 @@ Each lesson code is in a subfolder under [src](https://github.com/basarat/algori
 # In Queue
 As I record more videos they get put in a publish queue. Once released I will move them up.
 
-
 * Queue
 * LinkedList
+* How would you keep a hot cache of the 100 last requested items.
 
 [travis-image]:https://travis-ci.org/basarat/algorithms.svg?branch=master
 [travis-url]:https://travis-ci.org/basarat/algorithms
