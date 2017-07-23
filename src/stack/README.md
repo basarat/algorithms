@@ -1,7 +1,11 @@
 # Stack implementation using TypeScript
 > A stack is an abstract data type that serves as a collection of elements, with two principal operations: push, which adds an element to the collection, and pop, which removes the most recently added element that was not yet removed. The order in which elements are poped is `Last In First Out` aka. `LIFO`. In this lesson we discuss how to implement it using JavaScript / TypeScript.
 
-We have the contract
+A `stack` is a Last in First out (LIFO) with O(1) key operations. We can model this as a generic class for items of type T.
+
+* It will have two key operations.
+* One to push a new item into the stack in O(1).
+* And another to pop an item from the stack in O(1). If there are no more items we can return an out of bound value like `undefined`. Fortunately this can be modeled easily with TypeScript's type system.
 
 ```js
 /**
