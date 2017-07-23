@@ -18,7 +18,7 @@ export class Stack<T>{
   }
 
   /**
-   * Returns the number of elements in the stack
+   * Returns the number of elements in the stack in O(1)
    */
   size(): number {
     return this.data.length;

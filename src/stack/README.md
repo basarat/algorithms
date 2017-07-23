@@ -53,7 +53,7 @@ A common additional operation to add to collection data structures is the `size`
 
 ```js
   /**
-   * Returns the number of elements in the stack
+   * Returns the number of elements in the stack in O(1)
    */
   size(): number {
     return this.data.length;
