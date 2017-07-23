@@ -1,15 +1,18 @@
 # Stack implementation using TypeScript
-> A stack is an abstract data type that serves as a collection of elements, with two principal operations: push, which adds an element to the collection, and pop, which removes the most recently added element that was not yet removed. The order in which elements are poped is `Last In First Out` aka. `LIFO`. In this lesson we discuss how to implement it using JavaScript / TypeScript.
+> A stack is an abstract data type that stores a collection of elements, with two principal operations: 
+* push: adds an element to the collection
+* pop: removes the most recently added element that was not yet removed.
+The order in which elements are poped is `Last In First Out` aka. `LIFO`. In this lesson we discuss how to implement it using JavaScript / TypeScript.
 
-A `stack` is a Last in First out (LIFO) with O(1) key operations. We can model this as a generic class for items of type T.
+A `stack` is a Last in First out (LIFO) with key operations having a time complexity of O(1). We can model this easily in TypeScript using a generic class for items of type T.
 
 * It will have two key operations.
-* One to push a new item into the stack in O(1).
-* And another to pop an item from the stack in O(1). If there are no more items we can return an out of bound value like `undefined`. Fortunately this can be modeled easily with TypeScript's type system.
+* The first one is push which adds an item into the stack in O(1).
+* The other key operation pops an item from the stack in O(1). If there are no more items we can return an out of bound value like `undefined`. This fact can be modeled into the type system by using a union of T and `undefined`.
 
 ```js
 /**
- * Last in First out (LIFO) with O(1) key operations
+ * Last In First Out (LIFO) with O(1) for key operations
  */
 export class Stack<T>{
   /** Adds the item in O(1) */
@@ -53,7 +56,7 @@ export class Stack<T>{
 }
 ```
 
-A common additional operation to add to collection data structures is the `size` as it allows you to safely iterate the elements if required. Fortunately JavaScript arrays implement this for us in the form of the length property:
+A common additional operation for collection data structures is the `size` as it allows you to safely find out if there are any elements present in the data structure. Fortunately JavaScript arrays implement this for us in the form of the length property:
 
 ```js
   /**
