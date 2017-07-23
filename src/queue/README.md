@@ -4,13 +4,17 @@
 A `stack` is a First In First Out (FIFO) collection data structure with key operations having a time complexity of O(1). We can model this easily in TypeScript using a generic class for items of type T.
 
 ```js
+/**
+ * First In First Out (FIFO)
+ * with time complexity of O(1) for key operations
+ */
 export class Queue<T>{
   /** Enqueues the item in O(1) */
   enqueue(item: T): void {
   }
 
   /**
-   * Dequeues the last inserted item in O(1)
+   * Dequeues the first inserted item in O(1)
    * If there are no more items it returns `undefined`
    */
   dequeue(): T | undefined {
@@ -30,7 +34,7 @@ export class Queue<T>{
   }
 
   /**
-   * Dequeues the last inserted item in O(1)
+   * Dequeues the first inserted item in O(1)
    * If there are no more items it returns `undefined`
    */
   dequeue(): T | undefined {
@@ -52,9 +56,9 @@ Sadly, in JavaScript implementations, since `shift` requires changing the index 
 
 ```js
 export class Queue<T>{
-  private lastDequeuedIndex = 1;
-  private nextEnqueueIndex = 1;
   private data: { [index: number]: T } = Object.create(null);
+  private lastDequeuedIndex = 0;
+  private nextEnqueueIndex = 0;
 
   /** Enqueues the item in O(1) */
   enqueue(item: T): void {
@@ -63,7 +67,7 @@ export class Queue<T>{
   }
 
   /**
-   * Dequeues the last inserted item in O(1)
+   * Dequeues the first inserted item in O(1)
    * If there are no more items it returns `undefined`
    */
   dequeue(): T | undefined {

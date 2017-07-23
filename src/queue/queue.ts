@@ -1,19 +1,20 @@
 /**
- * First In First Out (FIFO) with O(1) key operations
+ * First In First Out (FIFO)
+ * with time complexity of O(1) for key operations
  */
-export class Queue<T> {
+export class Queue<T>{
+  private data: { [index: number]: T } = Object.create(null);
   private lastDequeuedIndex = 0;
   private nextEnqueueIndex = 0;
-  private data: { [index: number]: T } = Object.create(null);
 
-  /** Adds the item in O(1) */
-  enqueue(item: T) {
+  /** Enqueues the item in O(1) */
+  enqueue(item: T): void {
     this.data[this.nextEnqueueIndex] = item;
     this.nextEnqueueIndex++;
   }
 
   /**
-   * dequeues the first inserted item in O(1)
+   * Dequeues the first inserted item in O(1)
    * If there are no more items it returns `undefined`
    */
   dequeue(): T | undefined {
