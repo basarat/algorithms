@@ -77,7 +77,7 @@ export class Queue<T>{
 }
 ```
 
-The common additional requirement of return the number of items in the queue can easily be met by diffing the `nextEnqueueIndex` with `lastDequeuedIndex`.
+The common additional requirement of adding a size function, can easily be met by diffing the `nextEnqueueIndex` with `lastDequeuedIndex`.
 
 ```js
 /**
