@@ -1,5 +1,6 @@
 # Queue implementation using TypeScript
-> A queue is an abstract data type that serves as a collection of elements, with two principal operations: enqueue, which adds an element to the collection, and dequeue, which removes the earliest added element. The order in which elements are dequeued is `First In First Out` aka. `FIFO`. The term `queue` takes it name from the real world queues e.g. "a queue at the ticket counter". In this lesson we discuss how to implement it using JavaScript / TypeScript.
+> A queue is an abstract data type that serves as a collection of elements, with two principal operations: enqueue, which adds an element to the collection, and dequeue, which removes the earliest added element. The order in which elements are dequeued is `First In First Out` aka. `FIFO`. The term `queue` takes it name from the real world queues e.g. "a queue at the ticket counter".
+A good target is to implement these operations with a time complexity of O(1). In this lesson we discuss how to implement it using JavaScript / TypeScript.
 
 A `queue` is a First In First Out (FIFO) collection data structure with key operations having a time complexity of O(1). We can model this easily in TypeScript using a generic class for items of type T.
 

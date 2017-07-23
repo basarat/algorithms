@@ -56,12 +56,15 @@ Each lesson code is in a subfolder under [src](https://github.com/basarat/algori
 * [Video Lesson](https://egghead.io/lessons/typescript-stack-implementation-using-typescript)
 * [Code](https://github.com/basarat/algorithms/tree/master/src/stack)
 
+## Queue
+* [Video Lesson](https://egghead.io/lessons/https://egghead.io/lessons/typescript-queue-implementation-using-typescript)
+* [Code](https://github.com/basarat/algorithms/tree/master/src/queue)
+
 # In Queue
 As I record more videos they get put in a publish queue. Once released I will move them up.
 
-* Queue
 * LinkedList
-* How would you keep a hot cache of the 100 last requested items.
+* A hot cache of the 100 last requested items.
 
 [travis-image]:https://travis-ci.org/basarat/algorithms.svg?branch=master
 [travis-url]:https://travis-ci.org/basarat/algorithms
