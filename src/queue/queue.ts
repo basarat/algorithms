@@ -4,8 +4,8 @@
  */
 export class Queue<T>{
   private data: { [index: number]: T } = Object.create(null);
-  private lastDequeuedIndex = 0;
   private nextEnqueueIndex = 0;
+  private lastDequeuedIndex = 0;
 
   /** Enqueues the item in O(1) */
   enqueue(item: T): void {
