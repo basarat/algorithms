@@ -2,9 +2,9 @@
  * First In First Out (FIFO) with O(1) key operations
  */
 export class Queue<T> {
-  lastDequeuedIndex = 1;
-  nextEnqueueIndex = 1;
-  data: { [index: number]: T } = Object.create(null);
+  private lastDequeuedIndex = 0;
+  private nextEnqueueIndex = 0;
+  private data: { [index: number]: T } = Object.create(null);
 
   /** Adds the item in O(1) */
   enqueue(item: T) {
