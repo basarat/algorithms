@@ -39,7 +39,7 @@ export class LinkedList<T> {
 
 Although this works, it puts the burden of keeping track of the `head` on the users of this class. We can easily provide a utility, `enqueue` method that adds an item to the linked list.
 
-* To make it easy to enqueue an item in O(1) we should track the current tail of the linked list, so we add a member for that.
+* To make it easy to enqueue an item in O(1) we should track the current tail of the linked list, so we add a member for that. In general it is useful to keep track of both ends of a linked list i.e. the head and the tail.
 * Now we add the enqueue method, that takes a value of type `T`.
 * We simply create a linked list node using this value. Since it will be the new tail we point next to undefined.
 * If this is the first node that we are seeing point our head to this node.
@@ -64,4 +64,28 @@ Although this works, it puts the burden of keeping track of the `head` on the us
     }
     this.tail = node;
   }
+```
+
+Now if we wanted we can easily provide a method that generates an iterator over all the values in the list.
+* We start with the head, which demonstrates a good reason to have a reference to the head.
+* While we have a current item, we simply yield its value.
+* Next we update our current to the next values which may or may not be there.
+
+```js
+/**
+ * Returns an iterator over the values
+ */
+*values<T>() {
+  let current = this.head;
+  while (current) {
+    yield current.value;
+    current = current.next;
+  }
+}
+```
+
+* As an example let's create a linked list of number,
+
+```js
+
 ```
