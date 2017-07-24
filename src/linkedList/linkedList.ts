@@ -16,7 +16,7 @@ export class LinkedList<T> {
   /**
    * Adds an item in O(1)
    **/
-  push(value: T) {
+  enqueue(value: T) {
     const node = {
       value,
       next: undefined
@@ -28,6 +28,20 @@ export class LinkedList<T> {
       this.tail.next = node;
     }
     this.tail = node;
+  }
+
+  /**
+   * Removes an item in O(1)
+   */
+  dequeue(): T | undefined {
+    if (this.head) {
+      const value = this.head.value;
+      this.head = this.head.next;
+      if (!this.head) {
+        this.tail = this.head;
+      }
+      return value;
+    }
   }
 }
 
