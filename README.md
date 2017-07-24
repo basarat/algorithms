@@ -69,6 +69,7 @@ Each lesson code is in a subfolder under [src](https://github.com/basarat/algori
 As I record more videos they get put in a publish queue. Once released I will move them up.
 
 * LinkedList
+* DoublyLinkedList
 * A hot cache of the 100 last requested items.
 
 [travis-image]:https://travis-ci.org/basarat/algorithms.svg?branch=master
