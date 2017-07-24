@@ -44,6 +44,16 @@ export class DoublyLinkedList<T> {
     }
   }
 
+  // /**
+  //  * LIFO removal in O(1)
+  //  */
+  // pop(): T | undefined {
+  //   if (this.tail) {
+  //     const value = this.tail.value;
+  //     this.tail = // figure out a new tail?
+  //   }
+  // }
+
   /**
    * Returns an iterator over the values
    */
