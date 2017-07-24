@@ -43,15 +43,16 @@ export class LinkedList<T> {
       return value;
     }
   }
-}
 
-/**
- * Iteration helper for LinkedList
- */
-export function* values<T>(list: LinkedList<T>) {
-  let current = list.head;
-  while (current) {
-    yield current.value;
-    current = current.next;
+  /**
+   * Iteration helper
+   */
+  * values<T>() {
+    let current = this.head;
+    while (current) {
+      yield current.value;
+      current = current.next;
+    }
   }
 }
+
