@@ -47,7 +47,7 @@ export class LinkedList<T> {
   /**
    * Returns an iterator over the values
    */
-  *values<T>() {
+  *values() {
     let current = this.head;
     while (current) {
       yield current.value;
