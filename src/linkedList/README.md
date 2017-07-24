@@ -121,3 +121,5 @@ dequeue(): T | undefined {
   }
 }
 ```
+
+This example demonstrates the real beauty of a linked list. Any such operations that only requires simple `next` reference manipulation, can be implemented in to have `O(1)` runtime.
