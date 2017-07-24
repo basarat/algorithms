@@ -2,14 +2,14 @@
 > In a singly linked list each node in the list stores the contents of the node and a pointer or reference to the next node in the list. It is one of the simplest way to store a collection of items.
 > In this lesson we cover how to create a linked list data structure and how to use its strenghts to implement an O(1) FIFO queue.
 
-A linked list is simply
+A linked list is simply, a list of nodes, with value, and a link to a next node in this list, till we arrive at the end of the list where `next` will be `undefined`.
 
-`node {value} -next> node{value} -next> undefined`
+`node {value,next} -> node {value,next} -> undefined`
 
 The linked list data structure itself simply maintains the `{head}` node.
 **Select the `node {value}`**
 
-The trick to writing a linked list, and really *any* data structure with a concept of a `node` e.g. a Binary tree, is to first define a `node`.
+Now, the trick to writing a linked list, and really *any* data structure with a concept of a `node` e.g. a Binary tree, is to first define a `node`.
 
 So now lets jump into TypeScript and define what we mean by a node.
 * This is easy to do in TypeScript as a generic interface.
@@ -37,10 +37,10 @@ export class LinkedList<T> {
 }
 ```
 
-Although this works, it puts the burden of keeping track of the `head` on the users of this class. We can easily provide a utility, `enqueue` method that adds an item to the linked list.
+Although this works, it puts the burden of keeping track of the `head` on the users of this class. We can easily provide a utility, `add` method that adds an item to the linked list.
 
-* To make it easy to enqueue an item in O(1) we should track the current tail of the linked list, so we add a member for that. In general it is useful to keep track of both ends of a linked list i.e. the head and the tail.
-* Now we add the enqueue method, that takes a value of type `T`.
+* To make it easy to add an item in O(1) we should track the current tail of the linked list, so we add a member for that. In general it is useful to keep track of both ends of a linked list i.e. the head and the tail.
+* Now we create the add method, that takes a value of type `T`.
 * We simply create a linked list node using this value. Since it will be the new tail we point next to undefined.
 * If this is the first node that we are seeing point our head to this node.
 * If we already have a tail node, its `next` should be updated to point to this new node.
@@ -85,14 +85,14 @@ Now if we wanted we can easily provide a method that generates an iterator over 
 ```
 
 * As an example let's create a linked list of numbers
-* Lets enqueue a few items.
+* Lets add a few items.
 * Now we go ahead and iterate over the values
 * and log them out.
-* you can see that they match what we enqueued.
+* you can see that they match what we added.
 
 ```js
 const list = new LinkedList<number>();
-[1, 2, 4, 8].map(x => list.enqueue(x));
+[1, 2, 4, 8].map(x => list.add(x));
 for (const item of list.values()) {
   console.log(item);
 }
