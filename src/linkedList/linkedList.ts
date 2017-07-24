@@ -10,8 +10,8 @@ export interface LinkedListNode<T> {
  * Linked list for items of type T
  */
 export class LinkedList<T> {
-  public head: LinkedListNode<T> | undefined;
-  public tail: LinkedListNode<T> | undefined;
+  public head?: LinkedListNode<T> = undefined;
+  public tail?: LinkedListNode<T> = undefined;
 
   /**
    * Adds an item in O(1)
