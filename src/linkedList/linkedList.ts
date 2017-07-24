@@ -16,7 +16,7 @@ export class LinkedList<T> {
   /**
    * Adds an item in O(1)
    **/
-  enqueue(value: T) {
+  add(value: T) {
     const node = {
       value,
       next: undefined
@@ -31,7 +31,7 @@ export class LinkedList<T> {
   }
 
   /**
-   * Removes an item in O(1)
+   * FIFO removal in O(1)
    */
   dequeue(): T | undefined {
     if (this.head) {

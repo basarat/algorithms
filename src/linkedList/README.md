@@ -51,7 +51,7 @@ Although this works, it puts the burden of keeping track of the `head` on the us
   /**
    * Adds an item in O(1)
    **/
-  enqueue(value: T) {
+  add(value: T) {
     const node = {
       value,
       next: undefined
@@ -98,7 +98,7 @@ for (const item of list.values()) {
 }
 ```
 
-As a final exercise we can easily add a dequeue operation to the linked list which also operates in O(1).
+As an exercise we can easily add a dequeue operation to the linked list which also operates in O(1).
 * It will either return a value or `undefined` if we are out of values.
 * If we don't have a head, then we will let the default return value of `undefined` handle it.
 * otherwise we grab the value from our `head`.
@@ -108,7 +108,7 @@ As a final exercise we can easily add a dequeue operation to the linked list whi
 
 ```js
 /**
- * Removes an item in O(1)
+ * FIFO removal in O(1)
  */
 dequeue(): T | undefined {
   if (this.head) {
@@ -121,4 +121,3 @@ dequeue(): T | undefined {
   }
 }
 ```
-
