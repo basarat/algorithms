@@ -38,7 +38,7 @@ export class LinkedList<T> {
       const value = this.head.value;
       this.head = this.head.next;
       if (!this.head) {
-        this.tail = this.head;
+        this.tail = undefined;
       }
       return value;
     }
@@ -55,4 +55,3 @@ export class LinkedList<T> {
     }
   }
 }
-

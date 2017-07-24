@@ -84,8 +84,41 @@ Now if we wanted we can easily provide a method that generates an iterator over 
 }
 ```
 
-* As an example let's create a linked list of number,
+* As an example let's create a linked list of numbers
+* Lets enqueue a few items.
+* Now we go ahead and iterate over the values
+* and log them out.
+* you can see that they match what we enqueued.
 
 ```js
-
+const list = new LinkedList<number>();
+[1, 2, 4, 8].map(x => list.enqueue(x));
+for (const item of list.values()) {
+  console.log(item);
+}
 ```
+
+As a final exercise we can easily add a dequeue operation to the linked list which also operates in O(1).
+* It will either return a value or `undefined` if we are out of values.
+* If we don't have a head, then we will let the default return value of `undefined` handle it.
+* otherwise we grab the value from our `head`.
+* update our head to the next value.
+* if our new head is undefined, it means we are out of items and should update our tail to match.
+* finally with our maintainance of `head` and `tail` out of the way we simply return the stored value.
+
+```js
+/**
+ * Removes an item in O(1)
+ */
+dequeue(): T | undefined {
+  if (this.head) {
+    const value = this.head.value;
+    this.head = this.head.next;
+    if (!this.head) {
+      this.tail = undefined;
+    }
+    return value;
+  }
+}
+```
+
