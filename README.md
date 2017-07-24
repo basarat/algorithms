@@ -65,10 +65,13 @@ Each lesson code is in a subfolder under [src](https://github.com/basarat/algori
 * [Video Lesson](https://egghead.io/lessons/https://egghead.io/lessons/typescript-queue-implementation-using-typescript)
 * [Code](https://github.com/basarat/algorithms/tree/master/src/queue)
 
+## LinkedList
+* [Video Lesson](https://egghead.io/lessons/typescript-implement-a-singly-linked-list-in-typescript)
+* [Code](https://github.com/basarat/algorithms/tree/master/src/linkedList)
+
 # In Queue
 As I record more videos they get put in a publish queue. Once released I will move them up.
 
-* LinkedList
 * DoublyLinkedList
 * A hot cache of the 100 last requested items.
 

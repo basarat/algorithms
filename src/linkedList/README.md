@@ -1,6 +1,6 @@
 # Implement a singly linked list in TypeScript
-> In a singly linked list each node in the list stores the contents of the node and a pointer or reference to the next node in the list. It is one of the simplest way to store a collection of items.
-> In this lesson we cover how to create a linked list data structure and how to use its strenghts to implement an O(1) FIFO queue.
+> In a singly linked list each node in the list stores the contents of the node and a reference (or pointer in some languages) to the next node in the list. It is one of the simplest way to store a collection of items.
+> In this lesson we cover how to create a linked list data structure and how to use its strengths to implement an O(1) FIFO queue.
 
 A linked list is simply, a list of nodes. Each node has a value, and a link to a next node in this list, till we arrive at the end of the list where `next` will be `undefined`.
 
