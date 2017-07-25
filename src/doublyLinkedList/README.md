@@ -22,3 +22,10 @@ pop(): T | undefined {
   }
 }
 ```
+
+There is a data structure called a `doubly` linked list that would make figuring out the node `previous` to the tail trivial.
+
+```
+undefined <-> node {value, next, prev} <-> node {value, next, prev } <-> undefined
+```
+Instead of just `value` and `next` we also keep track of any previous node, against each node. Of course, for the head `prev` will be `undefined` and for the `tail` the `next` will be `undefined`.
