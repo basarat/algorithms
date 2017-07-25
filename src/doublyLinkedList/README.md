@@ -74,9 +74,11 @@ dequeue(): T | undefined {
   if (this.head) {
     const value = this.head.value;
     this.head = this.head.next;
-    this.head.prev = undefined;
     if (!this.head) {
       this.tail = undefined;
+    }
+    else {
+      this.head.prev = undefined;
     }
     return value;
   }
@@ -84,5 +86,24 @@ dequeue(): T | undefined {
 ```
 
 Now with these simple modifications in place, lets revisit adding a LIFO `pop` operation. It is actually going to be a straight copy of the `dequeue` operation, with a simple change of `head` to `tail`, `next` to `prev` and `prev` to `next`. And thats it. We now have a data structure that provide O(1) runtime for both FIFO Queue and LIFO Stack operations.
+
+```js
+/**
+ * LIFO removal in O(1)
+ */
+pop(): T | undefined {
+  if (this.tail) {
+    const value = this.tail.value;
+    this.tail = this.tail.prev;
+    if (!this.tail) {
+      this.head = undefined;
+    }
+    else {
+      this.tail.next = undefined;
+    }
+    return value;
+  }
+}
+```
 
 To reiterate the main advantage of using a `DoublyLinkedList` is that any operations that require constant `next` and `prev` reference manipulations, can be implemented with `O(1)` time complexity.

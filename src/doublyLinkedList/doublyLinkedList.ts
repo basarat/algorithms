@@ -40,9 +40,11 @@ export class DoublyLinkedList<T> {
     if (this.head) {
       const value = this.head.value;
       this.head = this.head.next;
-      this.head.prev = undefined;
       if (!this.head) {
         this.tail = undefined;
+      }
+      else {
+        this.head.prev = undefined;
       }
       return value;
     }
@@ -55,9 +57,11 @@ export class DoublyLinkedList<T> {
     if (this.tail) {
       const value = this.tail.value;
       this.tail = this.tail.prev;
-      this.tail.next = undefined;
       if (!this.tail) {
         this.head = undefined;
+      }
+      else {
+        this.tail.next = undefined;
       }
       return value;
     }
