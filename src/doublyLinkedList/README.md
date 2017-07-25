@@ -2,14 +2,14 @@
 > In a doubly linked list each node in the list stores the contents of the node and a pointer or reference to the next and the previous nodes in the list. It is one of the simplest way to store a collection of items.
 > In this lesson we cover how to create a doubly linked list data structure and how to use its strenghts to implement an O(1) FIFO queue + O(1) LIFO stack.
 
-Here we have a singly linked list node and a singly linked list.
+Here we have a singly linked list with a FIFO removal `dequeue` method.
 
 Lets say we wanted to add a last in first out `pop` operation.
 * It will return either the last value or undefined if we are out of elements
 * We can only pop a value if we still have an active `tail`
 * We can grab the value that we want to return from the tail.
-* Next we have to do our routine maintaince of the `tail` and `head` nodes.
-* Now the new tail would be the second last item in the linked list. To find that we would need to start from the `head` till we arrive at a node whole `next` is the current `tail`. However such an implementation would be `O(n)` and we want an `O(1)` algorithm.
+* Next we have to do our routine maintenance of the `tail` and `head` nodes.
+* Now we have to update the tail to be the second last item in the linked list. To find that in this singly linked list we would need to start from the `head` till we arrive at a node whose `next` is the current `tail`. However such an implementation would be `O(n)` and we want an `O(1)` algorithm.
 
 ```js
 /**
@@ -23,7 +23,7 @@ pop(): T | undefined {
 }
 ```
 
-There is a data structure called a `doubly` linked list that would make figuring out the node `previous` to the tail trivial.
+There is a data structure called a `doubly` linked list that would make it trivial to figure out the second last node i.e. the node `previous` to the tail.
 
 ```js
 undefined <-> node { value, next, prev } <-> node { value, next, prev } <-> undefined
@@ -31,7 +31,7 @@ undefined <-> node { value, next, prev } <-> node { value, next, prev } <-> unde
 
 Instead of just `value` and `next` we also keep track of any previous node, against each node. Of course, for the head `prev` will be `undefined` and for the `tail` the `next` will be `undefined`.
 
-Lets make this concrete and define a `DoublyLinkedListNode` as a generic interface that holds a value and potentially the next and prev nodes.
+Lets make this node description concrete and define a `DoublyLinkedListNode` as a generic interface that holds a value and potentially the next and prev nodes.
 
 ```js
 /**
@@ -44,7 +44,7 @@ export interface DoublyLinkedListNode<T> {
 }
 ```
 
-Now on `add` we will create a `DoublyLinkedListNode<T>` of `T` with `next` and `prev` values. If this is the first node. We store it has the head. If we already have a tail, we not only update the `next` pointer for the `tail`, but we also update the `prev` pointer for this new node. Finally we store this new node as our new tail.
+We will have to add a very slight additional maintenance for this new `prev` node reference. On `add` we will create a `DoublyLinkedListNode` and therefore also initialize the `prev` value. Additionally if we have a current `tail`, we continue to update the `next` pointer, but now we also update the `prev` pointer for this new node.
 
 ```js
 add(value: T) {
@@ -64,7 +64,7 @@ add(value: T) {
 }
 ```
 
-The dequeue operation is equally simply. We simply need to clear the `prev` whenever we load a new `head`.
+The modifications to the dequeue operation are equally simply. After dequeing the current head, if we get a new head value, we simply need to clear the `prev` reference.
 
 ```js
 /**
@@ -85,7 +85,11 @@ dequeue(): T | undefined {
 }
 ```
 
-Now with these simple modifications in place, lets revisit adding a LIFO `pop` operation. It is actually going to be a straight copy of the `dequeue` operation, with a simple change of `head` to `tail`, `next` to `prev` and `prev` to `next`. And thats it. We now have a data structure that provide O(1) runtime for both FIFO Queue and LIFO Stack operations.
+Now with these simple modifications in place, lets revisit adding a LIFO `pop` operation.
+* After grabbing the value from the current tail, we simply update the tail to point to the current tail's previous node.
+* If the tail will be no more we also clear the head.
+* Otherwise we update this new tail to have no `next` essentially poping the old tail.
+* We finally return the value we read from the old tail.
 
 ```js
 /**
@@ -106,4 +110,8 @@ pop(): T | undefined {
 }
 ```
 
-To reiterate the main advantage of using a `DoublyLinkedList` is that any operations that require constant `next` and `prev` reference manipulations, can be implemented with `O(1)` time complexity. Additionally as demonstrated storing `prev` pointers can make it easier to implement additional methods.
+It is worth mentioning, that as long as you understand what a `node` means in your data structure, and appreciate the fact that you need to maintain the `value/prev/next` members in your data structure operations, you don't need to memorize the code bodies.
+
+An interesting fact in this doubly linked list is that our `pop` method is actually a straight copy of the `dequeue` operation, with a simple change of `head` to `tail`, `prev` to `next` and `next` to `prev`.
+
+The main advantage of using a `DoublyLinkedList` is that any operations that require constant `next` and `prev` reference manipulations, can be implemented with `O(1)` time complexity. In this example it allowed us to implement a FIFO Queue, and a LIFO Stack operation, in a single data structure with an `O(1)` time complexity.
