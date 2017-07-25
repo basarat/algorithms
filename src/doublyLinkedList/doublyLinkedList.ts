@@ -1,17 +1,18 @@
 /**
  * Linked list node
  */
-export interface LinkedListNode<T> {
+export interface DoublyLinkedListNode<T> {
   value: T
-  next?: LinkedListNode<T>
+  next?: DoublyLinkedListNode<T>
+  prev?: DoublyLinkedListNode<T>
 }
 
 /**
  * Linked list for items of type T
  */
 export class DoublyLinkedList<T> {
-  public head?: LinkedListNode<T> = undefined;
-  public tail?: LinkedListNode<T> = undefined;
+  public head?: DoublyLinkedListNode<T> = undefined;
+  public tail?: DoublyLinkedListNode<T> = undefined;
 
   /**
    * Adds an item in O(1)
