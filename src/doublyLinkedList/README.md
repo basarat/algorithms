@@ -6,7 +6,10 @@ Here we have a singly linked list node and a singly linked list.
 
 Lets say we wanted to add a last in first out `pop` operation.
 * It will return either the last value or undefined if we are out of elements
-* If we don't have a `tail` we can quit early, otherwise we simply wait.
+* We can only pop a value if we still have an active `tail`
+* We can grab the value that we want to return from the tail.
+* Next we have to do our routine maintaince of the `tail` and `head` nodes.
+* Now the new tail would be the second last item in the linked list. To find that we would need to start from the `head` till we arrive at a node whole `next` is the current `tail`. However such an implementation would be `O(n)` and we want an `O(1)` algorithm.
 
 ```js
 /**
