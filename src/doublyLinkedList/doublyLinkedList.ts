@@ -18,15 +18,17 @@ export class DoublyLinkedList<T> {
    * Adds an item in O(1)
    **/
   add(value: T) {
-    const node = {
+    const node: DoublyLinkedListNode<T> = {
       value,
-      next: undefined
+      next: undefined,
+      prev: undefined,
     }
     if (!this.head) {
       this.head = node;
     }
     if (this.tail) {
       this.tail.next = node;
+      node.prev = this.tail;
     }
     this.tail = node;
   }

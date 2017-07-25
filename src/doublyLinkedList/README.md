@@ -25,7 +25,46 @@ pop(): T | undefined {
 
 There is a data structure called a `doubly` linked list that would make figuring out the node `previous` to the tail trivial.
 
-```
+```js
 undefined <-> node { value, next, prev } <-> node { value, next, prev } <-> undefined
 ```
+
 Instead of just `value` and `next` we also keep track of any previous node, against each node. Of course, for the head `prev` will be `undefined` and for the `tail` the `next` will be `undefined`.
+
+Lets make this concrete and define a `DoublyLinkedListNode` as a generic interface that holds a value and potentially the next and prev nodes.
+
+```js
+/**
+ * Linked list node
+ */
+export interface DoublyLinkedListNode<T> {
+  value: T
+  next?: DoublyLinkedListNode<T>
+  prev?: DoublyLinkedListNode<T>
+}
+```
+
+Now on `add` we will create a `DoublyLinkedListNode<T>` of `T` with `next` and `prev` values. If this is the first node. We store it has the head. If we already have a tail, we not only update the `next` pointer for the `tail`, but we also update the `prev` pointer for this new node. Finally we store this new node as our new tail.
+
+```js
+add(value: T) {
+  const node: DoublyLinkedListNode<T> = {
+    value,
+    next: undefined,
+    prev: undefined,
+  }
+  if (!this.head) {
+    this.head = node;
+  }
+  if (this.tail) {
+    this.tail.next = node;
+    node.prev = this.tail;
+  }
+  this.tail = node;
+}
+```
+
+
+
+
+
