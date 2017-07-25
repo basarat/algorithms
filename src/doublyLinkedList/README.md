@@ -106,4 +106,4 @@ pop(): T | undefined {
 }
 ```
 
-To reiterate the main advantage of using a `DoublyLinkedList` is that any operations that require constant `next` and `prev` reference manipulations, can be implemented with `O(1)` time complexity.
+To reiterate the main advantage of using a `DoublyLinkedList` is that any operations that require constant `next` and `prev` reference manipulations, can be implemented with `O(1)` time complexity. Additionally as demonstrated storing `prev` pointers can make it easier to implement additional methods.
