@@ -73,16 +73,5 @@ Each lesson code is in a subfolder under [src](https://github.com/basarat/algori
 * [Video Lesson](https://egghead.io/lessons/typescript-implement-a-doubly-linked-list-in-typescript)
 * [Code](https://github.com/basarat/algorithms/tree/master/src/doublyLinkedList)
 
-# In Queue
-As I record more videos they get put in a publish queue. Once released I will move them up.
-
-* Fisher Yeats Shuffle
-* Graphs
-  * Graph representation (adjacency matrix vs. adjacency list)
-  * Depth First Search
-  * Breadth First Search
-  * Binary Search Tree
-* A hot cache of the 100 last requested items.
-
 [travis-image]:https://travis-ci.org/basarat/algorithms.svg?branch=master
 [travis-url]:https://travis-ci.org/basarat/algorithms
