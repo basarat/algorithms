@@ -78,7 +78,7 @@ As I record more videos they get put in a publish queue. Once released I will mo
 
 * Fisher Yeats Shuffle
 * Graphs
-  * Graph representation
+  * Graph representation (adjacency matrix vs. adjacency list)
   * Depth First Search
   * Breadth First Search
   * Binary Search Tree
