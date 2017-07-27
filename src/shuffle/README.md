@@ -32,11 +32,11 @@ It is very easy to do mathematical analysis of this algorithm and prove its corr
   * and once again all that we are left with after multiplication is `1 / n`
 * This process continues for all the remaining positions giving us a probablity for an item appearing in any position a very equal `1/n`
 ```
-[0] 1 / n
-[1] ( n-1 / n ) * ( 1    / n-1 ) => 1 / n
-[2] ( n-1 / n ) * ( n-2  / n-1 ) * ( 1 / n-2 ) => 1 / n
+[0] 1/n
+[1] (n-1)/n * 1/(n-1) => 1/n
+[2] (n-1)/n * (n-2)/(n-1) * 1/(n-2) => 1/n
 
-[x] 1 / n
+[x] 1/n
 ```
 
 Now lets implement this algorithm using TypeScript.
