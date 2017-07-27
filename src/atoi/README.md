@@ -39,7 +39,13 @@ console.log(atoi('-123.456')); // -123
 console.log(atoi('Does not start with a digit 123')); // NaN
 ```
 
-Note that `parseInt` siliently ignoring invalid trailing characters can be considered a problem. So a better implementation can easily be written with a simple regex test that only allows strings containing things that we support e.g. a leading sign followed by any number of decimal digits.
+Note that you can customize the behaviour of parseInt quite easily by wrapping it in a function.
+
+e.g. `parseInt` siliently ignoring invalid trailing characters can be considered a behavior you want to change.
+
+So you can easily implement a more fit for purpose function with a simple regex test that only allows strings containing things that we support e.g. a leading sign followed by any number of decimal digits.
+
+* And now the troubling cases return NaN's
 
 ```js
 /**
@@ -59,7 +65,7 @@ console.log(atoi('-123.456')); // NaN
 console.log(atoi('Does not start with a digit 123')); // NaN
 ```
 
-With practical JavaScript training out of the way, when this question is commonly asked the interviewer might specify that you are not allowed to use `parseInt` or the `Number` function. They essentially want to see if you can write a function that is similar to how `parseInt` would be implemented internally.
+With practical JavaScript training out of the way, when this question is commonly asked the interviewer might specify that you are not allowed to use `parseInt` any other built in number parsing functionality. They essentially want to see if you can write a function that is similar to how `parseInt` would be implemented internally.
 
 * First we note down the character point for '0'. This will allow us to convert each decimal digit from a string to its number value.
 * Next thing we need to do is parse out the sign. We can store this as sign multiplier.

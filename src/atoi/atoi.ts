@@ -1,5 +1,6 @@
 /**
  * Converts a string to a integer
+ * e.g. "123" => 123
  */
 export function atoi(str: string): number {
   const zeroCode = '0'.charCodeAt(0);
