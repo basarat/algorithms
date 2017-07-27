@@ -13,9 +13,10 @@ For "n" positions,
 `
 ```
 
-* Lets run through an example of the algorithm that we are going to implement.
+* Before we jump into code, lets run through an example of the algorithm that we are going to implement.
 * Lets say we have items `abcde`
-* The algorithm is simply pick a random item, put it in position 0, pick any of the *remaining* items and put them in position 1, pick any of the remaining items and put them in position 2 and so on.
+* The algorithm is simply going to pick a random item, put it in position 0,
+then, randomly pick any of the *remaining* items and put that in position 1, and then, randomly pick any of the remaining items and put that in position 2, and so on till we have shuffled all the items.
 
 ```js
 `
@@ -28,18 +29,18 @@ c b e a d
 `
 ```
 
-It is very easy to do mathematical analysis of this algorithm and prove its correctness.
+It is actually very easy to do mathematical analysis of this algorithm and prove its correctness.
 * Lets say we have `n` items to shuffle.
-* If we randomly pick an element and move it to position `0` it will imply that each item has an equal `1/n` probably of being in position `0`.
+* If we randomly pick an element and move it to position `0`, it will imply that each item has an equal `1/n` probability of being in position `0`.
 * Now the probability of any element making its way to position `1` is equal to
-  * It not making its way to the first position, which is `(n-1 / n)`, times, the probability of it making its way to position two, which is `1` over the remaining `n-1` positions.
+  * The probability of it not making its way to the first position, which is `(n-1 / n)`, times, the probability of it making its way to position two, which is `1` over the remaining `n-1` items.
   * The n-1's cancel out nicely giving us a probability of `1/n` for the item to appear in position 1
 * Similarly for position `2` the probability is
   * `n-1/n` for having skipped position 0
   * `n-2/n-1` for having skipped position 1
   * and `1/n-2` for having made it into position 2
   * and once again all that we are left with after multiplication is `1 / n`
-* This process continues for all the remaining positions giving us a uniform `1/n` probability for an item appearing in any given position.
+* This process continues for all the remaining positions giving us a uniform `1/n` probability for an item to appear in any given position.
 ```js
 `
 [0] 1/n
