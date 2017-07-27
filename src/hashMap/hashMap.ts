@@ -6,14 +6,14 @@ export class HashMap<Key extends number | string, Value>{
     [key: string]: Value
   } = Object.create(null);
 
-  /** Gets the value against the key (if any) */
-  get(key: Key): Value | undefined {
-    return this.data[key.toString()];
-  }
-
   /** Stores the value against the key */
   set(key: Key, value: Value) {
     this.data[key.toString()] = value;
+  }
+
+  /** Gets the value against the key (if any) */
+  get(key: Key): Value | undefined {
+    return this.data[key.toString()];
   }
 
   /** Removes the key/value pair */
