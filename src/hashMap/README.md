@@ -17,6 +17,7 @@ console.log(map.get('foo')); // {cost: 123}
 console.log(map.has('bar')); // true
 console.log(map.has('baz')); // false
 ```
+***Delete example***
 
 The great thing about the ES6 map is that it works with non `string` keys as well. It even respects object uniqueness e.g.
 * lets say we have two objects `a` and `b` which have the same structure.
@@ -93,6 +94,7 @@ console.log(map.has('bar')); // true
 console.log(map.has('baz')); // false
 ```
 You can see that it works as expected.
+***Delete example***
 
 There isn't much to this data structure. Its really all about being familiar with the assumed constant cost of Object access by a string index. The one thing that trips beginners quite commonly is that they will write `{}` instead of `Object.create(null)`
 
@@ -106,7 +108,9 @@ This is wrong because `{}` uses the object prototype, which has members like `to
 You can therefore give false positives for prototype methods like `toString`
 
 ```js
-const map = new HashMap<string, { cost: number }>();
 console.log(({}).toString === Object.prototype.toString); // true
+const map = new HashMap<string, { cost: number }>();
 console.log(map.has('toString')); // true
 ```
+
+The proper way to create a prototype free object is `Object.create(null)` which does not suffer from this problem.
