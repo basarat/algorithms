@@ -39,15 +39,27 @@ console.log(atoi('-123.456')); // -123
 console.log(atoi('Does not start with a digit 123')); // NaN
 ```
 
-Note that `parseInt` siliently ignoring invalid trailing characters can be considered a problem. So a better implementation
+Note that `parseInt` siliently ignoring invalid trailing characters can be considered a problem. So a better implementation can easily be written with a simple regex test that only allows strings containing things that we support e.g. a leading sign followed by any number of decimal digits.
 
 ```js
-function atoi(value) {
-  if (/^(\-|\+)?([0-9]+|Infinity)$/.test(value))
-    return Number(value);
+/**
+ * Converts a string to a integer
+ * e.g. "123" => 123
+ */
+export function atoi(str: string): number {
+  if (/^(\-|\+)?([0-9]+)$/.test(str))
+    return parseInt(str);
   return NaN;
 }
+
+console.log(atoi('123')); // 123
+console.log(atoi('-123')); // -123
+console.log(atoi('-123Extra')); // NaN
+console.log(atoi('-123.456')); // NaN
+console.log(atoi('Does not start with a digit 123')); // NaN
 ```
+
+Finally the interviewer might ask you to write a function that is essentially how `parseInt` would be implemented internally.
 
 Things that can go wrong:
 * A good one worth mentioning is that we are assuming that the string is a valid integer to begin with. To check against that we would check that the result of this difference should be in range `0-9`.
