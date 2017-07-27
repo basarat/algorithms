@@ -1,6 +1,6 @@
 import { randomInt } from '../random/random';
 
-export function fisherYatesShuffle<T>(array: T[]): T[] {
+export function shuffle<T>(array: T[]): T[] {
   // Clone array
   array = array.slice();
 
