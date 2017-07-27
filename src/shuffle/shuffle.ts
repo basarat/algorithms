@@ -1,5 +1,9 @@
 import { randomInt } from '../random/random';
 
+
+/**
+ * Returns a shuffled version of the input array
+ */
 export function shuffle<T>(array: T[]): T[] {
   // Clone array
   array = array.slice();

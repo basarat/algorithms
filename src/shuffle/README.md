@@ -1,9 +1,44 @@
 # Shuffle an array
 > Shuffling is a procedure used to randomize an array. The following is the key property of a good shuffle
 > The key property is that each item should have an equal probability to end up in any index.
-> In this lesson we discuss the concept behind the simple fisherYatesShuffle and implement it in JavaScript / TypeScript.
+> In this lesson we discuss the concept behind the simple modern fisher yates shuffle and implement it in JavaScript / TypeScript.
 
-The naive' implementation
+Shuffling is a common process used with randomizing the order for a deck of cards. The key property is that each item should have an equal probability to end up in any index => each item should have `1/n` probability for each index.
+
+```
+Item "a" appears at index "i" => 1/n
+```
+
+* Lets say we have items `abcde`
+* The algorithm is simply pick a random item, put it in position 0, pick any of the *remaining* items and put them in position 1, pick any of the remaining items and put them in position 2 and so on.
+```
+a b c d e
+c
+c b
+c b e
+c b e a
+c b e a d
+```
+It is very easy to do mathematical analysis of this algorithm and prove its correctness.
+* Lets say we have `n` items to shuffle.
+* If we randomly pick an element and move it to position `0` it will imply that each item has an equal `1/n` probably of being in position `0`.
+* Now the probability of any element making its way to position `1` is equal to
+  * It not making its way to the first position, which is `(n-1 / n)` times the probability of it making its way to position two, which is `1` over the remaining `n-1` items.
+  * The n-1's cancel out nicely giving us a probability of `1/n` for the item to appear in position 1
+* Similarly for position `2` the probability is
+  * `n-1/n` for having skipped position 0
+  * `n-2/n-1` for having skipped position 1
+  * and `1/n-2` for having made it into position 2
+  * and once again all that we are left with after multiplication is `1 / n`
+* This process continues for all the remaining positions giving us a probablity for an item appearing in any position a very equal `1/n`
+```
+[0] 1 / n
+[1] ( n-1 / n ) * ( 1    / n-1 ) => 1 / n
+[2] ( n-1 / n ) * ( n-2  / n-1 ) * ( 1 / n-2 ) => 1 / n
+
+[x] 1 / n
+```
 
 
-The key property is that each item should have an equal probability to end up in any index => each item should have `1/n` probability for each index.
+
+This is one of those questions where the correct answer is blindingly simple if you have done it before. What implemented here is called "the modern version of the `fisherYatesShuffle`". Since it only loops through the array once, it operates in `O(n)` time complexity also called linear time.
