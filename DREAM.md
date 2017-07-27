@@ -2,13 +2,13 @@
 As I record more videos they get put in a publish queue. Once released I will move them up.
 
 * Fisher Yeats Shuffle
+* Priority Queue
 * Graphs
   * Graph representation (adjacency matrix vs. adjacency list)
   * Depth First Search
   * Breadth First Search
   * Binary Search Tree
 * A hot cache of the 100 last requested items
-* Priority Queue
 * Create a dictionary:
   * Quite commonly beginners will simply {}. Don't do that because it has prototype methods e.g. "toString"
   * Lets implement `hasKey` and show and example where it will go horribly wrong.
