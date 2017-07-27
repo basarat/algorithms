@@ -2,17 +2,21 @@
  * Converts a string to a integer
  */
 export function atoi(str: string): number {
+  const zeroCode = '0'.charCodeAt(0);
+
   let sign = 1;
   if (str[0] === '-') {
     str = str.substring(1);
     sign = -1;
   }
 
-  const zeroCode = '0'.charCodeAt(0);
-
-  let result = 0;
+  let acc = 0;
   for (const char of str) {
-    result = result * 10 + (char.charCodeAt(0) - zeroCode);
+    acc = acc * 10 + (char.charCodeAt(0) - zeroCode);
   }
-  return sign * result;
+
+  return sign * acc;
 }
+
+console.log(atoi('123')); // 123
+console.log(atoi('-123')); // -123

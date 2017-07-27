@@ -61,31 +61,43 @@ console.log(atoi('Does not start with a digit 123')); // NaN
 
 With practical JavaScript training out of the way, when this question is commonly asked the interviewer might specify that you are not allowed to use `parseInt` or the `Number` function. They essentially want to see if you can write a function that is similar to how `parseInt` would be implemented internally.
 
-* First think you need to is parse out the sign
+* First we note down the character point for '0'. This will allow us to convert each decimal digit from a string to its number value.
+* Next thing we need to do is parse out the sign. We can store this as sign multiplier.
+* Next we create an accumulator for the integer result of parsing the digits
+* We go through the string left to right. At each point we update the accumultor as the sum of
+ - the current accumulator multiplied by 10
+ - and the number value of the current char, which we can get from its distance from the 0 code.
+* Finally we return the accumulator multipled by the sign.
+
+If we run through an example with valid inputs you can see that it works as expected.
 
 ```js
 /**
  * Converts a string to a integer
+ * e.g. "123" => 123
  */
 export function atoi(str: string): number {
+  const zeroCode = '0'.charCodeAt(0);
+
   let sign = 1;
   if (str[0] === '-') {
     str = str.substring(1);
     sign = -1;
   }
 
-  const zeroCode = '0'.charCodeAt(0);
-
-  let result = 0;
+  let acc = 0;
   for (const char of str) {
-    result = result * 10 + (char.charCodeAt(0) - zeroCode);
+    acc = acc * 10 + (char.charCodeAt(0) - zeroCode);
   }
-  return sign * result;
+
+  return sign * acc;
 }
 
 console.log(atoi('123')); // 123
 console.log(atoi('-123')); // -123
 ```
 
-Things that can go wrong:
-* A good one worth mentioning is that we are assuming that the string is a valid integer to begin with. To check against that we would check that the result of this difference should be in range `0-9`.
+What the interviewer is really checking here is your understanding of basic math and the fact that string digits represent code points that can be diffed to get their integer representation.
+
+The interviewer might additionally ask you about things that can go wrong:
+* A good one worth mentioning is that we are assuming that the string is a valid integer to begin with. They might then ask you to fix that issue, and you can simply check the result of this difference should be in range `0-9`.
