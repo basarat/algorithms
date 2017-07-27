@@ -33,7 +33,7 @@ It is actually very easy to do mathematical analysis of this algorithm and prove
 * Lets say we have `n` items to shuffle.
 * If we randomly pick an element and move it to position `0`, it will imply that each item has an equal `1/n` probability of being in position `0`.
 * Now the probability of any element making its way to position `1` is equal to
-  * The probability of it not making its way to the first position, which is `(n-1 / n)`, times, the probability of it making its way to position two, which is `1` over the remaining `n-1` items.
+  * The probability of it not making its way to the `0` position, which is `(n-1 / n)`, times, the probability of it making its way to position `1`, which is `1` over the remaining `n-1` items.
   * The n-1's cancel out nicely giving us a probability of `1/n` for the item to appear in position 1
 * Similarly for position `2` the probability is
   * `n-1/n` for having skipped position 0
@@ -52,10 +52,10 @@ It is actually very easy to do mathematical analysis of this algorithm and prove
 ```
 
 With mathematical analysis out of the way, lets discuss a bit of the pseudocode for algorithm.
-* We simply loop through the elements of the array
-* We start of with an empty shuffled portion and a full unshuffled portion
-* In each iteration `i` we simply a random item from the unshuffled portion into the `i`th position hence increasing the length of the shuffled portion.
-* We will eventually end up with a fully shuffled array.
+* We start of with our input array having an empty shuffled portion and a full unshuffled portion
+* We then loop through the elements of the array
+* In each iteration `i` we simply put random item from the unshuffled portion into the `i`th position hence increasing the length of the shuffled portion.
+* This way we eventually end up with a fully shuffled array.
 ```js
 `
 [] [unshuffled]
@@ -72,10 +72,10 @@ for i of [0 ... length-1]:
 Now lets implement this algorithm using TypeScript.
 * We bring in our `randomInt` function from a previous lesson.
 * We start by creating a generic function which takes an array of type `T` and returns an array of type `T`
-* We go ahead and make a copy of the array. Note that if we don't do this, we can even implement this algorithm in-place.
+* Within the function body, we go ahead and make a copy of the array. Note that if we don't do this, the algorithm can and will essentially operate in-place.
 * Next we simply loop through the input array,
 * In each iteration, we randomly pick an index from any of the remaining unshuffled items,
-* We then swap, putting the randomly chosen item into the array's `i`th position.
+* We then do a swap, putting the randomly chosen item into the array's `i`th position.
 * And finally we return this shuffled array.
 
 ```js
@@ -97,7 +97,7 @@ export function shuffle<T>(array: T[]): T[] {
 ```
 
 ***Select entire function***
-This is one of those questions where the correct answer is blindingly simple if you have done it before. What we implemented here is called "the modern version of the `fisherYatesShuffle`".
+Shuffling is one of those algorithms where the correct answer is blindingly simple if you have done it before. What we implemented here is called "the modern version of the `fisherYatesShuffle`".
 
 ***Select the for loop***
 Since it only loops through the array once, it operates in linear time i.e. has `O(n)` time complexity.

@@ -60,7 +60,12 @@ Each lesson code is in a subfolder under [src](https://github.com/basarat/algori
 * [Video Lesson](https://egghead.io/lessons/typescript-create-random-integers-in-a-given-range)
 * [Code](https://github.com/basarat/algorithms/tree/master/src/random)
 
-# Collection Data Structures
+# Fun algorithms
+## Shuffle
+* [Video Lesson](https://egghead.io/lessons/typescript-shuffle-an-array)
+* [Code](https://github.com/basarat/algorithms/tree/master/src/shuffle)
+
+# Data Structures
 ## Stack
 * [Video Lesson](https://egghead.io/lessons/typescript-stack-implementation-using-typescript)
 * [Code](https://github.com/basarat/algorithms/tree/master/src/stack)
