@@ -1,13 +1,15 @@
 # Shuffle an array
-> Shuffling is a procedure used to randomize an array. The following is the key property of a good shuffle
-> The key property is that each item should have an equal probability to end up in any index.
+> Shuffling is a common process used with randomizing the order for a deck of cards.
+The key property for a perfect shuffle is that each item should have an equal probability to end up in any given index.
 > In this lesson we discuss the concept behind the simple modern fisher yates shuffle and implement it in JavaScript / TypeScript.
 
-Shuffling is a common process used with randomizing the order for a deck of cards. The key property of a perfect shuffle is that each item should have an equal probability to end up in any index => each item should have `1/n` probability for each index.
+The key property of a perfect shuffle is that each item should have an equal probability to end up in any index i.e. for `n` positions, each item should have `1/n` probability for any given position.
 
 ```js
 `
-For "n" positions, probability of any item "a" appearing at any given index "i" => 1/n
+For "n" positions,
+  probability of any given item appearing at any given index
+=> 1/n
 `
 ```
 
@@ -92,6 +94,9 @@ export function shuffle<T>(array: T[]): T[] {
   return array;
 }
 ```
-***Select entire function***
 
-This is one of those questions where the correct answer is blindingly simple if you have done it before. What we implemented here is called "the modern version of the `fisherYatesShuffle`". Since it only loops through the array once, it operates in linear time i.e. has `O(n)` time complexity.
+***Select entire function***
+This is one of those questions where the correct answer is blindingly simple if you have done it before. What we implemented here is called "the modern version of the `fisherYatesShuffle`".
+
+***Select the for loop***
+Since it only loops through the array once, it operates in linear time i.e. has `O(n)` time complexity.
