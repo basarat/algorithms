@@ -27,6 +27,6 @@ export class HashMap<Key extends number | string, Value>{
    * - false if there is no value stored against the key
    **/
   has(key: Key): boolean {
-    return typeof this.data[key.toString()] === undefined;
+    return typeof this.data[key.toString()] !== 'undefined';
   }
 }
