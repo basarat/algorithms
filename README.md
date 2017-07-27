@@ -52,6 +52,10 @@ Each lesson code is in a subfolder under [src](https://github.com/basarat/algori
 * [Video Lesson](https://egghead.io/lessons/typescript-coding-interview-fizzbuzz-problem-and-its-solution)
 * [Code](https://github.com/basarat/algorithms/tree/master/src/fizzBuzz)
 
+## atoi
+* [Video Lesson](https://egghead.io/lessons/typescript-parse-a-string-to-an-integer)
+* [Code](https://github.com/basarat/algorithms/tree/master/src/atoi)
+
 ## Random
 * [Video Lesson](https://egghead.io/lessons/typescript-create-random-integers-in-a-given-range)
 * [Code](https://github.com/basarat/algorithms/tree/master/src/random)
