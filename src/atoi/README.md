@@ -1,5 +1,5 @@
-# Convert an ascii string to a integer
-> A common interview question is to write  a function that converts  a  string into an integer e.g. `"123"` => `123`.  This function is commonly called  atoi because  we  are converting  an ASCII string into an integer.
+# Parse a string to an integer
+> A common interview question is to write  a function that converts  a  string into an integer e.g. `"123"` => `123`.  This  function  is commonly  called  `atoi` because  we  are  converting  an  ASCII  string  into  an  integer.
 
 > In this lesson we cover the proper way to do this in JavaScript which is `parseInt` along with implementing it using basic ascii math.
 
