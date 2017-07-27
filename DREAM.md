@@ -3,6 +3,7 @@ As I record more videos they get put in a publish queue. Once released I will mo
 
 * Shuffle
 * HashMap
+* atoi e.g. `"12355"` => `12355`
 * Priority Queue
 * Graphs
   * Graph representation (adjacency matrix vs. adjacency list)
