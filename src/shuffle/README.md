@@ -39,6 +39,32 @@ It is very easy to do mathematical analysis of this algorithm and prove its corr
 [x] 1 / n
 ```
 
+Now lets implement this algorithm using TypeScript.
+* We bring in our randomInt function from a previous lesson.
+* We start by creating a generic function which takes an array of type `T` and returns an array of type `T`
+* We go ahead and make a copy of the array. Note that if we don't do this, we can even implement this algorith inplace.
+* Next we simply loop through the input array,
+* In each iteration, we randomly pick an index from any of the remaining unshuffled items,
+* We then swap, putting the randomly chosen item into the array's `i`th position.
+* And finally we return this shuffled array.
 
+```js
+import { randomInt } from '../random/random';
 
-This is one of those questions where the correct answer is blindingly simple if you have done it before. What implemented here is called "the modern version of the `fisherYatesShuffle`". Since it only loops through the array once, it operates in `O(n)` time complexity also called linear time.
+/**
+ * Returns a shuffled version of the input array
+ */
+export function shuffle<T>(array: T[]): T[] {
+  array = array.slice();
+
+  for (let i = 0; i < array.length; i++) {
+    const randomChoiceIndex = randomInt(i, array.length);
+    [array[i], array[randomChoiceIndex]] = [array[randomChoiceIndex], array[i]];
+  }
+
+  return array;
+}
+```
+***Select entire function***
+
+This is one of those questions where the correct answer is blindingly simple if you have done it before. What implemented here is called "the modern version of the `fisherYatesShuffle`". Since it only loops through the array once, it operates in linear time i.e. `O(n)` time complexity.
