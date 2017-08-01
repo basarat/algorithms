@@ -106,7 +106,7 @@ Beyond that the raison d'etre of the heap data structure is its O(logn) `insert`
 
 * To allow us to compare two items of type T we need a comparison function. This comparison function will follow the same semantics as offered by the built in JavaScript `sort` method.
 
-```
+```js
 /**
  * Example:
  * function compare(a, b) {
@@ -126,6 +126,32 @@ We start off by creating a generic class for a Heap for items of type T.
 * we create a backing data storage as an array for items of type T.
 * we have constructor that accepts a compareFn for items of type T.
 * we go ahead and write our `private` node traversal functions
+
+```js
+/**
+ * Implments the heap data structure
+ * A heap is used as a priority queue
+ * Note: The default compare behavior gives you a min heap
+ */
+export class Heap<T> {
+  private data: T[] = [];
+  constructor(private compareFn: CompareFn<T>) { }
+
+
+  private left(nodeIndex: number): number {
+    return (2 * nodeIndex) + 1;
+  }
+  private right(nodeIndex: number): number {
+    return (2 * nodeIndex) + 2;
+  }
+  private parent(nodeIndex: number): number {
+    return nodeIndex % 2 == 0
+      ? (nodeIndex - 2) / 2
+      : (nodeIndex - 1) / 2;
+  }
+}
+```
+
 * lets go ahead and add place holders for these `insert` and `extract` methods.
 
 
@@ -141,7 +167,7 @@ We start off by creating a generic class for a Heap for items of type T.
 * Lets add a `size` method, it is simply the length of the underlying array.
 * Another useful method to have is `peek` which instead of removing only looks at the value.
 
-```ts
+```js
   /**
    * Returns the number of elements in the heap in O(1)
    */
