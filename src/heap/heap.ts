@@ -20,4 +20,37 @@ export type CompareFn<T> = (a: T, b: T) => number
 export class Heap<T> {
   private data: T[] = [];
   constructor(private compareFn: CompareFn<T>) { }
+
+
+  private left(nodeIndex: number): number {
+    return (2 * nodeIndex) + 1;
+  }
+  private right(nodeIndex: number): number {
+    return (2 * nodeIndex) + 2;
+  }
+  private parent(nodeIndex: number): number {
+    return nodeIndex % 2 == 0
+      ? (nodeIndex - 2) / 2
+      : (nodeIndex - 1) / 2;
+  }
+
+
+  /**
+   * Returns the number of elements in the heap in O(1)
+   */
+  size() {
+    return this.data.length;
+  }
+
+  /**
+   * Retrieves but does not remove the root element of this heap in O(1)
+   * - Returns undefined if the heap is empty.
+   */
+  peek(): T | undefined {
+    if (this.data.length > 0) {
+      return this.data[0];
+    } else {
+      return undefined;
+    }
+  }
 }

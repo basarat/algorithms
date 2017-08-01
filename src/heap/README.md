@@ -106,10 +106,26 @@ Beyond that the raison d'etre of the heap data structure is its O(logn) `insert`
 
 * To allow us to compare two items of type T we need a comparison function. This comparison function will follow the same semantics as offered by the built in JavaScript `sort` method.
 
+```
+/**
+ * Example:
+ * function compare(a, b) {
+ *  if (a is less than b by some ordering criterion) {
+ *    return -1;
+ *  } else if (a is greater than b by the ordering criterion) {
+ *    return 1;
+ *  } else {
+ *    return 0;
+ *  }
+ * }
+ */
+export type CompareFn<T> = (a: T, b: T) => number
+```
 
 We start off by creating a generic class for a Heap for items of type T.
 * we create a backing data storage as an array for items of type T.
-
+* we have constructor that accepts a compareFn for items of type T.
+* we go ahead and write our `private` node traversal functions
 * lets go ahead and add place holders for these `insert` and `extract` methods.
 
 
@@ -122,9 +138,30 @@ We start off by creating a generic class for a Heap for items of type T.
 
 
 
-Lets add a `size` method, it is simply the length of the underlying array.
+* Lets add a `size` method, it is simply the length of the underlying array.
+* Another useful method to have is `peek` which instead of removing only looks at the value.
 
-Another useful method to have is `peek` which instead of removing only looks at the value.
+```ts
+  /**
+   * Returns the number of elements in the heap in O(1)
+   */
+  size() {
+    return this.data.length;
+  }
+
+  /**
+   * Retrieves but does not remove the root element of this heap in O(1)
+   * - Returns undefined if the heap is empty.
+   */
+  peek(): T | undefined {
+    if (this.data.length > 0) {
+      return this.data[0];
+    } else {
+      return undefined;
+    }
+  }
+```
+
 
 Worth mentioning is the fact that a heap can easily be changed into a `max` heap by simply changing the logic in the `comparison` function.
 
