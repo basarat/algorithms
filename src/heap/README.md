@@ -156,10 +156,9 @@ export class Heap<T> {
 
 => Will need us to add `siftUp`. Note that the only violation of the heap property at any point will be between this new node and its parent. We check and continue the sift. Max number of iterations will be logN.
 
-* The other key operation of the heap is the `extractRoot` method.
+* The other key operation of the heap is the `extractRoot` method. Now there is a hole. The bast way to really fill out this hole is to swap it with the last item. And then, like `add` fix the inconsitency by moving it down using a `siftDown` routine. At each point we sift down to the smaller of the two children, this ensures that the new child will be smallest in the current `parent,left,right` triangle.
 
-=> Will need us to add `siftDown`.
-
+Again the maximum amount of work will be equal to the depth of the tree which is of the order `logN`.
 
 
 
