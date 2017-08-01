@@ -50,7 +50,6 @@ Example Tree
     9     6
 ```
 
-
 Even though its nice to have a mental model of a heap as a `complete binary tree`, they are normally implemented as an array. An array provides very low memory overhead and the left and right nodes can be calculated quite easily.
 
 * Consider the simple array of indexes 0-13.
@@ -59,6 +58,10 @@ Even though its nice to have a mental model of a heap as a `complete binary tree
 * The key realization for the formula is that an item at index n will essentially have n spaces on its left and one more to arrive at its left node.
 * So we arrive at `2n+1`. Our examples are all satisfied by this equation.
 * The right is simply one plus the left, so its `2n+2`.
+
+* We can also traverse a parent at any point by simply going back from our `left` and `right` formulas.
+* From `2n+1` you can see that `left` must be an odd number and `2n+2`  means right must be an even number.
+* So at a given index if its even, we use parentRight formula otherwise we use the parentLeft formula.
 
 ```
 [] = 0,1,2,3,4,5,6,7,8,9,10,11,12,13
@@ -85,7 +88,19 @@ left(1) = 2(1) + 1 = 3
 left(3) = 2(3) + 1 = 7
 
 right(n) = 2n + 2
+
+parentLeft(n) = (n - 1) / 2
+parentRight(n) = (n - 2) / 2
+
+2n + 1 => left is odd
+2n + 2 => right is even
+
+parent(n) =>
+  n is even => (n - 2) / 2
+       else => (n - 1) / 2
 ```
+
+This useage of an array as the backing storage is one of the reasons why heaps are extremely popular i.e. there is no extra pointer overhead for object traversal, and furthermore, pointer traversal can be done with simple math, which can be done very efficiently with bit shifting tricks for powers of two.
 
 We start off by creating a generic class for a Heap for items of type T.
 Each data structure has its strenghts. The raison d'etre of the heap data structure is its O(logn) `insert` and `extract` operations.
