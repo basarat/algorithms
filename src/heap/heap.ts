@@ -10,7 +10,7 @@
  *  }
  * }
  */
-export type Compare<T> = (a: T, b: T) => number
+export type CompareFn<T> = (a: T, b: T) => number
 
 /**
  * Implments the heap data structure
@@ -19,7 +19,5 @@ export type Compare<T> = (a: T, b: T) => number
  */
 export class Heap<T> {
   private data: T[] = [];
-  constructor(private compare: Compare<T>) {
-
-  }
+  constructor(private compareFn: CompareFn<T>) { }
 }
