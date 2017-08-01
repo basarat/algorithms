@@ -59,6 +59,52 @@ export class Heap<T> {
   }
 
   /**
+   * Moves the node at the given index up to its proper place in the heap.
+   * @param {number} index The index of the node to move up.
+   */
+  private siftUp(index: number): void {
+    let parent = this.parent(index);
+    while (index > 0 && this.compareFn(this.data[parent], this.data[index]) > 0) {
+      [this.data[parent], this.data[index]] = [this.data[index], this.data[parent]];
+      index = parent;
+      parent = this.parent(index);
+    }
+  }
+
+  /**
+   * Moves the node at the given index down to its proper place in the heap.
+   * @param {number} nodeIndex The index of the node to move down.
+   */
+  private siftDown(nodeIndex: number): void {
+    // smaller child index
+    const minIndex = (left: number, right: number) => {
+      if (right >= this.data.length) {
+        if (left >= this.data.length) {
+          return -1;
+        } else {
+          return left;
+        }
+      } else {
+        if (this.compareFn(this.data[left], this.data[right]) <= 0) {
+          return left;
+        } else {
+          return right;
+        }
+      }
+    }
+
+    let min = minIndex(this.left(nodeIndex), this.right(nodeIndex));
+
+    while (min >= 0 && this.compareFn(this.data[nodeIndex],
+      this.data[min]) > 0) {
+      [this.data[min], this.data[nodeIndex]] = [this.data[nodeIndex], this.data[min]];
+      nodeIndex = min;
+      min = minIndex(this.left(nodeIndex),
+        this.right(nodeIndex));
+    }
+  }
+
+  /**
    * Returns the number of elements in the heap in O(1)
    */
   size() {
