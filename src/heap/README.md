@@ -152,7 +152,13 @@ export class Heap<T> {
 }
 ```
 
-* lets go ahead and add place holders for these `insert` and `extract` methods.
+* lets go ahead and add this `add` method.
+
+=> Will need us to add `siftUp`.
+
+* The other key operation of the heap is the `extractRoot` method.
+
+=> Will need us to add `siftDown`.
 
 
 
