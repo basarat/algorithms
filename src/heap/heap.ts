@@ -43,6 +43,19 @@ export class Heap<T> {
   }
 
   /**
+   * Moves the node at the given index up to its proper place in the heap.
+   * @param {number} index The index of the node to move up.
+   */
+  private siftUp(index: number): void {
+    let parent = this.parent(index);
+    while (index > 0 && this.compareFn(this.data[parent], this.data[index]) > 0) {
+      [this.data[parent], this.data[index]] = [this.data[index], this.data[parent]];
+      index = parent;
+      parent = this.parent(index);
+    }
+  }
+
+  /**
    * Retrieves and removes the root element of this heap in O(logn)
    * - Returns undefined if the heap is empty.
    */
@@ -55,19 +68,6 @@ export class Heap<T> {
         this.siftDown(0);
       }
       return obj;
-    }
-  }
-
-  /**
-   * Moves the node at the given index up to its proper place in the heap.
-   * @param {number} index The index of the node to move up.
-   */
-  private siftUp(index: number): void {
-    let parent = this.parent(index);
-    while (index > 0 && this.compareFn(this.data[parent], this.data[index]) > 0) {
-      [this.data[parent], this.data[index]] = [this.data[index], this.data[parent]];
-      index = parent;
-      parent = this.parent(index);
     }
   }
 
