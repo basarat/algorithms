@@ -10,6 +10,7 @@ The heap data structure is called a heap because it satisfies the heap property:
 * This tree would satisfy the heap property if `A` is less than its children `B` and `C` Similarly `B` is less than its children `D` and `E`.
 * Note that if the heap property is satified for direct children it is also automatically satisfied for any indirect children. e.g. A < D and A < E.
 * Essentially this implies that the *smallest* item in the tree, has to be the root node.
+* Also worth mentioning is the fact that since it is a complete binary tree, the maximum number of levels will be of the order `log n` where n is the number of items in the tree.
 
 ```
            A
