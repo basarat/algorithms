@@ -154,7 +154,7 @@ export class Heap<T> {
 
 * lets go ahead and add this `add` method.
 
-=> Will need us to add `siftUp`.
+=> Will need us to add `siftUp`. Note that the only violation of the heap property at any point will be between this new node and its parent. We check and continue the sift. Max number of iterations will be logN.
 
 * The other key operation of the heap is the `extractRoot` method.
 
