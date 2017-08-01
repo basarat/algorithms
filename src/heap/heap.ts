@@ -34,6 +34,29 @@ export class Heap<T> {
       : (nodeIndex - 1) / 2;
   }
 
+  /**
+   * Adds the given element into the heap in O(logn)
+   */
+  add(element: T) {
+    this.data.push(element);
+    this.siftUp(this.data.length - 1);
+  }
+
+  /**
+   * Retrieves and removes the root element of this heap in O(logn)
+   * - Returns undefined if the heap is empty.
+   */
+  extractRoot(): T | undefined {
+    if (this.data.length > 0) {
+      const obj = this.data[0];
+      this.data[0] = this.data[this.data.length - 1];
+      this.data.splice(this.data.length - 1, 1);
+      if (this.data.length > 0) {
+        this.siftDown(0);
+      }
+      return obj;
+    }
+  }
 
   /**
    * Returns the number of elements in the heap in O(1)

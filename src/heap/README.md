@@ -102,7 +102,7 @@ parent(n) =>
 
 This useage of an array as the backing storage is one of the reasons why heaps are extremely popular i.e. there is no extra pointer overhead for object traversal, and furthermore, pointer traversal can be done with simple math, which can be done very efficiently with bit shifting tricks for powers of two.
 
-Beyond that the raison d'etre of the heap data structure is its O(logn) `insert` and `extract` operations.
+Beyond that the raison d'etre of the heap data structure is its O(logn) `add` and `extractRoot` operations.
 
 * To allow us to compare two items of type T we need a comparison function. This comparison function will follow the same semantics as offered by the built in JavaScript `sort` method.
 
