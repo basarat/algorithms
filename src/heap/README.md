@@ -5,7 +5,7 @@
 
 The heap data structure is called a heap because it satisfies the heap property: if P is a parent node of C, then the key (the value) of node P is less than the key of node C.
 
-* Its nice to have a mental model of a heap as a `balanced binary tree`.
+* Its nice to have a mental model of a heap as a `complete binary tree`.
 * Here we have a graph of nodes `a,b,c,d,e`
 * This tree would satisfy the heap property if `A` is less than its children `B` and `C` Similarly `B` is less than its children `D` and `E`.
 * Note that if the heap property is satified for direct children it is also automatically satisfied for any indirect children. e.g. A < D and A < E.
@@ -27,7 +27,31 @@ A < D
 A < E
 ```
 
-Even though its nice to have a mental model of a heap as a `balanced binary tree`, they are normally implemented as an array. An array provides very low memory overhead and the left and right nodes can be calculated quite easily.
+Note that a given set of keys can be arranged in multiple ways to satisfy the heap property. E.g.
+
+* Given 4,4,5,6,9
+* we can have the following two trees, Both are perfectly valid.
+* The only position that is guaranteed to be the same is that the root node will be the item with the smallest key.
+```
+4,4,5,6,9
+
+Example Tree
+           4
+         ↙   ↘
+       5       4
+     ↙   ↘
+    6     9
+
+Example Tree
+           4
+         ↙   ↘
+       4       5
+     ↙   ↘
+    9     6
+```
+
+
+Even though its nice to have a mental model of a heap as a `complete binary tree`, they are normally implemented as an array. An array provides very low memory overhead and the left and right nodes can be calculated quite easily.
 
 * Consider the simple array of indexes 0-13.
 * It can be *conceptualized* as a tree with indexes corresponding to items of the array. When we are done with the left and right nodes at a level, we start a new level, and consider the indexes as the left and right of items of the previous level. We stop whenever we run out of items in the array.
