@@ -159,8 +159,34 @@ export class Heap<T> {
 ```
 
 * lets go ahead and add this `add` method.
+* We just go ahead and add the item to the end of the array,
+* As soon as we do that there may be a violation of the heap property between this new node and its parent. So we will go head and add a `siftUp` operation that makes sure that the given node is smaller than its parent.
+* At each level we check if the item at the given index is smaller than its parent. If so, we simply swap the item with its parent, and then check this new item against its parent.
+* Since we only traverse the depth of the tree the `siftUp` operation will be logN, and therfore our `add` operation is also logN.
 
-=> Will need us to add `siftUp`. Note that the only violation of the heap property at any point will be between this new node and its parent. We check and continue the sift. Max number of iterations will be logN.
+```js
+  /**
+   * Adds the given element into the heap in O(logn)
+   */
+  add(element: T) {
+    this.data.push(element);
+    this.siftUp(this.data.length - 1);
+  }
+
+  /**
+   * Moves the node at the given index up to its proper place in the heap.
+   * @param index The index of the node to move up.
+   */
+  private siftUp(index: number): void {
+    let parent = this.parent(index);
+    while (index > 0 && this.compareFn(this.data[parent], this.data[index]) > 0) {
+      [this.data[parent], this.data[index]] = [this.data[index], this.data[parent]];
+      index = parent;
+      parent = this.parent(index);
+    }
+  }
+```
+
 
 * The other key operation of the heap is the `extractRoot` method. Now there is a hole. The best way to really fill out this hole is to swap it with the last item. And then, like `add` fix the inconsistency by moving it down using a `siftDown` routine. At each point we sift down to the smaller of the two children, this ensures that the new child will be smallest in the current `parent,left,right` triangle.
 

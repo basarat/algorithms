@@ -44,7 +44,7 @@ export class Heap<T> {
 
   /**
    * Moves the node at the given index up to its proper place in the heap.
-   * @param {number} index The index of the node to move up.
+   * @param index The index of the node to move up.
    */
   private siftUp(index: number): void {
     let parent = this.parent(index);
@@ -73,7 +73,7 @@ export class Heap<T> {
 
   /**
    * Moves the node at the given index down to its proper place in the heap.
-   * @param {number} nodeIndex The index of the node to move down.
+   * @param nodeIndex The index of the node to move down.
    */
   private siftDown(nodeIndex: number): void {
     // smaller child index
