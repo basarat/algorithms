@@ -61,13 +61,13 @@ export class Heap<T> {
    */
   extractRoot(): T | undefined {
     if (this.data.length > 0) {
-      const obj = this.data[0];
-      this.data[0] = this.data[this.data.length - 1];
-      this.data.pop();
+      const root = this.data[0];
+      const last = this.data.pop();
       if (this.data.length > 0) {
+        this.data[0] = last;
         this.siftDown(0);
       }
-      return obj;
+      return root;
     }
   }
 
