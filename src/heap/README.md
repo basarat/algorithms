@@ -101,7 +101,7 @@ parent(n) =>
        else => (n - 1) / 2
 ```
 
-This useage of an array as the backing storage is one of the reasons why heaps are extremely popular i.e. there is no extra pointer overhead for object traversal, and furthermore, pointer traversal can be done with simple math, which can be done very efficiently with bit shifting tricks for powers of two.
+This usage of an array as the backing storage is one of the reasons why heaps are extremely popular i.e. there is no extra pointer overhead for object traversal, and furthermore, pointer traversal can be done with simple math, which can be done very efficiently with bit shifting tricks for powers of two.
 
 Beyond that the raison d'etre of the heap data structure is its O(logn) `add` and `extractRoot` operations.
 
@@ -157,7 +157,7 @@ export class Heap<T> {
 
 => Will need us to add `siftUp`. Note that the only violation of the heap property at any point will be between this new node and its parent. We check and continue the sift. Max number of iterations will be logN.
 
-* The other key operation of the heap is the `extractRoot` method. Now there is a hole. The bast way to really fill out this hole is to swap it with the last item. And then, like `add` fix the inconsitency by moving it down using a `siftDown` routine. At each point we sift down to the smaller of the two children, this ensures that the new child will be smallest in the current `parent,left,right` triangle.
+* The other key operation of the heap is the `extractRoot` method. Now there is a hole. The best way to really fill out this hole is to swap it with the last item. And then, like `add` fix the inconsistency by moving it down using a `siftDown` routine. At each point we sift down to the smaller of the two children, this ensures that the new child will be smallest in the current `parent,left,right` triangle.
 
 Again the maximum amount of work will be equal to the depth of the tree which is of the order `logN`.
 
@@ -197,6 +197,4 @@ Again the maximum amount of work will be equal to the depth of the tree which is
 
 Worth mentioning is the fact that a heap can easily be changed into a `max` heap by simply changing the logic in the `comparison` function.
 
-In future lessons we will see a few use cases where this O(logn) insertion and extract can greatly improve efficiency of simple programming challanges. Basically whenever you see an algorithm requiring repeated minimium (or maximum) computations, consider using a heap.
-
-
+There are quite a few use cases where this O(logn) insertion and extract can greatly improve efficiency of simple programming challenges. Basically whenever you see an algorithm requiring repeated minimum (or maximum) computations, consider using a heap.
