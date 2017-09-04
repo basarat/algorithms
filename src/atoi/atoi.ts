@@ -18,6 +18,3 @@ export function atoi(str: string): number {
 
   return sign * acc;
 }
-
-console.log(atoi('123')); // 123
-console.log(atoi('-123')); // -123
