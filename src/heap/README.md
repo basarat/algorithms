@@ -162,7 +162,7 @@ export class Heap<T> {
 * We just go ahead and add the item to the end of the array,
 * As soon as we do that there may be a violation of the heap property between this new node and its parent. So we will go head and add a `siftUp` operation that makes sure that the given node is smaller than its parent.
 * At each level we check if the item at the given index is smaller than its parent. If so, we simply swap the item with its parent, and then check this new item against its parent.
-* Since we only traverse the depth of the tree the `siftUp` operation will be logN, and therfore our `add` operation is also logN.
+* Since we only traverse the depth of the tree the `siftUp` operation will be logN, and therefore our `add` operation is also logN.
 
 ```js
   /**
