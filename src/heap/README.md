@@ -282,6 +282,23 @@ export class Heap<T> {
   }
 ```
 
+* Now lets look at an example,
+* we create a heap of numbers
+* Add a few numbers in,
+* We would expect the size to be 3 at this point.
+* And we can extract the root,
+  * At each point the extracted value is the minimum among the values still left in the heap.
+```js
+const heap = new Heap<number>((a, b) => a - b);
+heap.add(1);
+heap.add(3);
+heap.add(2);
+console.log(heap.size()); // 3
+
+console.log(heap.extractRoot()); // 1
+console.log(heap.extractRoot()); // 2
+console.log(heap.extractRoot()); // 3
+```
 
 Worth mentioning is the fact that a heap can easily be changed into a `max` heap by simply changing the logic in the `comparison` function.
 
