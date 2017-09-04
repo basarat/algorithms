@@ -63,7 +63,7 @@ export class Heap<T> {
     if (this.data.length > 0) {
       const obj = this.data[0];
       this.data[0] = this.data[this.data.length - 1];
-      this.data.splice(this.data.length - 1, 1);
+      this.data.pop();
       if (this.data.length > 0) {
         this.siftDown(0);
       }

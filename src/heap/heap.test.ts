@@ -30,4 +30,5 @@ test('basic', () => {
   expect(heap.extractRoot()).toBe(5);
   expect(heap.extractRoot()).toBe(6);
   expect(heap.extractRoot()).toBe(9);
+  expect(heap.extractRoot()).toBe(undefined);
 });
