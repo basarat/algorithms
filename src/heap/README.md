@@ -300,6 +300,9 @@ console.log(heap.extractRoot()); // 2
 console.log(heap.extractRoot()); // 3
 ```
 
-Worth mentioning is the fact that a heap can easily be changed into a `max` heap by simply changing the logic in the `comparison` function.
+Worth mentioning is the fact that a heap can easily be changed into a `max` heap by simply changing the order of the arguments in the `comparison` function just like we did for the sort routines.
+```js
+const maxHeap = new Heap<number>((b, a) => a - b);
+```
 
 There are quite a few use cases where this O(logn) insertion and extract can greatly improve efficiency of simple programming challenges. Basically whenever you see an algorithm requiring repeated minimum (or maximum) computations, consider using a heap.
