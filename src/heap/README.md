@@ -51,18 +51,10 @@ Example Tree
     9     6
 ```
 
-Even though its nice to have a mental model of a heap as a `complete binary tree`, they are normally implemented as an array. An array provides very low memory overhead and the left and right nodes can be calculated quite easily.
+Even though its nice to have a mental model of a heap as a `complete binary tree`, they are normally implemented as an array. An array provides very low memory overhead and the left and right child nodes can be calculated quite easily.
 
 * Consider the simple array of indexes 0-13.
-* It can be *conceptualized* as a tree with indexes corresponding to items of the array. When we are done with the left and right nodes at a level, we start a new level, and consider the indexes as the left and right of items of the previous level. We stop whenever we run out of items in the array.
-* Given a node at index `n` lets, try and figure out a formula to find the index for its left child node. Always good to right down a few examples we can use to test our forumula.
-* The key realization for the formula is that an item at index n will essentially have n spaces on its left and one more to arrive at its left node.
-* So we arrive at `2n+1`. Our examples are all satisfied by this equation.
-* The right is simply one plus the left, so its `2n+2`.
-
-* We can also traverse a parent at any point by simply going back from our `left` and `right` formulas.
-* From `2n+1` you can see that `left` must be an odd number and `2n+2`  means right must be an even number.
-* So at a given index if its even, we use parentRight formula otherwise we use the parentLeft formula.
+* It can be *conceptualized* as a tree with indexes corresponding to items of the array. When we are done with the left and right nodes at a level, we start a new level, and consider these indexes as the left and right of items of the previous level. We stop whenever we run out of items in the array.
 
 ```
 [] = 0,1,2,3,4,5,6,7,8,9,10,11,12,13
@@ -75,7 +67,17 @@ Even though its nice to have a mental model of a heap as a `complete binary tree
    3       4        5       6
  ↙  ↘    ↙  ↘    ↙  ↘    ↙
 7    8   9   10  11  12  13
+```
 
+Given a node at index `n` lets, try and figure out a formula to find the index for its left child node. Always good to right down a few examples we can use to test our formula.
+* The key realization for the formula is that an item at index `n` will essentially have `n` spaces on its left and one more to arrive at its left node.
+* So we arrive at `2n+1`. Our examples are all satisfied by this equation.
+* The right is simply one plus the left, so its `2n+2`.
+* We can also traverse a parent at any point by simply going back from our `left` and `right` formulas.
+* From `2n+1` you can see that `left` must be an odd number and `2n+2`  means right must be an even number.
+* So at a given index if its even, we use parentRight formula otherwise we use the parentLeft formula.
+
+```
 left(0) = 1
 left(1) = 3
 left(3) = 7
@@ -127,6 +129,9 @@ We start off by creating a generic class for a Heap for items of type T.
 * we create a backing data storage as an array for items of type T.
 * we have constructor that accepts a compareFn for items of type T.
 * we go ahead and write our `private` node traversal functions
+  * One for the left child node.
+  * One for the right child node.
+  * and finally a traversal to the parent from a given node index.
 
 ```js
 /**
