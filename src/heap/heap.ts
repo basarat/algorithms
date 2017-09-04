@@ -76,7 +76,7 @@ export class Heap<T> {
    * @param nodeIndex The index of the node to move down.
    */
   private siftDown(nodeIndex: number): void {
-    // smaller child index
+    /** @returns the index containing the smaller value */
     const minIndex = (left: number, right: number) => {
       if (right >= this.data.length) {
         if (left >= this.data.length) {
@@ -95,8 +95,10 @@ export class Heap<T> {
 
     let min = minIndex(this.left(nodeIndex), this.right(nodeIndex));
 
-    while (min >= 0 && this.compareFn(this.data[nodeIndex],
-      this.data[min]) > 0) {
+    while (
+      min >= 0
+      && this.compareFn(this.data[nodeIndex], this.data[min]) > 0
+    ) {
       [this.data[min], this.data[nodeIndex]] = [this.data[nodeIndex], this.data[min]];
       nodeIndex = min;
       min = minIndex(this.left(nodeIndex),

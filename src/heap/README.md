@@ -187,22 +187,79 @@ export class Heap<T> {
   }
 ```
 
+* The other key operation of the heap is the `extractRoot` method.
+* Of course we can only remove an item if there are any items.
+* The root we want to return is going to be the first item in the array.
+* If we remove this item there will be a hole at the head of the internal array. The best way to really fill out this hole is to fill it with the last item in the array.
+* Now only if the array still contains any items, we move this last item to the head of the array.
+* Then, like `add`, we might have an inconsistency that the new root might be larger than one of its children. We fix the inconsistency by moving it down using a `siftDown` routine.
 
-* The other key operation of the heap is the `extractRoot` method. Now there is a hole. The best way to really fill out this hole is to swap it with the last item. And then, like `add` fix the inconsistency by moving it down using a `siftDown` routine. At each point we sift down to the smaller of the two children, this ensures that the new child will be smallest in the current `parent,left,right` triangle.
+* We will use a utility `minIndex` method which simply returns the index that contains the smaller value.
+* If the right child index is out of range,
+  * we check if the left child index is still in range,
+    * if not we return `-1` to signal that we have reached the leaves of the tree,
+    * otherwise we return the left child index.
+  * else If the right child index is still in range, we simply compare the left and right child values and return the index with the smaller value.
+* Now in the main content of the siftDown function, at each point we sift down to the smaller of the two children
+* this ensures that the new child will be smallest in the current `parent,left,right` triangle.
+* Again the maximum amount of work will be equal to the depth of the tree which is of the order `logN`.
 
-Again the maximum amount of work will be equal to the depth of the tree which is of the order `logN`.
+```js
+  /**
+   * Retrieves and removes the root element of this heap in O(logn)
+   * - Returns undefined if the heap is empty.
+   */
+  extractRoot(): T | undefined {
+    if (this.data.length > 0) {
+      const root = this.data[0];
+      const last = this.data.pop();
+      if (this.data.length > 0) {
+        this.data[0] = last;
+        this.siftDown(0);
+      }
+      return root;
+    }
+  }
+
+  /**
+   * Moves the node at the given index down to its proper place in the heap.
+   * @param nodeIndex The index of the node to move down.
+   */
+  private siftDown(nodeIndex: number): void {
+    /** @returns the index containing the smaller value */
+    const minIndex = (left: number, right: number) => {
+      if (right >= this.data.length) {
+        if (left >= this.data.length) {
+          return -1;
+        } else {
+          return left;
+        }
+      } else {
+        if (this.compareFn(this.data[left], this.data[right]) <= 0) {
+          return left;
+        } else {
+          return right;
+        }
+      }
+    }
+
+    let min = minIndex(this.left(nodeIndex), this.right(nodeIndex));
+
+    while (
+      min >= 0
+      && this.compareFn(this.data[nodeIndex], this.data[min]) > 0
+    ) {
+      [this.data[min], this.data[nodeIndex]] = [this.data[nodeIndex], this.data[min]];
+      nodeIndex = min;
+      min = minIndex(this.left(nodeIndex),
+        this.right(nodeIndex));
+    }
+  }
+```
 
 
-
-
-
-
-
-
-
-
-* Lets add a `size` method, it is simply the length of the underlying array.
-* Another useful method to have is `peek` which instead of removing only looks at the value.
+* As a final exercise we can add a `size` method, it is simply the length of the underlying array.
+* Another useful method to have is `peek` which instead of removing the root, only looks at the value.
 
 ```js
   /**
