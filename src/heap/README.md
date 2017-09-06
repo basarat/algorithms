@@ -6,11 +6,11 @@
 The heap data structure is called a heap because it satisfies the heap property: if P is a parent node of C, then the value of node P is less than the value of node C.
 
 * Its nice to have a mental model of a heap as a `complete binary tree`.
-* Here we have a graph of nodes `a,b,c,d,e`
+* Here we have a graph of nodes `A,B,C,D,E`
 * This tree would satisfy the heap property if `A` is less than its children `B` and `C` Similarly `B` is less than its children `D` and `E`.
-* Note that if the heap property is satified for direct children it is also automatically satisfied for any indirect children. e.g. A < D and A < E.
+* Note that if the heap property is satisfied for direct children, it is also automatically satisfied for any indirect children. e.g. A < D and A < E.
 * Essentially this implies that the *smallest* item in the tree, has to be the root node.
-* Also worth mentioning is the fact that since it is a complete binary tree, the maximum number of levels will be of the order `log n` where n is the number of items in the tree.
+* ***(Select the tree)*** Also worth mentioning is the fact that since it is a complete binary tree, the maximum number of levels will be of the order `log n` where n is the number of items in the tree.
 
 ```
            A
@@ -31,7 +31,8 @@ A < E
 Note that a given set of values can be arranged in multiple ways to satisfy the heap property. E.g.
 
 * Given 4,4,5,6,9
-* we can have the following two trees, Both are perfectly valid.
+* We can have the following two trees,
+* Both are perfectly valid as each node is smaller than all its children.
 * The only position that is guaranteed to be the same is that the root node will be the item with the smallest value.
 ```
 4,4,5,6,9
@@ -69,19 +70,21 @@ Even though its nice to have a mental model of a heap as a `complete binary tree
 7    8   9   10  11  12  13
 ```
 
-Given a node at index `n` lets, try and figure out a formula to find the index for its left child node. Always good to right down a few examples we can use to test our formula.
-* The key realization for the formula is that an item at index `n` will essentially have `n` spaces on its left and one more to arrive at its left node.
+Given a node at index `n` lets, try and figure out a formula to find the index for its left child node. As always, its a great idea to right down a few examples so we can use to test our formula.
+```
+left(0) = 1
+left(1) = 3
+left(3) = 7
+```
+* The key realization for the formula is that for an item at index `n`, will essentially have to skip `n` spaces on its left, and one more to arrive at its left node.
 * So we arrive at `2n+1`. Our examples are all satisfied by this equation.
 * The right is simply one plus the left, so its `2n+2`.
+* Not only can we traverse the children this way by simple math, we can also traverse the parent of a given index.
 * We can also traverse a parent at any point by simply going back from our `left` and `right` formulas.
 * From `2n+1` you can see that `left` must be an odd number and `2n+2`  means right must be an even number.
 * So at a given index if its even, we use parentRight formula otherwise we use the parentLeft formula.
 
 ```
-left(0) = 1
-left(1) = 3
-left(3) = 7
-
     n -> n items on the right
   + 1
 
@@ -103,11 +106,14 @@ parent(n) =>
        else => (n - 1) / 2
 ```
 
-This usage of an array as the backing storage is one of the reasons why heaps are extremely popular i.e. there is no extra pointer overhead for object traversal, and furthermore, pointer traversal can be done with simple math, which can be done very efficiently with bit shifting tricks for powers of two.
+***Select the line with the array***
+This usage of an array as the backing storage is one of the reasons why heaps are extremely popular i.e. there are no extra pointer overhead for object traversal, and furthermore, pointer traversal can be done with simple math, which can be done very efficiently with bit shifting tricks for powers of two.
 
 Beyond that the raison d'etre of the heap data structure is its O(logn) `add` and `extractRoot` operations.
 
-* To allow us to compare two items of type T we need a comparison function. This comparison function will follow the same semantics as offered by the built in JavaScript `sort` method.
+We now have enough context to jump into its implementation.
+
+* To allow us to compare two items of type T we need a compare function. This compare function will follow the same semantics as offered by the built in JavaScript `sort` method.
 
 ```js
 /**
@@ -127,7 +133,7 @@ export type CompareFn<T> = (a: T, b: T) => number
 
 We start off by creating a generic class for a Heap for items of type T.
 * we create a backing data storage as an array for items of type T.
-* we have constructor that accepts a compareFn for items of type T.
+* we have a constructor that accepts a compareFn for items of type T.
 * we go ahead and write our `private` node traversal functions
   * One for the left child node.
   * One for the right child node.
@@ -135,7 +141,7 @@ We start off by creating a generic class for a Heap for items of type T.
 
 ```js
 /**
- * Implments the heap data structure
+ * Implements the heap data structure
  * A heap is used as a priority queue
  * Note: The default compare behavior gives you a min heap
  */
@@ -160,8 +166,9 @@ export class Heap<T> {
 
 * lets go ahead and add this `add` method.
 * We just go ahead and add the item to the end of the array,
-* As soon as we do that there may be a violation of the heap property between this new node and its parent. So we will go head and add a `siftUp` operation that makes sure that the given node is smaller than its parent.
+* As soon as we do that there may be a violation of the heap property between this new node and its parent. So we will go head and add a `siftUp` operation that makes sure that the smallest node rises to the top of the heap.
 * At each level we check if the item at the given index is smaller than its parent. If so, we simply swap the item with its parent, and then check this new item against its parent.
+* ***Select the add method comment***
 * Since we only traverse the depth of the tree the `siftUp` operation will be logN, and therefore our `add` operation is also logN.
 
 ```js
@@ -192,16 +199,19 @@ export class Heap<T> {
 * The root we want to return is going to be the first item in the array.
 * If we remove this item there will be a hole at the head of the internal array. The best way to really fill out this hole is to fill it with the last item in the array.
 * Now only if the array still contains any items, we move this last item to the head of the array.
-* Then, like `add`, we might have an inconsistency that the new root might be larger than one of its children. We fix the inconsistency by moving it down using a `siftDown` routine.
-
-* We will use a utility `minIndex` method which simply returns the index that contains the smaller value.
+* Then, like `add`, we might have an inconsistency that the new root, which we blindly fetched from the end of the array, might be larger than one of its children.
+* We fix the inconsistency by moving it down using a `siftDown` routine.
+* Finally we return the root.
+* Now lets create this siftDown routine. The main objective is to move the biggest value of a triangle `parent, left, right` down to remove a heap violation.
+* We will use a utility `minIndex` method which simply returns the index that contains the smaller value among a given `left, right`.
 * If the right child index is out of range,
   * we check if the left child index is still in range,
     * if not we return `-1` to signal that we have reached the leaves of the tree,
     * otherwise we return the left child index.
   * else If the right child index is still in range, we simply compare the left and right child values and return the index with the smaller value.
-* Now in the main content of the siftDown function, at each point we sift down to the smaller of the two children
+* Now in the main content of the siftDown function, at each point we sift down the current node to the smaller of the two children
 * this ensures that the new child will be smallest in the current `parent,left,right` triangle.
+* We simply continue till the heap violation is removed.
 * Again the maximum amount of work will be equal to the depth of the tree which is of the order `logN`.
 
 ```js

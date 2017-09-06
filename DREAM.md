@@ -35,6 +35,9 @@ comparator(a,b) ? -1
 ? 0
 ```
 
+## Heapsort
+Simply use a heap.
+
 ## More on Heaps
 How would you keep a running minimum efficiently, in the presence of
 * new nodes being inserted.
@@ -115,4 +118,3 @@ Now run `inverse(inverse)`
 Therefore the only logical conclusion is that we have made a wrong assumption, the only assumption we have made is that `willItTerminate` is a function that exists. And therefore this assumption is wrong and a function like `willItTerminate` cannot exist.
 
 Such problems are called *undecidable* and `will a program halt or not` is just the most famous one.
-

@@ -13,7 +13,7 @@
 export type CompareFn<T> = (a: T, b: T) => number
 
 /**
- * Implments the heap data structure
+ * Implements the heap data structure
  * A heap is used as a priority queue
  * Note: The default compare behavior gives you a min heap
  */
