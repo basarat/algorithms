@@ -3,7 +3,7 @@
 
 > In this lesson we discuss the key operations of the Heap data stucture along with their performance. We then implement the data stucture using TypeScript / JavaScript.
 
-The heap data structure is called a heap because it satisfies the heap property: if P is a parent node of C, then the key (the value) of node P is less than the key of node C.
+The heap data structure is called a heap because it satisfies the heap property: if P is a parent node of C, then the value of node P is less than the value of node C.
 
 * Its nice to have a mental model of a heap as a `complete binary tree`.
 * Here we have a graph of nodes `a,b,c,d,e`
@@ -28,11 +28,11 @@ A < D
 A < E
 ```
 
-Note that a given set of keys can be arranged in multiple ways to satisfy the heap property. E.g.
+Note that a given set of values can be arranged in multiple ways to satisfy the heap property. E.g.
 
 * Given 4,4,5,6,9
 * we can have the following two trees, Both are perfectly valid.
-* The only position that is guaranteed to be the same is that the root node will be the item with the smallest key.
+* The only position that is guaranteed to be the same is that the root node will be the item with the smallest value.
 ```
 4,4,5,6,9
 
