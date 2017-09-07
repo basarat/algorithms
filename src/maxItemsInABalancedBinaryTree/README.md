@@ -37,11 +37,11 @@ We could use the formula for a diverging geometric series. However it is not tha
 * And really level +1 has a nice name called the "height" of the tree.
 
 ```
-Height of tree  |  Level  |  Items in level        |    Total 
-     1               0             1  (+1 lie)             2                   
-     2               1             2                       4 
-     3               2             4                       8 
-     4               3             8                      16     
+Height of tree  |  Level  |  Items in level      |    Total 
+     1               0             1  (+1 lie)          2                   
+     2               1             2                    4 
+     3               2             4                    8 
+     4               3             8                   16     
 
 
 2*(2^level) - 1
