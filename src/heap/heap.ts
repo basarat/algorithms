@@ -21,7 +21,6 @@ export class Heap<T> {
   private data: T[] = [];
   constructor(private compareFn: CompareFn<T>) { }
 
-
   private left(nodeIndex: number): number {
     return (2 * nodeIndex) + 1;
   }
