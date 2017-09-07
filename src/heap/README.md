@@ -1,9 +1,9 @@
-# Heap data structure
+# Implement the heap data structure using JavaScript
 > Heap is a data structure that can fundamentally change the performance of fairly common algorithms in Computer Science.
 
 > The heap data structure is called a heap because it satisfies the heap property. The heap property states, that if P is a parent node of C, then the value of node P is less than the value of node C.
 
-> In this lesson we discuss the key operations of the Heap data stucture along with their performance. We then implement the data stucture using TypeScript / JavaScript.
+> In this lesson we discuss the key operations of the Heap data structure along with their performance. We then implement the data structure using TypeScript / JavaScript.
 
 * Here we have a graph of nodes `A,B,C,D,E`
 * Its nice to have a mental model of a heap as a `complete binary tree`.
