@@ -11,21 +11,7 @@ As I record more videos they get put in a publish queue. Once released I will mo
 * A hot cache of the 100 last requested items
 
 # Max items in a completely balanced binary tree
-It is (2^h - 1). The items in each level are.
-
-```
-1 (2 ^ 0)
-2 (2 ^ 1)
-4 (2 ^ 2)
-...
-
-2 + 2^1 + 2^2 + 2^3 ....
-=>
-```
-
-The formula for a diverging geometric series is TODO
-
-Maximum depth is `O(logn)`
+WIP
 
 # Sort using a single operator `>` (instead of `> & = & <`)
 Solution. A `comparator` gives us the follwing `compare` function:
