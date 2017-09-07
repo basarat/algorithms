@@ -82,5 +82,11 @@ Each lesson code is in a subfolder under [src](https://github.com/basarat/algori
 * [Video Lesson](https://egghead.io/lessons/typescript-implement-a-doubly-linked-list-in-typescript)
 * [Code](https://github.com/basarat/algorithms/tree/master/src/doublyLinkedList)
 
+## Heap
+* [Video Lesson](https://egghead.io/lessons/typescript-implement-heap-data-structure-using-javascript)
+* [Code](https://github.com/basarat/algorithms/tree/master/src/heap)
+
+
+
 [travis-image]:https://travis-ci.org/basarat/algorithms.svg?branch=master
 [travis-url]:https://travis-ci.org/basarat/algorithms
