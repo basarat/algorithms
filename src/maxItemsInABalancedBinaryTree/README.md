@@ -61,3 +61,5 @@ n = 2^h - 1
 h = log2(n - 1)
 h => O(log n)
 ```
+
+You should really have this at the tip of your tongue. We use this, height is O(log n) fact, when analysing algorithms that depend on the height of the tree e.g. methods of the heap data structure and binary search trees. 
