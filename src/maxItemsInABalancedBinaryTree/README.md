@@ -51,4 +51,13 @@ Height of tree  |  Level  |  Items in level      |    Total
 
 TODO : code it up. 
 
-Maximum depth is `O(logn)`
+
+* Maximum depth is `O(logn)`
+
+```
+max items in height (h) = 2^h - 1
+n = 2^h - 1
+2^h = (n - 1)
+h = log2(n - 1)
+h => O(log n)
+```
