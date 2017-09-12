@@ -9,5 +9,5 @@ export function maxItems(height: number) {
  * Returns the max height of a balanced binary tree given n items
  */
 export function maxHeight(items: number) {
-  return Math.log2(items - 1);
+  return Math.log2(items + 1);
 }
