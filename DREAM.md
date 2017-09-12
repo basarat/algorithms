@@ -104,3 +104,12 @@ Now run `inverse(inverse)`
 Therefore the only logical conclusion is that we have made a wrong assumption, the only assumption we have made is that `willItTerminate` is a function that exists. And therefore this assumption is wrong and a function like `willItTerminate` cannot exist.
 
 Such problems are called *undecidable* and `will a program halt or not` is just the most famous one.
+
+
+### Powers of 2
+```js
+console.log(2 ** 10); // ≈ 1000
+console.log(Math.log2(1000)); // ≈ 10
+console.log(Math.log2(1000000)); // ≈ 20
+console.log(Math.log2(1000000000)); // ≈ 30
+```
