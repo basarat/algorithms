@@ -1,4 +1,4 @@
-import { maxHeight, maxItems } from './maxItemsInABalancedBinaryTree';
+import { maxHeight, maxItems } from './binaryTreeDimenions';
 
 test('balancedBinaryTree', () => {
   const height = 100;
