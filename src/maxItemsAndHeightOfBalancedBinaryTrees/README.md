@@ -56,7 +56,7 @@ Height of tree  |  Level  |  Items in level      |    Total
 /**
  * Returns the max items that can exist in a perfectly balanced binary tree
  */
-export function maxItemsInABalancedBinaryTree(height: number) {
+export function maxItems(height: number) {
   return 2 ** height - 1;
 }
 
@@ -71,19 +71,20 @@ max items in height (h) = 2^h - 1
 n = 2^h - 1
 2^h = (n - 1)
 h = log2(n - 1)
-h => O(log n)
 ```
-* Lets code it up
+* Coding it up is just as easy as coding up the max items function.
+* We take the number of items
+* And return the value as determined by our derived formula.
 
 ```js
 /**
  * Returns the max height of a balanced binary tree given n items
  */
-export function maxHeightOfABalancedBinaryTree(items: number) {
+export function maxHeight(items: number) {
   return Math.log2(items - 1);
 }
 ```
-
-* So Maximum depth is `O(logn)`
+***Select the result***
+* The key take away here is really that the height is logrithmic against the number of items `n` in a tree.
 
 We use this, height is O(log n) fact, when analysing algorithms that depend on the height of the tree e.g. methods of the heap data structure and binary search trees.
