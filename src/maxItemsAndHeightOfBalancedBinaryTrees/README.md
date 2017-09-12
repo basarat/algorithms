@@ -1,4 +1,4 @@
-# Max items in a completely balanced binary tree
+# Max items and max height of a completely balanced binary tree
 > A balanced binary tree is something that is used very commonly in analysis of computer science algorithms. In this lesson we cover how to determine the Maximum number of items it can accomodate.
 
 > We follow this with a discussion on the maximum depth of a binary tree.
