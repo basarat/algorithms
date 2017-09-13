@@ -76,11 +76,13 @@ Similary another key fact that should be at the tip of the tongue for algorithm 
 * Swap over the - 1 to the other side
 * and get `h` by taking log2 on both sides.
 
-```
+```js
+`
 max items in height (h) = 2^h - 1
 n = 2^h - 1
 2^h = (n + 1)
 h = log2(n + 1)
+`
 ```
 * Coding it up is just as easy as coding up the max items function.
 * We take the number of items
