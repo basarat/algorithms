@@ -82,6 +82,11 @@ Each lesson code is in a subfolder under [src](https://github.com/basarat/algori
 * [Video Lesson](https://egghead.io/lessons/typescript-implement-a-doubly-linked-list-in-typescript)
 * [Code](https://github.com/basarat/algorithms/tree/master/src/doublyLinkedList)
 
+## Balanced Binary Tree Dimensions
+* [Video Lesson](https://egghead.io/lessons/max-items-and-max-height-of-a-completely-balanced-binary-tree)
+* [Code](https://github.com/basarat/algorithms/tree/master/src/binaryTreeDimenions)
+
+
 ## Heap
 * [Video Lesson](https://egghead.io/lessons/typescript-implement-heap-data-structure-using-javascript)
 * [Code](https://github.com/basarat/algorithms/tree/master/src/heap)
