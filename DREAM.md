@@ -1,8 +1,7 @@
 # In Queue
 As I record more videos they get put in a publish queue. Once released I will move them up.
 
-* HashMap
-* Heap (Priority Queue)
+* Heapsort
 * Graphs
   * Graph representation (adjacency matrix vs. adjacency list)
   * Depth First Search
@@ -21,7 +20,7 @@ comparator(a,b) ? -1
 ? 0
 ```
 
-## Heapsort
+# Heapsort
 Simply use a heap.
 
 ## More on Heaps
@@ -113,3 +112,9 @@ console.log(Math.log2(1000)); // ≈ 10
 console.log(Math.log2(1000000)); // ≈ 20
 console.log(Math.log2(1000000000)); // ≈ 30
 ```
+
+# Dynamic Programming
+The key question is "If we have a solution for a smaller problem aka (n-1), would we be easily able to deduce the answer for n?
+
+## Maximum subarray
+https://en.wikipedia.org/wiki/Maximum_subarray_problem
