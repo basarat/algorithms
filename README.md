@@ -6,7 +6,11 @@
 
 > If you enjoy these algorithm lessons [please star ⭐ this repo 🌟](https://github.com/basarat/algorithms/stargazers).
 
-# Algorithms Course
+# Reviews
+* [Please don't stop with these lessons. They are brilliant!](https://twitter.com/omkar_p/status/908318488648982529)
+* [I thoroughly enjoy your ts algorithms course. Theyre succinct & persuasive when compared to other resources.](https://twitter.com/2_up/status/908160586206273537)
+
+# Algorithms Course Page
 [The course page](https://egghead.io/courses/build-algorithms-using-typescript)
 ![logo](https://raw.githubusercontent.com/basarat/algorithms/master/logo.png)
 
