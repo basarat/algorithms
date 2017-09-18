@@ -44,4 +44,17 @@ export function heapSort<T>(array: T[], cmp: CompareFn<T>): T[] {
 }
 ```
 
-TODO: example, runtime complexity
+* Lets try it on our example.
+* As you can see it works as expected.
+```js
+console.log(heapSort([9, 4, 2, 7, 5, 3], (a, b) => a - b));
+```
+
+Now lets analyze the time complexity of our algorithm.
+***Select the first loop***
+* In our code we loop through the input array, and in each iteration we simply add an item resulting in complexity of this section being `the complexity of the add operation which is logn`, times `n`.
+***Select the second loop***
+* In the second loop we call extractRoot `n` times so again `nLogn`
+* Therefore the total complexity of `heapSort` is of the order `nLogn`
+
+Simply using the heap data strcuture, has given us the best asymtotic time performance for comparison based sorting.
