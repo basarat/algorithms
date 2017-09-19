@@ -40,7 +40,7 @@ Each lesson code is in a subfolder under [src](https://github.com/basarat/algori
 * [Code](https://github.com/basarat/algorithms/tree/master/src/quickSort)
 
 ## HeapSort
-* [Video Lesson](https://egghead.io/lessons/typescript-heapsort-algorithm-using-typescript)
+* [Video Lesson](https://egghead.io/lessons/implement-the-heapsort-algorithm-using-typescript-javascript)
 * [Code](https://github.com/basarat/algorithms/tree/master/src/heapSort)
 
 # Coding Interview Algorithms
