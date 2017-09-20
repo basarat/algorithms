@@ -1,7 +1,6 @@
 # In Queue
 As I record more videos they get put in a publish queue. Once released I will move them up.
 
-* Heapsort
 * Graphs
   * Graph representation (adjacency matrix vs. adjacency list)
   * Depth First Search
@@ -9,8 +8,6 @@ As I record more videos they get put in a publish queue. Once released I will mo
   * Binary Search Tree
 * A hot cache of the 100 last requested items
 
-# Max items in a completely balanced binary tree
-WIP
 
 # Sort using a single operator `>` (instead of `> & = & <`)
 Solution. A `comparator` gives us the follwing `compare` function:
@@ -20,21 +17,18 @@ comparator(a,b) ? -1
 ? 0
 ```
 
-# Heapsort
-Simply use a heap.
+# Heap
 
 ## More on Heaps
 How would you keep a running minimum efficiently, in the presence of
 * new nodes being inserted.
-* changing weights for nodes.
+* changing weights for nodes (or simply extracting the minimum).
 
 You could use an array but in the worst case:
 * new nodes insertion will be O(n)
 * changing the weight for a node will be O(n)
 
 Heaps provide the solution for this with O(logn) time complexity.
-
-Selection sort, pick min and move to top ... repeat `n` times => O(n^2), can be improved by simply using heap sort O(nlogn).
 
 ### Median Maintainance
 Give you numbers one by one, after giving you each item, I will ask you the current median.
