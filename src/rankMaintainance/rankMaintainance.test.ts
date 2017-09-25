@@ -1,4 +1,4 @@
-import { Minimum, Miximum } from './rankMaintainance';
+import { Minimum, Maximum } from './rankMaintainance';
 
 test('Minimum', () => {
   const collection = new Minimum();
@@ -15,7 +15,7 @@ test('Minimum', () => {
 });
 
 test('Miximum', () => {
-  const collection = new Miximum();
+  const collection = new Maximum();
   collection.add(5);
   collection.add(4);
   collection.add(1);

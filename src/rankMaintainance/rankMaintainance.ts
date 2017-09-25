@@ -4,6 +4,9 @@
 export class Minimum {
   data: number[] = [];
 
+  /**
+   * O(n)
+   */
   add(item: number) {
     for (let index = 0; index < this.data.length; index++) {
       if (item > this.data[index]) {
@@ -14,6 +17,9 @@ export class Minimum {
     this.data.push(item);
   }
 
+  /**
+   * O(1)
+   */
   extract(): number | undefined {
     return this.data.pop();
   }
@@ -22,7 +28,7 @@ export class Minimum {
 /**
  * Maintains a maximum value
  */
-export class Miximum extends Minimum {
+export class Maximum extends Minimum {
   add(item: number) {
     for (let index = 0; index < this.data.length; index++) {
       if (item < this.data[index]) {
@@ -32,4 +38,15 @@ export class Miximum extends Minimum {
     }
     this.data.push(item);
   }
+}
+
+const maintain = new Maximum();
+/**
+ * n x n = O(n^2)
+ */
+[1, 4, 2, 5].forEach(x => maintain.add(x));
+let curr = maintain.extract()
+while (curr != null) {
+  console.log(curr);
+  curr = maintain.extract();
 }
