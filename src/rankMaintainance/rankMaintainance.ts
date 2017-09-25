@@ -6,7 +6,7 @@ export class Minimum {
 
   add(item: number) {
     for (let index = 0; index < this.data.length; index++) {
-      if (this.data[index] < item) {
+      if (item > this.data[index]) {
         this.data.splice(index, 0, item);
         return;
       }

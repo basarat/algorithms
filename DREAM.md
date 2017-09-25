@@ -1,6 +1,7 @@
 # In Queue
 As I record more videos they get put in a publish queue. Once released I will move them up.
 
+* rank maintainance
 * Graphs
   * Graph representation (adjacency matrix vs. adjacency list)
   * Depth First Search
