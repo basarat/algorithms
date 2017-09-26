@@ -1,4 +1,4 @@
-# Rank Maintenance algorithm implementation using JavaScript / TypeScript
+# Minimum / Maximum Maintenance algorithm implementation using JavaScript / TypeScript
 > How can you most efficiently maintain the lowest value in a list of items. How about maintaining the largest value?
 
 > In this lesson we cover a naïve solution to this problem followed by an efficient solution that utilizes a data structure we have already covered before.

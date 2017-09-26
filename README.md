@@ -99,7 +99,9 @@ Each lesson code is in a subfolder under [src](https://github.com/basarat/algori
 * [Video Lesson](https://egghead.io/lessons/typescript-implement-heap-data-structure-using-javascript)
 * [Code](https://github.com/basarat/algorithms/tree/master/src/heap)
 
-
+## Minimum / Maximum Maintenance algorithm
+* [Video Lesson](https://egghead.io/lessons/minimum-maximum-maintenance-algorithm-implementation-using-javascript-typescript)
+* [Code](https://github.com/basarat/algorithms/tree/master/src/rankMaintenance)
 
 [travis-image]:https://travis-ci.org/basarat/algorithms.svg?branch=master
 [travis-url]:https://travis-ci.org/basarat/algorithms
