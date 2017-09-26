@@ -1,49 +1,10 @@
-/**
- * Maintains a minimum value
- */
-export class Minimum {
-  data: number[] = [];
+import { Heap } from '../heap/heap';
 
-  /**
-   * O(n)
-   */
-  add(item: number) {
-    for (let index = 0; index < this.data.length; index++) {
-      if (item > this.data[index]) {
-        this.data.splice(index, 0, item);
-        return;
-      }
-    }
-    this.data.push(item);
-  }
 
-  /**
-   * O(1)
-   */
-  extract(): number | undefined {
-    return this.data.pop();
-  }
-}
-
-/**
- * Maintains a maximum value
- */
-export class Maximum extends Minimum {
-  add(item: number) {
-    for (let index = 0; index < this.data.length; index++) {
-      if (item < this.data[index]) {
-        this.data.splice(index, 0, item);
-        return;
-      }
-    }
-    this.data.push(item);
-  }
-}
-
-const maintain = new Minimum();
+const maintain = new Heap<number>((a, b) => a - b);
 [1, 4, 2, 5].forEach(x => maintain.add(x));
-let curr = maintain.extract()
+let curr = maintain.extractRoot()
 while (curr != null) {
   console.log(curr);
-  curr = maintain.extract();
+  curr = maintain.extractRoot();
 }

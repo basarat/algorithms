@@ -68,7 +68,23 @@ The complexity of this whole *add* remove cycle is driven by the complexity of t
 
 The simple trick here is to remember that there is a data structure desgined for the specific problem of *reapeated minimum or maximum compuatations* called the heap.
 
+***Delete both classes***
+In fact using a heap is so simple that we will not even bother wrapping it in a class.
+
+* We simply import the heap data structure.
+* Use it for our maintainance passing in a comparison function that sorts in ascending order, giving us a minheap.
+* And use its extract root
+* When we run it, you can see that it works as expected.
 ```js
+import { Heap } from '../heap/heap';
 
+const maintain = new Heap<number>((a, b) => a - b);
+[1, 4, 2, 5].forEach(x => maintain.add(x));
+let curr = maintain.extractRoot()
+while (curr != null) {
+  console.log(curr);
+  curr = maintain.extractRoot();
+}
 ```
-
+***Select the `add` method***
+But now the `add` operation is `log (n)` therefore the total runtime has gone from `n squared` to `O (n logn)`.
