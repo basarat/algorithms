@@ -40,10 +40,7 @@ export class Maximum extends Minimum {
   }
 }
 
-const maintain = new Maximum();
-/**
- * n x n = O(n^2)
- */
+const maintain = new Minimum();
 [1, 4, 2, 5].forEach(x => maintain.add(x));
 let curr = maintain.extract()
 while (curr != null) {
