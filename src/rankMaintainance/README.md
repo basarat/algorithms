@@ -51,7 +51,7 @@ export class Maximum extends Minimum {
 ```
 
 ```js
-const maintain = new Minimum();
+const maintain = new MinimumArray();
 [1, 4, 2, 5].forEach(x => maintain.add(x));
 let curr = maintain.extract()
 while (curr != null) {
