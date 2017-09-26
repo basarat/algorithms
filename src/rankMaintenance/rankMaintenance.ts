@@ -4,9 +4,7 @@
 export class MinimumArray {
   data: number[] = [];
 
-  /**
-   * O(n)
-   */
+  /** O(n) */
   add(item: number) {
     for (let index = 0; index < this.data.length; index++) {
       if (item > this.data[index]) {
@@ -17,9 +15,7 @@ export class MinimumArray {
     this.data.push(item);
   }
 
-  /**
-   * O(1)
-   */
+  /** O(1)*/
   extract(): number | undefined {
     return this.data.pop();
   }
@@ -41,10 +37,9 @@ export class MaximumArray extends MinimumArray {
 }
 
 import { Heap } from '../heap/heap';
-
-const maintain = new Heap<number>((a, b) => a - b);
+const maintain = new Heap<number>((b, a) => a - b);
 [1, 4, 2, 5].forEach(x => maintain.add(x));
-let curr = maintain.extractRoot()
+let curr = maintain.extractRoot();
 while (curr != null) {
   console.log(curr);
   curr = maintain.extractRoot();

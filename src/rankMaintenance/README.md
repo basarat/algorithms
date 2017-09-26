@@ -39,9 +39,7 @@ Extract the current minimum
 export class MinimumArray {
   data: number[] = [];
 
-  /**
-   * O(n)
-   */
+  /** O(n) */
   add(item: number) {
     for (let index = 0; index < this.data.length; index++) {
       if (item > this.data[index]) {
@@ -52,9 +50,7 @@ export class MinimumArray {
     this.data.push(item);
   }
 
-  /**
-   * O(1)
-   */
+  /** O(1)*/
   extract(): number | undefined {
     return this.data.pop();
   }
