@@ -1,4 +1,4 @@
-import { MinimumArray, MaximumArray } from './rankMaintainance';
+import { MinimumArray, MaximumArray } from './rankMaintenance';
 
 test('Minimum', () => {
   const collection = new MinimumArray();
