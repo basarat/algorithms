@@ -54,3 +54,32 @@ m = 4
 
 ***Delete all***
 * Lets code it up
+
+
+
+### TODO
+* https://www.youtube.com/watch?v=VmogG01IjYc
+
+We can do better.
+
+Two heaps, one low max-heap and one high min-heap. Keep evenly distributed e.g for 20 items, Lowest 10 in H-low and Highest 10 in H-high. For odd you can put in either, lets put in H-low.
+
+```js
+H(low)  and  H(high)
+```
+
+The median is
+- if (even `low.peek()` `high.peak()`) else (`low.peek()`).
+
+At point 21 we have
+
+```js
+  H-low            H-high
+11 lowest        10 largest
+```
+
+For insertion we simply check
+- if new <= low.peak() belongs in low
+- else belongs in high
+
+But we need to fix the imbalance if it goes into `low`, We simply rebalnce by extract max from low heap and put in high heap.

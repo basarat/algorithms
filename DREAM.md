@@ -1,7 +1,7 @@
 # In Queue
 As I record more videos they get put in a publish queue. Once released I will move them up.
 
-* rank maintainance
+* median maintainance
 * Graphs
   * Graph representation (adjacency matrix vs. adjacency list)
   * Depth First Search
@@ -17,54 +17,6 @@ comparator(a,b) ? -1
 : comparator(b,a) ? 1
 ? 0
 ```
-
-# Heap
-
-## More on Heaps
-How would you keep a running minimum efficiently, in the presence of
-* new nodes being inserted.
-* changing weights for nodes (or simply extracting the minimum).
-
-You could use an array but in the worst case:
-* new nodes insertion will be O(n)
-* changing the weight for a node will be O(n)
-
-Heaps provide the solution for this with O(logn) time complexity.
-
-### Median Maintainance
-Give you numbers one by one, after giving you each item, I will ask you the current median.
-* after I give you the 5th, tell me the 3rd smallest
-* after I give you the 13th, tell me the 7th smallest
-
-Want the median at a given point *as fast as possible*.
-
-Simple solution: Insert O(1) just add to end. You can do a linear scan at each point and do a selection, That would be O(n).
-
-Another solution: You can insert in a sorted manner each new item, this might cost you `O(n)` for each new item. You can simply return the middle item `O(1)`. But the total cost of *insert and get median* is still O(n)
-
-We can do better.
-
-Two heaps, one low max-heap and one high min-heap. Keep evenly distributed e.g for 20 items, Lowest 10 in H-low and Highest 10 in H-high. For odd you can put in either, lets put in H-low.
-
-```js
-H(low)  and  H(high)
-```
-
-The median is
-- if (even `low.peek()` `high.peak()`) else (`low.peek()`).
-
-At point 21 we have
-
-```js
-  H-low            H-high
-11 lowest        10 largest
-```
-
-For insertion we simply check
-- if new <= low.peak() belongs in low
-- else belongs in high
-
-But we need to fix the imbalance if it goes into `low`, We simply rebalnce by extract max from low heap and put in high heap.
 
 # Halting
 
