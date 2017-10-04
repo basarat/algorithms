@@ -168,3 +168,11 @@ export class MedianMaintenanceHeap {
 ```
 
 * Lets run a quick example.
+```js
+const maintain = new MedianMaintenanceHeap();
+console.log(maintain.add(4)); // 4
+console.log(maintain.add(6)); // 5
+console.log(maintain.add(3)); // 4
+```
+***Run the demo***
+And you can see it works as expected.
