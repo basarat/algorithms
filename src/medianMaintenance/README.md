@@ -60,7 +60,7 @@ m = 4
  * Keeps a running account of the median
  */
 export class MedianMaintenanceArray {
-  data: number[] = [];
+  private data: number[] = [];
 
   /**
    * Adds a number to the internal storage, and returns the new median
@@ -91,6 +91,7 @@ export class MedianMaintenanceArray {
   }
 }
 ```
+
 ***Select the add method***
 Since the add method needs to potentially loop through all the existing elements it takes `O(n)` time.
 
@@ -110,30 +111,60 @@ n / 2 smallest items in a low MaxHeap       n / 2 biggest items in a high MinHea
                                   MEDIAN!
 `
 ```
-* Lets code it up.
-
-
-### TODO
-* https://www.youtube.com/watch?v=VmogG01IjYc
-
-Two heaps, one low max-heap and one high min-heap. Keep evenly distributed e.g for 20 items, Lowest 10 in H-low and Highest 10 in H-high. For odd you can put in either, lets put in H-low.
-
-```js
-H(low)  and  H(high)
-```
-
-The median is
-- if (even `low.peek()` `high.peak()`) else (`low.peek()`).
-
-At point 21 we have
+***Delete everything***
+Lets code it up.
+* We bring in our heap data structure
+* Create a class to maintain these heaps
+* Add a method to add an item.
+* If there are no items in the low heap or the item is smaller than its root, then it belongs in the low heap, otherwise it goes into the high heap.
+* Now the number of items in the two heaps might be imbalanced. We simply determine which of the heaps is bigger if any. And if one of these is bigger by more than 1 value we simply balance them by add to the smaller heap, the root of the bigger heap.
+* Finally we calculate the new median. If the heaps are of equal size, it means we have an even number of elements and the heap is simply the average of the roots of the two heaps.
+* Otherwise its simply the root of the heap that has more elements.
+* Since the only complex operations now are direct calls to our heap's add and extractRoot methods, we can do this in `O (log n)` time.
 
 ```js
-  H-low            H-high
-11 lowest        10 largest
+import { Heap } from '../heap/heap';
+/**
+ * Keeps account of medians using heaps
+ */
+export class MedianMaintenanceHeap {
+  private lowMaxHeap = new Heap<number>((b, a) => a - b);
+  private highMinHeap = new Heap<number>((a, b) => a - b);
+
+  /**
+   * Adds a number to the internal storage, and returns the new median
+   * O(log n)
+   */
+  add(item: number): number {
+    /** Add to correct heap */
+    if (this.lowMaxHeap.size() == 0 || item < this.lowMaxHeap.peek()) {
+      this.lowMaxHeap.add(item);
+    }
+    else {
+      this.highMinHeap.add(item);
+    }
+
+    /** Rebalance */
+    const biggerHeap = this.lowMaxHeap.size() > this.highMinHeap.size()
+      ? this.lowMaxHeap
+      : this.highMinHeap;
+    const smallerHeap = biggerHeap === this.lowMaxHeap ? this.lowMaxHeap : this.lowMaxHeap;
+
+    if ((biggerHeap.size() - smallerHeap.size()) > 1) {
+      smallerHeap.add(biggerHeap.extractRoot());
+    }
+
+    /** Return the median */
+    if (this.lowMaxHeap.size() === this.highMinHeap.size()) {
+      return (this.lowMaxHeap.peek() + this.highMinHeap.peek()) / 2;
+    }
+    else {
+      return this.lowMaxHeap.size() > this.highMinHeap.size()
+        ? this.lowMaxHeap.peek()
+        : this.highMinHeap.peek();
+    }
+  }
+}
 ```
 
-For insertion we simply check
-- if new <= low.peak() belongs in low
-- else belongs in high
-
-But we need to fix the imbalance if it goes into `low`, We simply rebalnce by extract max from low heap and put in high heap.
+* Lets run a quick example.
