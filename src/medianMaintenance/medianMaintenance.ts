@@ -65,25 +65,13 @@ export class MedianMaintenanceHeap {
     }
 
     /** Return the median */
-    return this.median();
-  }
-
-  /** Returns median in O(1) */
-  private median() {
-    const biggerHeap = this.lowMaxHeap.size() > this.highMinHeap.size()
-      ? this.lowMaxHeap
-      : this.highMinHeap;
-    const smallerHeap = biggerHeap === this.lowMaxHeap ? this.lowMaxHeap : this.lowMaxHeap;
-
-    if ((biggerHeap.size() - smallerHeap.size()) > 1) {
-      smallerHeap.add(biggerHeap.extractRoot());
-    }
-
-    if (smallerHeap.size() == biggerHeap.size()) {
-      return (smallerHeap.peek() + biggerHeap.peek()) / 2
+    if (this.lowMaxHeap.size() === this.highMinHeap.size()) {
+      return (this.lowMaxHeap.peek() + this.highMinHeap.peek()) / 2;
     }
     else {
-      return biggerHeap.peek();
+      return this.lowMaxHeap.size() > this.highMinHeap.size()
+        ? this.lowMaxHeap.peek()
+        : this.highMinHeap.peek();
     }
   }
 }
