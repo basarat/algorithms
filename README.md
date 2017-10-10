@@ -103,6 +103,10 @@ Each lesson code is in a subfolder under [src](https://github.com/basarat/algori
 * [Video Lesson](https://egghead.io/lessons/minimum-maximum-maintenance-algorithm-implementation-using-javascript-typescript)
 * [Code](https://github.com/basarat/algorithms/tree/master/src/rankMaintenance)
 
+## Sum of the most common algorithmic arithmetic series
+* [Video Lesson](https://egghead.io/lessons/sum-of-the-most-common-algorithmic-arithmetic-series)
+* [Code](https://github.com/basarat/algorithms/tree/master/src/aritmeticSeries)
+
 ## Median Maintenance algorithm
 * [Video Lesson](TODO)
 * [Code](https://github.com/basarat/algorithms/tree/master/src/medianMaintenance)
