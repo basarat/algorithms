@@ -38,22 +38,27 @@ The median maintenance problem is also called the 'continuous median' problem.
 ```js
 `
 4
-m = 4
+median = 4
 
 4 6
-m = 5
+median = 5
 
 4 6 3
-m = 4
+median = 4
 
 ... so on
 `
 ```
 
-* A naieve solution would be to track numbers internally as a sorted array, and at each new addition, put the new number in its rightful place.
+* A naïve solution would be to track numbers internally as a sorted array, and at each new addition, put the new number in its rightful place.
 
 ***Delete all***
 * Lets code it up,
+* We create a class that will maintain the sorted array as data.
+* The add method takes a new item and inserts it into a sorted position inside the data array same as we did for the naïve solution of the min / max maintenance algorithm.
+  * At the end of any insertion, it returns the median.
+* Within the median method we simply check if the number of items is even. If so we simply return the average of the two middle elements
+  * Otherwise we simply return the middle element.
 
 ```js
 /**
@@ -98,15 +103,17 @@ Since the add method needs to potentially loop through all the existing elements
 We can do better. The trick is very similar to what we did for minimum and maximum maintenance.
 
 * This time, we use two heaps, one to maintain the lower set of elements and one to maintain the larger set of elements.
-* The peek into the smaller MaxHeap will give us the n/2th smallest item, and peeking into the root of the big item's MinHeap will give us the n/2th largest element.
+* The `peek` method of the smaller MaxHeap will give us the n/2th smallest item, and peeking into the root of the big item's MinHeap will give us the n/2th largest element.
 * The median is simply the value among these two roots.
-* At each new item insertion we simply maintain the invariant that the items are equally distributed between the low heap and the high heap which we can simply do by comparing the new value against the roots of these heaps.
+* At each new item insertion we simply maintain the invariant that the items are equally distributed (with an deviation of 1) between the low heap and the high heap which we can simply do by
+ * comparing the new value against the roots of these heaps.
+ * moving items between the heaps to ensure they stay balanced.
 
 ```js
 `
-n / 2 smallest items in a low MaxHeap       n / 2 biggest items in a high MinHeap
+(n/2 ± 1) smallest items in a low MaxHeap       (n/2 ± 1) biggest items in a high MinHeap
 
-    peek => n/2 th smallest                     peek => n/2 + 1 th smallest
+    peek => n/2th smallest                     peek => n/2th smallest
                          \                       /
                                   MEDIAN!
 `
@@ -120,7 +127,6 @@ Lets code it up.
 * Now the number of items in the two heaps might be imbalanced. We simply determine which of the heaps is bigger if any. And if one of these is bigger by more than 1 value we simply balance them by add to the smaller heap, the root of the bigger heap.
 * Finally we calculate the new median. If the heaps are of equal size, it means we have an even number of elements and the heap is simply the average of the roots of the two heaps.
 * Otherwise its simply the root of the heap that has more elements.
-* Since the only complex operations now are direct calls to our heap's add and extractRoot methods, we can do this in `O (log n)` time.
 
 ```js
 import { Heap } from '../heap/heap';
@@ -166,6 +172,9 @@ export class MedianMaintenanceHeap {
   }
 }
 ```
+
+***Select the add method***
+* Since the only complex operations now are direct calls to our heap's add and extractRoot methods, we can do this in `O (log n)` time.
 
 * Lets run a quick example.
 ```js
