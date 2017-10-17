@@ -1,6 +1,6 @@
 # Median Maintenance algorithm implementation using TypeScript / JavaScript
 
-> The median maintenance problem is a common programming challenge presented in software engineering job interviews
+> The median maintenance problem is a common programming challenge presented in software engineering job interviews.
 
 > In this lesson we cover an example of how this problem might be presented and what your chain of thought should be to tackle this problem efficiently.
 
@@ -22,7 +22,7 @@ Sort them
             ↑
          Median
 
-If we have an even number of elements you average
+If we have an even number of elements we average
 
 E.g.
 10, 11, 13, 15, 16, 23, 26, 32
@@ -102,20 +102,17 @@ Since the add method needs to potentially loop through all the existing elements
 
 We can do better. The trick is very similar to what we did for minimum and maximum maintenance.
 
-* This time, we use two heaps, one to maintain the lower set of elements and one to maintain the larger set of elements.
+* This time, we use two heaps instead of one. One heap to maintain the lower set of elements and one heap to maintain the larger set of elements.
 * The `peek` method of the smaller MaxHeap will give us the n/2th smallest item, and peeking into the root of the big item's MinHeap will give us the n/2th largest element.
 * The median is simply the value among these two roots.
-* At each new item insertion we simply maintain the invariant that the items are equally distributed (with an deviation of 1) between the low heap and the high heap which we can simply do by
- * comparing the new value against the roots of these heaps.
- * moving items between the heaps to ensure they stay balanced.
 
 ```js
 `
 (n/2 ± 1) smallest items in a low MaxHeap       (n/2 ± 1) biggest items in a high MinHeap
 
-    peek => n/2th smallest                     peek => n/2th smallest
-                         \                       /
-                                  MEDIAN!
+        peek => n/2th smallest                     peek => n/2th smallest
+                           \                        /
+                                    MEDIAN!
 `
 ```
 ***Delete everything***
@@ -125,7 +122,7 @@ Lets code it up.
 * Add a method to add an item.
 * If there are no items in the low heap or the item is smaller than its root, then it belongs in the low heap, otherwise it goes into the high heap.
 * Now the number of items in the two heaps might be imbalanced. We simply determine which of the heaps is bigger if any. And if one of these is bigger by more than 1 value we simply balance them by add to the smaller heap, the root of the bigger heap.
-* Finally we calculate the new median. If the heaps are of equal size, it means we have an even number of elements and the heap is simply the average of the roots of the two heaps.
+* Finally we calculate the new median. If the heaps are of equal size, it means we have an even number of elements and the median is simply the average of the roots of the two heaps.
 * Otherwise its simply the root of the heap that has more elements.
 
 ```js
@@ -176,7 +173,7 @@ export class MedianMaintenanceHeap {
 ***Select the add method***
 * Since the only complex operations now are direct calls to our heap's add and extractRoot methods, we can do this in `O (log n)` time.
 
-* Lets run a quick example.
+* Lets test our algorithm with a quick example.
 ```js
 const maintain = new MedianMaintenanceHeap();
 console.log(maintain.add(4)); // 4

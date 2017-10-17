@@ -108,7 +108,7 @@ Each lesson code is in a subfolder under [src](https://github.com/basarat/algori
 * [Code](https://github.com/basarat/algorithms/tree/master/src/aritmeticSeries)
 
 ## Median Maintenance algorithm
-* [Video Lesson](TODO)
+* [Video Lesson](https://egghead.io/lessons/median-maintenance-algorithm-implementation-using-typescript-javascript)
 * [Code](https://github.com/basarat/algorithms/tree/master/src/medianMaintenance)
 
 
