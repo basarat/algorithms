@@ -111,6 +111,10 @@ Each lesson code is in a subfolder under [src](https://github.com/basarat/algori
 * [Video Lesson](https://egghead.io/lessons/median-maintenance-algorithm-implementation-using-typescript-javascript)
 * [Code](https://github.com/basarat/algorithms/tree/master/src/medianMaintenance)
 
+# Dynamic Programming
+## Maximum subarray
+* [Video Lesson](TODO)
+* [Code](https://github.com/basarat/algorithms/tree/master/src/maximumSubArray)
 
 [travis-image]:https://travis-ci.org/basarat/algorithms.svg?branch=master
 [travis-url]:https://travis-ci.org/basarat/algorithms
