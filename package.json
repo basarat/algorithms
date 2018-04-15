@@ -25,25 +25,10 @@
   },
   "homepage": "https://github.com/basarat/algorithms#readme",
   "devDependencies": {
-    "@types/jest": "19.2.2",
+    "@types/jest": "22.2.3",
     "@types/node": "7.0.12",
-    "jest": "19.0.2",
-    "ts-jest": "19.0.6",
-    "typescript": "2.2.2"
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "roots": [
-      "<rootDir>/src"
-    ],
-    "transform": {
-      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
-    },
-    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js"
-    ]
+    "jest": "22.4.3",
+    "ts-jest": "22.4.3",
+    "typescript": "2.8.1"
   }
 }
