@@ -14,7 +14,6 @@ const expectations = new Map<number[], number[]>([
 test('maximumSubarray to work', () => {
   for (const [input, output] of expectations) {
     const result = maximumSubarray(input);
-    expect(result.max).toBe(result.array.reduce((a, v) => a + v, 0));
-    expect(result.array).toEqual(output);
+    expect(result).toEqual(output);
   }
 });

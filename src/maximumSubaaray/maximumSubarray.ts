@@ -2,12 +2,9 @@
  * Given an array of `n` numbers
  * return a contiguous subarray that has the largest sum
  */
-export function maximumSubarray(array: number[]): {
-  max: number,
-  array: number[]
-} {
+export function maximumSubarray(array: number[]): number[] {
   if (!array.length) {
-    return { max: 0, array: [] };
+    return [];
   }
 
   let maxEndingHere = array[0];
@@ -29,10 +26,7 @@ export function maximumSubarray(array: number[]): {
     }
   }
 
-  return {
-    max: max,
-    array: array.slice(maxStartIndex, maxEndIndex + 1)
-  };
+  return array.slice(maxStartIndex, maxEndIndex + 1);
 }
 
 // console.log(maximumSubarray([-2, 1, -3, 4, -1, 2, 1, -5, 4])); // DEBUG
