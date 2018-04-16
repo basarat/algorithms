@@ -8,7 +8,6 @@ export function maximumSubarray(array: number[]): number[] {
   }
 
   let maxInc = array[0];
-
   let max = array[0];
   let maxStartIndex = 0;
   let maxEndIndex = 0;
