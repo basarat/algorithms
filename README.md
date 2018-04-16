@@ -114,7 +114,7 @@ Each lesson code is in a subfolder under [src](https://github.com/basarat/algori
 # Dynamic Programming
 ## Maximum subarray
 * [Video Lesson](TODO)
-* [Code](https://github.com/basarat/algorithms/tree/master/src/maximumSubArray)
+* [Code](https://github.com/basarat/algorithms/tree/master/src/maximumSubarray)
 
 [travis-image]:https://travis-ci.org/basarat/algorithms.svg?branch=master
 [travis-url]:https://travis-ci.org/basarat/algorithms
