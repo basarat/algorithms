@@ -7,22 +7,22 @@ export function maximumSubarray(array: number[]): number[] {
     return [];
   }
 
-  let maxAtCurrentIndex = array[0];
+  let maxInc = array[0];
 
   let max = array[0];
   let maxStartIndex = 0;
   let maxEndIndex = 0;
 
   for (let i = 1; i < array.length; i += 1) {
-    const element = array[i];
+    const val = array[i];
 
-    maxAtCurrentIndex = Math.max(maxAtCurrentIndex + element, element);
-    if (maxAtCurrentIndex === element) {
+    maxInc = Math.max(maxInc + val, val);
+    max = Math.max(max, maxInc);
+
+    if (val === max) {
       maxStartIndex = i;
     }
-
-    max = Math.max(max, maxAtCurrentIndex);
-    if (max === maxAtCurrentIndex) {
+    if (maxInc === max) {
       maxEndIndex = i;
     }
   }

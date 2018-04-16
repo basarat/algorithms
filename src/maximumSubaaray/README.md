@@ -62,7 +62,7 @@ Given a table like this which we can store in O(n) since its just two additional
 
 However we can do better by simply observing that
   * the subset array would *start* at index i if the val(i) gets copied to the "max" section
-  * the setset array would *end* at index i if maxInc gets copied to the "max" section
+  * the sebset array would *end* at index i if maxInc gets copied to the "max" section
 Lets code it up.
 `
 ```
