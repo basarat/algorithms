@@ -12,15 +12,28 @@ export function maximumSubarray(array: number[]): {
 
   let maxEndingHere = array[0];
   let maxSoFar = array[0];
+  let maxStartIndex = 0;
+  let maxEndIndex = 0;
   let result = [];
 
   for (let i = 1; i < array.length; i += 1) {
     const element = array[i];
-    maxEndingHere = Math.max(0, maxEndingHere + element);
+
+    maxEndingHere = Math.max(element, maxEndingHere + element);
+    if (maxEndingHere === element) {
+      maxStartIndex = i;
+    }
+
     maxSoFar = Math.max(maxSoFar, maxEndingHere);
+    if (maxSoFar === maxEndingHere) {
+      maxEndIndex = i;
+    }
   }
+
   return {
     max: maxSoFar,
-    array: result
+    array: array.slice(maxStartIndex, maxEndIndex + 1)
   };
 }
+
+// console.log(maximumSubarray([-2, 1, -3, 4, -1, 2, 1, -5, 4])); // DEBUG
