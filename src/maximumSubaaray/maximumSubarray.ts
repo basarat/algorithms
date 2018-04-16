@@ -5,7 +5,7 @@
 export function maximumSubarray(array: number[]): number {
   if (!array.length) return 0;
 
-  let maxEndingHere = array[0]
+  let maxEndingHere = array[0];
   let maxSoFar = array[0];
 
   for (let i = 1; i < array.length; i += 1) {
