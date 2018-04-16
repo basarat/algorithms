@@ -134,3 +134,5 @@ If we run a simple example, you can see that it works as expected.
 ```ts
 console.log(maximumSubarray([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
 ```
+
+Since this algorithm only does one pass through the input array, it has time complexity O(n).
