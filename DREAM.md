@@ -61,7 +61,7 @@ console.log(Math.log2(1000000000)); // ≈ 30
 ```
 
 # Dynamic Programming
-The key question is "If we have a solution for a smaller problem aka (n-1), would we be easily able to deduce the answer for n?
+Deploy as simple lessons. Once there are enough make a new course.
 
-## Maximum subarray
-https://en.wikipedia.org/wiki/Maximum_subarray_problem
+* Largest common sub sequence.
+* Others.
