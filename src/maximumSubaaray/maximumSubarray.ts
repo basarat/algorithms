@@ -14,7 +14,6 @@ export function maximumSubarray(array: number[]): {
   let maxSoFar = array[0];
   let maxStartIndex = 0;
   let maxEndIndex = 0;
-  let result = [];
 
   for (let i = 1; i < array.length; i += 1) {
     const element = array[i];
