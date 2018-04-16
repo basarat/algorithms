@@ -43,9 +43,12 @@ Notice that uptill index (i) we can know the answer "max(i)" immediately if we h
 
 So the answer uptill 0 to i only depends on values that appear earlier in the array.
 
-We can solve this by hand with a simple table:
+When a problem can be easily solved *given* someone gives us the answer to a subset of the problem, the problem solving approach is called dynamic programming.
+
+Lets solve the example array by hand with a simple table:
 
 ELEMENT | maxInc |  max
+--------|--------|-----
    -2   |   -2   |  -2
     1   |    1   |   1
    -3   |   -2   |   1
@@ -66,6 +69,3 @@ However we can do better by simply observing that
 Lets code it up.
 `
 ```
-
-You can solve this problem with an inductive hypothese. An element at ith position would be a part of a maximum sub array ending at `i` only if the elements before it make a max subarray for the previous elements. Unless of-course the element at `i` is larger than the previous max subarray, and therefore starts its own max sub array.
-
