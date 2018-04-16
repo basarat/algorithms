@@ -7,7 +7,8 @@ export function maximumSubarray(array: number[]): number[] {
     return [];
   }
 
-  let maxEndingHere = array[0];
+  let maxAtCurrentIndex = array[0];
+
   let max = array[0];
   let maxStartIndex = 0;
   let maxEndIndex = 0;
@@ -15,13 +16,13 @@ export function maximumSubarray(array: number[]): number[] {
   for (let i = 1; i < array.length; i += 1) {
     const element = array[i];
 
-    maxEndingHere = Math.max(element, maxEndingHere + element);
-    if (maxEndingHere === element) {
+    maxAtCurrentIndex = Math.max(element, maxAtCurrentIndex + element);
+    if (maxAtCurrentIndex === element) {
       maxStartIndex = i;
     }
 
-    max = Math.max(max, maxEndingHere);
-    if (max === maxEndingHere) {
+    max = Math.max(max, maxAtCurrentIndex);
+    if (max === maxAtCurrentIndex) {
       maxEndIndex = i;
     }
   }
