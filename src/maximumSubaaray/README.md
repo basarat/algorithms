@@ -58,7 +58,7 @@ For max(i) we need:
 ```
 * Notice that uptill index (i) we can know the answer "max(i)" immediately if we have
 * So the answer uptill 0 to i only depends on values that appear earlier in the array.
-* When a problem can be easily solved *given* someone gives us the answer to a subset of the problem, the problem solving approach is called dynamic programming.
+* When a problem can be easily solved *given* someone gives us the pre-solved answer to a subset of the problem, the problem solving approach is called dynamic programming.
 
 
 ```ts
