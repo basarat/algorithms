@@ -16,7 +16,7 @@ Consider an example array:
 The subarray with the largest sum for this example would be:
 [4, -1, 2, 1] with the sum 6.
 
-There are TWO key observations
+There are TWO key observations:
 
 Observation 1:
 -------------
@@ -29,7 +29,7 @@ Of course if "maxInc(i - 1) < 0" then there is no point in including that so a b
 
 Observation 2:
 -------------
-The second observation is that the max sum for 0 - to - i can be represented as:
+The second observation is that the max sum for 0 - to - i irrespective of if i included or not can be represented as:
  * max(i) = maxInc(i) > max(i - 1) ? maxInc(i) : max(i - 1)
 
 Combining these observations we have the following two relations
