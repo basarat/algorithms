@@ -16,7 +16,7 @@ export function maximumSubarray(array: number[]): number[] {
   for (let i = 1; i < array.length; i += 1) {
     const element = array[i];
 
-    maxAtCurrentIndex = Math.max(element, maxAtCurrentIndex + element);
+    maxAtCurrentIndex = Math.max(maxAtCurrentIndex + element, element);
     if (maxAtCurrentIndex === element) {
       maxStartIndex = i;
     }
