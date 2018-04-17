@@ -1,4 +1,4 @@
-# Maximum Subarray algorithm implementation using TypeScript / JavaScript
+# Maximum Contiguous Subarray algorithm implementation using TypeScript / JavaScript
 
 > The maximum subarray problem is one of the nicest examples of dynamic programming application.
 

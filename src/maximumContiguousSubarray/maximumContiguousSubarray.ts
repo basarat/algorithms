@@ -2,7 +2,7 @@
  * Given an array of `n` numbers
  * return a contiguous subarray that has the largest sum
  */
-export function maximumSubarray(array: number[]): number[] {
+export function maximumContiguousSubarray(array: number[]): number[] {
   if (!array.length) {
     return [];
   }

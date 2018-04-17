@@ -1,4 +1,4 @@
-import { maximumSubarray } from './maximumSubarray';
+import { maximumContiguousSubarray } from './maximumContiguousSubarray';
 
 const expectations = new Map<number[], number[]>([
   [
@@ -35,9 +35,9 @@ const expectations = new Map<number[], number[]>([
   ]
 ]);
 
-test('maximumSubarray to work', () => {
+test('maximumContiguousSubarray to work', () => {
   for (const [input, output] of expectations) {
-    const result = maximumSubarray(input);
+    const result = maximumContiguousSubarray(input);
     expect(result).toEqual(output);
   }
 });
