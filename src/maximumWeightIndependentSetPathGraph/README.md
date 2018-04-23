@@ -42,4 +42,18 @@ Max:
 * For the maximum weight independent set, we want the indepent set where the sum of the vertex weights is as large as possible.
 * For this simple graph we can do this easily as its the vertex 1 and 4 with the sum 8.
 
-A key observation about this problem is optimal substructure. A solution that involves vertex n...
+
+```js
+`
+max(i) = max(i - 2) + val(i) >= max(i - 1)
+          ? max(i - 2) + val(i)
+          : max(i - 1)
+`
+```
+* A key observation about this problem is optimal substructure. A solution from `0 to i` that involves vertex i would be optimal only if the sum of `0 to i-2` + `vi` is greater than the optional solution `0 to i-1`.
+* In this way the solution to problem `i` only depends on solutions to problems (`i-1` and `i-2`).
+* Once again the problem can easily be solved *given* someone gives us the pre-solved answer to a subset of the problem. We can thus apply dynamic programming using our standard iterative, table based problem solving approach.
+
+
+---------
+* A great property of a connected path graph with vertix weights only, is that it can be represented as a simple number array.
