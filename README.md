@@ -116,5 +116,9 @@ Each lesson code is in a subfolder under [src](https://github.com/basarat/algori
 * [Video Lesson](TODO)
 * [Code](https://github.com/basarat/algorithms/tree/master/src/maximumSubarray)
 
+## Maximum weight independent set in a path graph
+* [Video Lesson](TODO)
+* [Code](https://github.com/basarat/algorithms/tree/master/src/maximumWeightIndependentSetPathGraph)
+
 [travis-image]:https://travis-ci.org/basarat/algorithms.svg?branch=master
 [travis-url]:https://travis-ci.org/basarat/algorithms
