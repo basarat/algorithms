@@ -12,7 +12,7 @@
 `
 ```
 * We start off with path graph. A simple description of a path graph is a graph in which there is a single path from the head to the tail of the graph.
-* A path graph can be directed or indirected, we just assume its an undirected graph.
+* A path graph can be directed or indirected, we just assume its an undirected connected graph.
 
 ```js
 `
@@ -21,6 +21,7 @@
 ```
 
 * For the weighted independent set problem the graph vertices have some weights associated with them.
+* A great property of a connected path graph with vertix weights only, is that it can be represented as a simple number array.
 
 ```js
 `
@@ -54,6 +55,14 @@ max(i) = max(i - 2) + val(i) >= max(i - 1)
 * In this way the solution to problem `i` only depends on solutions to problems (`i-1` and `i-2`).
 * Once again the problem can easily be solved *given* someone gives us the pre-solved answer to a subset of the problem. We can thus apply dynamic programming using our standard iterative, table based problem solving approach.
 
-
----------
-* A great property of a connected path graph with vertix weights only, is that it can be represented as a simple number array.
+```ts
+`
+Vertex  |  val(i)  |  max(i)
+-----------------------------
+  v0    |     1    |    1
+  v1    |     4    |    4
+  v2    |     5    |    6
+  v3    |     4    |    8
+`
+```
+* Lets solve the example array by hand with a simple table.
