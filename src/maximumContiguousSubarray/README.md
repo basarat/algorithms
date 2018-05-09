@@ -26,7 +26,7 @@ Observation 1:
 `
 ```
 * The maximum subarray sum for 0 - to - i when an element at i is included can be represented as
-* Of course if "maxInc(i - 1) < 0" then there is no point in including that so a better formula would be.
+* Of course if the previous max is less than zero then there is no point in including that so a better formula would be one that checks for that.
 
 
 ```ts
@@ -36,7 +36,7 @@ Observation 2:
  * max(i) = maxInc(i) > max(i - 1) ? maxInc(i) : max(i - 1)
 `
 ```
-* The second observation is that the max sum for 0 - to - i irrespective of if i included or not can be represented as
+* The second observation is that the max sum for the subarray 0 - to - i irrespective of if the ith item is included or not can be represented as, the max of when i is included or the maximum that might exist at i-1, whichever is bigger.
 
 ```ts
 `
@@ -46,7 +46,7 @@ maxInc(i) = maxInc(i - 1) > 0 ? maxInc(i - 1) + val(i) : val(i)
 max(i) = maxInc(i) > max(i - 1) ? maxInc(i) : max(i - 1)
 `
 ```
-* Combining these observations we have the following two relations
+* Combining these observations we have the following two neatly written down relations.
 
 
 ```ts
@@ -80,6 +80,10 @@ So the sum of the maximum subarray for the given input is 6.
 ```
 
 * Lets solve the example array by hand with a simple table
+* At element -2, the max including it would be -2, so the max we can hope to achieve is -2, 
+* At element  1, the max including it would be 1, as there is no point in including the previous -2. So the max is 1, 
+* At element -3, the max including it would be -2, as we should include the previous maxInc of 1. However since this is less than the previous max, so we wouldn't includ `maxInc` for the net max. 
+* Lets just fill out the table a bit faster. You basically just follow the two formulas for `maxInc` and `max` at each step. 
 
 ***Select the table***
 * Given a table like this which we can store in O(n) since its just two additional arrays we
