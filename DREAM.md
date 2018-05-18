@@ -8,6 +8,7 @@ As I record more videos they get put in a publish queue. Once released I will mo
   * Breadth First Search
   * Binary Search Tree
 * A hot cache of the 100 last requested items
+* Format bytes to `KB, MB, GB, TB` : https://stackoverflow.com/a/18650828/390330
 
 
 # Sort using a single operator `>` (instead of `> & = & <`)
