@@ -113,7 +113,7 @@ Each lesson code is in a subfolder under [src](https://github.com/basarat/algori
 
 # Dynamic Programming
 ## Maximum subarray
-* [Video Lesson](TODO)
+* [Video Lesson](https://egghead.io/lessons/typescript-maximum-contiguous-subarray-algorithm-implementation-using-typescript-javascript)
 * [Code](https://github.com/basarat/algorithms/tree/master/src/maximumSubarray)
 
 ## Maximum weight independent set in a path graph
