@@ -15,7 +15,20 @@ The problem statement:
 * Given an array of `n` numbers return a contiguous subarray that has the largest sum.
 * Consider an example array
 * The subarray with the largest sum for this example would be
-* There are TWO key observations
+
+
+```ts
+for (every starting) {
+  for (every ending > starting) {
+    checkIfThisIsTheMaxSum(starting, ending);
+  }
+}
+```
+
+The non ideal solution would be to simply check all possible subarrays. 
+That is of the order O(n^2) as we would loop through every starting point and for every starting point we would check every possible tailing ending point.
+
+* To get to a much better linear solution there are TWO key observations
 
 ```ts
 `
@@ -25,7 +38,7 @@ Observation 1:
  * BETTER maxInc(i) = maxInc(i - 1) < 0 ? val(i) : maxInc(i - 1) + val(i)
 `
 ```
-* The maximum subarray sum for 0 - to - i when an element at i is included can be represented as
+* The maximum subarray sum for 0 - to - i when an element at i MUST be included can be represented as
 * Of course if the previous max is less than zero then there is no point in including that so a better formula would be one that checks for that.
 
 
@@ -78,28 +91,28 @@ ELEMENT | maxInc |  max
 So the sum of the maximum subarray for the given input is 6.
 `
 ```
-
-* Lets solve the example array by hand with a simple table
+A key trait of dynamic programming algorithms is that they can be solved with a simple table. 
+* Lets solve the example array by hand to demonstrate this tabular approach.
 * At element -2, the max including it would be -2, so the max we can hope to achieve is -2, 
 * At element  1, the max including it would be 1, as there is no point in including the previous -2. So the max is 1, 
 * At element -3, the max including it would be -2, as we should include the previous maxInc of 1. However since this is less than the previous max, so we wouldn't includ `maxInc` for the net max. 
 * Lets just fill out the table a bit faster. You basically just follow the two formulas for `maxInc` and `max` at each step. 
 
 ***Select the table***
-* Given a table like this which we can store in O(n) since its just two additional arrays we
-could easily derive the subset array that is giving this answer.
+* We can store a table like this in O(n) since its just two additional arrays
+* We could potentially easily derive the subset array from such a table that is giving this answer by back navigating from the `max` column that gave us the answer.
 
 ```ts
 `
-maxStartIndex = i when val(i) => max
-maxEndIndex = i when maxInc => max
+maxStartIndex = i when val(i) =was copied to> max
+maxEndIndex = i when maxInc =was copied to> max
 `
 ```
-* However we can do better by simply observing that
-* the subset array would *start* at index i if the val(i) gets copied to the "max" section
-* the subset array would expand to include index i if maxInc gets copied to the "max" section
+However we can do better by keeping track of a few variables, simply observing that
+* the subset array would *start* at index i if the val(i) gets copied to the "max" section, which indicates that this value is greater than any max we had seen so far and essentially starts a new max sub array section.
+* the subset array would expand to include index i if maxInc gets copied to the "max" section, which indicates that `i` is in the tail of the `max` solution.
 
-We now have a firm understanding of the problem and we can code it up as a simple iteration from 0 to n.
+We now have a firm understanding of the problem and we can code it up as a simple iteration from 0 to n. This is another trait of dynamic programming algorithms, you normally use iteration instead of recursion. 
 
 ```ts
 /**
@@ -139,4 +152,4 @@ If we run a simple example, you can see that it works as expected.
 console.log(maximumSubarray([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
 ```
 
-Since this algorithm only does one pass through the input array, it has time complexity O(n).
+Since this algorithm only does one pass through the input array, it has time complexity O(n) with a constant space complexity as we are only maintaining a few variables the track the invariants.
