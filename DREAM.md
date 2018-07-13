@@ -44,9 +44,9 @@ inverse(program, input)
     return
 ```
 
-Now run `inverse(inverse)`
+Now run `inverse(inverse, inverse)`
+- if it doesn't terminate, implies *if* block executed implies `willItTerminate(inverse, inverse)` said `true`, But we are running `inverse(inverse)` and its not terminating. `willItTerminate` has therefore given the *wrong* answer.
 - if it terminates implies *else* means `willItTerminate(inverse, inverse)` said `false`. So essentially `willItTerminate` would have to give the wrong answer.
-- if it doesn't terminate, implies *if* block executed implies `willItTerminate(inverse, inverse)` said `true`, But we are running `inverse(inverse)` and its not terminating. Again `willItTerminate` would have failed us.
 
 Therefore the only logical conclusion is that we have made a wrong assumption, the only assumption we have made is that `willItTerminate` is a function that exists. And therefore this assumption is wrong and a function like `willItTerminate` cannot exist.
 
