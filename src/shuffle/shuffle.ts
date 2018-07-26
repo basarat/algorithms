@@ -5,9 +5,10 @@ import { randomInt } from '../random/random';
  */
 export function shuffle<T>(array: T[]): T[] {
   array = array.slice();
-
-  for (let i = 0; i < array.length; i++) {
-    const randomChoiceIndex = randomInt(i, array.length);
+  length = array.length - 1
+  
+  for (let i = 0; i < length; i++) {
+    const randomChoiceIndex = randomInt(i, length);
     [array[i], array[randomChoiceIndex]] = [array[randomChoiceIndex], array[i]];
   }
 
