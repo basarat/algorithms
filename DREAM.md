@@ -9,6 +9,7 @@ As I record more videos they get put in a publish queue. Once released I will mo
   * Binary Search Tree
 * A hot cache of the 100 last requested items
 * Format bytes to `KB, MB, GB, TB` : https://stackoverflow.com/a/18650828/390330
+* Two Sum : Find the pairs of numbers in an array that sum up to a particular value. Ans: Solve using a hashmap.
 
 
 # Sort using a single operator `>` (instead of `> & = & <`)
