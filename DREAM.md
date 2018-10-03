@@ -9,6 +9,12 @@ As I record more videos they get put in a publish queue. Once released I will mo
 * A hot cache of the 100 last requested items
 * Format bytes to `KB, MB, GB, TB` : https://stackoverflow.com/a/18650828/390330
 * Two Sum : Find the pairs of numbers in an array that sum up to a particular value. Ans: Solve using a hashmap.
+* K Smallest items: Naive is full sort O(nlogn). Better is to use heap. Keep a max heap of max-length K. 
+  * View items one by one.
+    * If heap-length < K add item 
+    * Else If item is larger than heap root then ignore it
+    * Else If item is smaller than heap root then pop the heap root and heap-insert this item
+* K closest points to origin: Objective is to know distance as `sqrt(x**2 + y**2)`. Once you have the distances, it reduces to k smallest items.
 
 
 # Sort using a single operator `>` (instead of `> & = & <`)
