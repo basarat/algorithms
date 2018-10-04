@@ -26,6 +26,23 @@ comparator(a,b) ? -1
 ? 0
 ```
 
+# Reverse a string 
+Native:
+```
+str.split('').reverse().join('')
+```
+Without using `reverse` you swap first with last, second with second last and so on:
+```
+arr = str.split();
+for i 0 to arr.length 
+  [arr[i],arr[arr.length-i]] = [arr[arr.length-i],arr[i]]
+str = arr.join('');
+```
+
+# Reverse Words in a String 
+Simplest way is to reverse the string followed by spliting into words by `split(' ')` and then reverse back each word in place. 
+
+
 # Halting
 
 > Can you create a program to determine if a given program will terminate on a given input.
