@@ -42,6 +42,23 @@ str = arr.join('');
 # Reverse Words in a String 
 Simplest way is to reverse the string followed by spliting into words by `split(' ')` and then reverse back each word in place. 
 
+# Cycle in a linked list 
+> Note: intenionally poorly worded question. A linked list doesn't have cycles. What they mean is a graph where each node has at most one outgoing edge. 
+
+Solution is "tortoise and hare algorithm".
+
+```
+slow
+fast 
+while(true)
+   slow = slow.next;
+   fast = fast.next.next; 
+   if (slow == fast)
+      return "cycle"
+   if (end of graph) 
+      return "no cycle"
+```
+
 
 # Halting
 
