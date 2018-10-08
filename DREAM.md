@@ -117,7 +117,7 @@ Statement: You have n items, each (`i` item) with `[weight(i),value(i)]` and a k
 Try all items one by one. Complexity: You have `n` items each either in or out, so there are 2^n solutions you have to try. 
 
 ### Dynamic programming solution
-> S(i,x) is optimal solution for first `i` items with max allwed weight `x`
+> S(i,x) is optimal solution for first `i` items with max allwed weight `x`. 
 
 Notice that, in an optimal solution of the first `i` items (set `S(i, x)`): 
 * item `i` will not be in the knapsack:
@@ -125,8 +125,15 @@ Notice that, in an optimal solution of the first `i` items (set `S(i, x)`):
 * item `i` will be in the knapsack:
   * Then `S(i, x) - i` (set of first i item without considering i) is the optimal solution for `S(i-1, x-w(i))`
 
-So we have the recurrance: 
+So we have the recurrance (`V(i,x)` is the optimal value for first `i` items given a weight limit `x`): 
 
+```
+V(i,x) = max {
+   V(i - 1, x), 
+   V(i - 1, x - w(i)) + v(i) (if weight allows)
+ }
+```
 
+Since we have `i` and `x` we need to do a double for loop, for each `i` for each `x`. The value at `i,x` depends on previous values (`i - 1` and `i-1, x - w(i)`. 
 
 ## Others.
