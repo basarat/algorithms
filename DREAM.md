@@ -113,13 +113,19 @@ Pretty famous.
 
 Statement: You have n items, each (`i` item) with `[weight(i),value(i)]` and a knapsack that can only hold maxWeight `W`. Which items should you put in the knapsack to get the maximum value possible. Assumptions: weight and value are both non-negative integers.
 
-Naive Solution: Try all items one by one. Complexity: You have `n` items each either in or out, so there are 2^n solutions you have to try. 
+### Naive Solution
+Try all items one by one. Complexity: You have `n` items each either in or out, so there are 2^n solutions you have to try. 
 
-Dynamic programming solution: Notice that, in an optimal solution of the first `k` items (set `S(k)`): 
-* item `k` will not be in the knapsack:
-  * if `S(k)` is also the optimal solution for `S(k-1)` 
-* item `k` will be in the knapsack:
-  * Then `S(k) - k` (set of first k item without considering k) is the optimal solution for `S(k-1) with capacity W - w(k)`
+### Dynamic programming solution
+> S(i,x) is optimal solution for first `i` items with max allwed weight `x`
+
+Notice that, in an optimal solution of the first `i` items (set `S(i, x)`): 
+* item `i` will not be in the knapsack:
+  * if `S(i, x)` is also the optimal solution for `S(i-1, x)` 
+* item `i` will be in the knapsack:
+  * Then `S(i, x) - i` (set of first i item without considering i) is the optimal solution for `S(i-1, x-w(i))`
+
+So we have the recurrance: 
 
 
 
