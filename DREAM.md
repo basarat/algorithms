@@ -156,7 +156,7 @@ Runtime `O(n*W)`
 
 # Pre-Reading 
 ## Permutation
-> Collection of items when order matters
+> Collection of items when order matters. Commonly comes up in "how many sub-arrays" (as order matters in arrays).
 
 You can organize `n` items in `n!`. Easy to prove e.g. 5 chairs / 5 people: 
 
@@ -182,3 +182,6 @@ P(n,k) = n! / (n-k)!
 ```
 
 ## Combintations 
+> Collection of items when order doesn't matter. Commonly comes up in "how many sub-sets" (as order doesn't matter in sets).  
+
+
