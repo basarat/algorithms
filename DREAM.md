@@ -16,6 +16,13 @@ As I record more videos they get put in a publish queue. Once released I will mo
     * Else If item is smaller than heap root then pop the heap root and heap-insert this item (log.k as heap only has k items)
   * Assuming we have to pop item on each `n-k` items we end up with O(k.log(k) + (n-k)log(k))
 * K closest points to origin: Objective is to know distance as `sqrt(x**2 + y**2)`. Once you have the distances, it reduces to k smallest items.
+* Pre-Reading stuff from : https://basarat.gitbooks.io/algorithms/content/: 
+  * Powers of 2 
+  * infinity 
+  * Stack 
+  * Queue 
+  * Shuffling 
+  
 
 
 # Sort using a single operator `>` (instead of `> & = & <`)
