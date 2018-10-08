@@ -136,4 +136,6 @@ V(i,x) = max {
 
 Since we have `i` and `x` we need to do a double for loop, for each `i` for each `x`. The value at `i,x` depends on previous values (`i - 1` and `i-1, x - w(i)`. 
 
+Runtime `O(n*W)` 
+
 ## Others.
