@@ -169,7 +169,7 @@ seat(5) = for each of the 1 remaining, 1 possibilities
 ```
 So total possibilities = 5 * 4 * 3 * 2 * 1
 
-If we are limited to `k` items we simply have to remove the remaining `k!` possibilities, e.g. 5 people 2 chairs: 
+If we are limited to `r` items we simply have to remove the remaining `r!` possibilities, e.g. 5 people 2 chairs: 
 
 ```
 5! 
@@ -178,10 +178,8 @@ If we are limited to `k` items we simply have to remove the remaining `k!` possi
 ```
 So 
 ```
-P(n,k) = n! / (n-k)!
+P(n,r) = n! / (n-r)!
 ```
 
 ## Combintations 
 > Collection of items when order doesn't matter. Commonly comes up in "how many sub-sets" (as order doesn't matter in sets).  
-
-
