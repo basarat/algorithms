@@ -183,3 +183,10 @@ P(n,r) = n! / (n-r)!
 
 ## Combintations 
 > Collection of items when order doesn't matter. Commonly comes up in "how many sub-sets" (as order doesn't matter in sets).  
+
+From the permutations `P(n,r)` simply remove all the permuations of `r` items. Simples: 
+```
+C(n,r) = n! 
+            /  
+               (n-r)! * r!
+```
