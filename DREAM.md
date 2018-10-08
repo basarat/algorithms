@@ -169,3 +169,16 @@ seat(5) = for each of the 1 remaining, 1 possibilities
 ```
 So total possibilities = 5 * 4 * 3 * 2 * 1
 
+If we are limited to `k` items we simply have to remove the remaining `k!` possibilities, e.g. 5 people 2 chairs: 
+
+```
+5! 
+  /
+    3 * 2 * 1
+```
+So 
+```
+P(n,k) = n! / (n-k)!
+```
+
+## Combintations 
