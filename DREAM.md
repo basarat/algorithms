@@ -138,4 +138,6 @@ Since we have `i` and `x` we need to do a double for loop, for each `i` for each
 
 Runtime `O(n*W)` 
 
+> Note: Algorithm is still exponential as you can construct wieght `w(1) = 1, w(2) = 2, w(3) = 4 ...` such that for `n` items you have to do `n*2^n` calculations. But as exponential (in this case np complete) problems go, this is considered the easiest.
+
 ## Others.
