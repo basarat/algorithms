@@ -21,7 +21,11 @@ As I record more videos they get put in a publish queue. Once released I will mo
   * infinity 
   * Stack 
   * Queue 
-  * Shuffling 
+  * Shuffling
+ * Pre-Reading: 
+  * Number of Permutations 
+  * Number of Combinations 
+  * Sum of converging geometric series. 
   
 
 
