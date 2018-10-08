@@ -153,3 +153,19 @@ Runtime `O(n*W)`
 > Note: Algorithm is still exponential as you can construct wieght `w(1) = 1, w(2) = 2, w(3) = 4 ...` such that for `n` items you have to do `n*2^n` calculations. But as exponential (in this case np complete) problems go, this is considered the easiest.
 
 ## Others.
+
+# Pre-Reading 
+## Permutation
+> Collection of items when order matters
+
+You can organize `n` items in `n!`. Easy to prove e.g. 5 chairs / 5 people: 
+
+```
+seat(1) =                              5 possiblities 
+seat(2) = for each of the 4 remaining, 4 possibilities 
+seat(3) = for each of the 3 remaining, 3 possibilities 
+seat(4) = for each of the 2 remaining, 2 possibilities 
+seat(5) = for each of the 1 remaining, 1 possibilities 
+```
+So total possibilities = 5 * 4 * 3 * 2 * 1
+
