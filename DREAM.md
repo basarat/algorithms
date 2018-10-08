@@ -21,6 +21,7 @@ As I record more videos they get put in a publish queue. Once released I will mo
 # Sort using a single operator `>` (instead of `> & = & <`)
 Solution. A `comparator` gives us the follwing `compare` function:
 ```
+function comparator(a,b) { if (a > b) return true }
 comparator(a,b) ? -1
 : comparator(b,a) ? 1
 ? 0
