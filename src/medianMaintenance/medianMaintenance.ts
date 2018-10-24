@@ -58,7 +58,7 @@ export class MedianMaintenanceHeap {
     const biggerHeap = this.lowMaxHeap.size() > this.highMinHeap.size()
       ? this.lowMaxHeap
       : this.highMinHeap;
-    const smallerHeap = biggerHeap === this.lowMaxHeap ? this.lowMaxHeap : this.lowMaxHeap;
+    const smallerHeap = biggerHeap === this.lowMaxHeap ? this.highMinHeap : this.lowMaxHeap;
 
     if ((biggerHeap.size() - smallerHeap.size()) > 1) {
       smallerHeap.add(biggerHeap.extractRoot());
