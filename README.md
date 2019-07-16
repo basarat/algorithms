@@ -1,5 +1,7 @@
 # Algorithms and DataStructures using TypeScript / JavaScript
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/basarat/algorithms.svg)](https://greenkeeper.io/)
+
 [![Build Status][travis-image]][travis-url]
 
 * [View all my lessons here 🌹](https://egghead.io/instructors/basarat-ali-syed/)
